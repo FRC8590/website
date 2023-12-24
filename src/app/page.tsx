@@ -4,6 +4,7 @@ import React from "react";
 import { saveAs } from "file-saver";
 import Confetti from "react-confetti";
 import Carousel3D from "react-spring-3d-carousel";
+import LoadingBar from "react-top-loading-bar";
 
 function Divider() {
     return (
@@ -84,7 +85,7 @@ function Carousel({ images }: { images: Array<ImageUrlAlt> }) {
     return (
         <>
             <div className="z-20 absolute min-w-screen">
-                <div className="flex justify-between w-96">
+                <div className="flex justify-between w-96 lg:w-[39rem]">
                     <button className="" onClick={() => setIndex(index - 1)}>
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -150,6 +151,43 @@ function TimeCard({
         </div>
     );
 }
+
+function StepButton({ incStep }: { incStep: () => void }) {
+    let ref: React.MutableRefObject<HTMLButtonElement | null> =
+        React.useRef(null);
+    return (
+        <button
+            ref={ref}
+            className="dark:border-zinc-900 dark:bg-zinc-950 dark:hover:bg-zinc-800 border-zinc-200 dark:disabled:border-emerald-400 dark:disabled:text-emerald-300 dark:disabled:bg-emerald-900 disabled:border-emerald-400 disabled:text-emerald-500 border rounded-full p-2 font-bold hover:bg-zinc-100 transition-all disabled:bg-emerald-100 flex items-center justify-center space-x-1 group"
+            onClick={() => {
+                ref.current!.disabled = true;
+                incStep();
+            }}
+        >
+            <p className="group-disabled:hidden font-normal text-zinc-500">
+                Next Step
+            </p>
+            <p className="hidden group-disabled:inline-block font-normal">
+                Completed
+            </p>
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={1.5}
+                stroke="currentColor"
+                className="w-6 h-6 hidden group-disabled:block text-emerald-500 dark:group-disabled:text-emerald-300"
+            >
+                <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="m4.5 12.75 6 6 9-13.5"
+                />
+            </svg>
+        </button>
+    );
+}
+
 export default function Home() {
     const [voices, setVoices] = React.useState([] as SpeechSynthesisVoice[]);
     const [voiceSupported, setVoiceSupported] = React.useState(true);
@@ -225,9 +263,118 @@ export default function Home() {
     }
 
     const [theme, setTheme] = React.useState(localStorage.theme || "light");
+    const dialogRef: React.MutableRefObject<HTMLDialogElement | null> =
+        React.useRef(null);
+
+    const barRef: React.MutableRefObject<any | null> = React.useRef(null);
+    let [stepIndex, setStepIndex] = React.useState(1);
+    const incStep = () => setStepIndex(stepIndex + 1);
+    const [donationDone, setDonationDone] = React.useState(false);
 
     return (
         <>
+            <dialog
+                ref={dialogRef}
+                aria-modal="true"
+                className="p-4 border-zinc-100 bg-white rounded-lg w-2/3 dark:bg-zinc-900 dark:border-zinc-800 border dark:text-white"
+            >
+                <LoadingBar color="#f11946" ref={barRef} />
+
+                <div className="flex justify-between w-full items-center">
+                    <header className="text-4xl">
+                        <GradientDark>Donation</GradientDark>
+                        <p className="text-lg">
+                            All donations are fully tax-deductible.
+                        </p>
+                    </header>
+                    <button
+                        className="hover:opacity-50 transition-all"
+                        onClick={() => {
+                            dialogRef.current!.close();
+                        }}
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            strokeWidth={1.5}
+                            stroke="currentColor"
+                            className="w-12 h-12"
+                        >
+                            <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                d="M6 18 18 6M6 6l12 12"
+                            />
+                        </svg>
+                    </button>
+                </div>
+                <Divider />
+                {!donationDone && (
+                    <div className="grid grid-cols-1 auto-rows-fr text-xl gap-3">
+                        <div className="flex space-x-3 items-center justify-center">
+                            <p>
+                                Get a <Gradient>check</Gradient> ready.
+                            </p>
+                            <StepButton incStep={incStep} />
+                        </div>
+                        {stepIndex > 1 && (
+                            <div className="flex space-x-3 items-center justify-center">
+                                <p>
+                                    Write{" "}
+                                    <Gradient>Woodson High School FRC</Gradient>{" "}
+                                    in the memo.
+                                </p>
+                                <StepButton incStep={incStep} />
+                            </div>
+                        )}
+                        {stepIndex > 2 && (
+                            <div className="flex space-x-3 items-center justify-center">
+                                <p>
+                                    Mail the check to{" "}
+                                    <Gradient>
+                                        9525 Main St, Fairfax, VA 22031
+                                    </Gradient>
+                                    .
+                                </p>
+                                <button
+                                    className="rounded-full p-2 bg-rose-100 text-rose-500 dark:bg-rose-900 dark:text-rose-300 font-bold hover:bg-rose-200 hover:text-rose-600 transition-all dark:hover:text-rose-200 dark:hover:bg-rose-700"
+                                    onClick={() => {
+                                        setDonationDone(true);
+                                    }}
+                                >
+                                    Finish
+                                </button>
+                            </div>
+                        )}
+                    </div>
+                )}
+                {donationDone && (
+                    <div className="flex items-center justify-center flex-col space-y-3 text-xl overflow-y-hidden overflow-x-hidden">
+                        <Confetti recycle={false} className="w-full h-full" />
+                        <Image
+                            src="/logo.png"
+                            height={300}
+                            width={300}
+                            alt="Cavbotics Logo"
+                            className="invert dark:invert-0"
+                        />
+                        <p>Thank you for donating!</p>
+                    </div>
+                )}
+                <Divider />
+                <p className="text-lg">
+                    For recurring donations, material donations, or any other
+                    inquiries, please reach out to us at{" "}
+                    <a
+                        href="mailto:frc@wtwcsr.org"
+                        className="underline hover:text-rose-400 transition-colors text-rose-500 font-bold"
+                    >
+                        frc@wtwcsr.org
+                    </a>
+                    .
+                </p>
+            </dialog>
             <nav className="dark:bg-zinc-950">
                 <div className="flex justify-between p-4 items-center flex-col md:flex-row space-y-2 md:space-y-0">
                     <Image
@@ -964,7 +1111,12 @@ export default function Home() {
                                     </ul>
                                 </div>
                                 <div className="flex items-center justify-center pt-4">
-                                    <button className="rounded-lg border-indigo-500 hover:text-white text-indigo-500 font-bold p-3 text-lg border-2 flex items-center justify-center space-x-1 hover:bg-indigo-500 transition-all hover:animate-pulse">
+                                    <button
+                                        onClick={() =>
+                                            dialogRef.current!.showModal()
+                                        }
+                                        className="rounded-lg border-indigo-500 hover:text-white text-indigo-500 font-bold p-3 text-lg border-2 flex items-center justify-center space-x-1 hover:bg-indigo-500 transition-all hover:animate-pulse"
+                                    >
                                         <p>Donate $250+</p>
                                         <svg
                                             xmlns="http://www.w3.org/2000/svg"
@@ -1014,7 +1166,12 @@ export default function Home() {
                                     </ul>
                                 </div>
                                 <div className="flex items-center justify-center pt-4">
-                                    <button className="rounded-lg border-teal-500 hover:text-white text-teal-500 font-bold p-3 text-lg border-2 flex items-center justify-center space-x-1 hover:bg-teal-500 transition-all hover:animate-pulse">
+                                    <button
+                                        onClick={() =>
+                                            dialogRef.current!.showModal()
+                                        }
+                                        className="rounded-lg border-teal-500 hover:text-white text-teal-500 font-bold p-3 text-lg border-2 flex items-center justify-center space-x-1 hover:bg-teal-500 transition-all hover:animate-pulse"
+                                    >
                                         <p>Donate $500+</p>
                                         <svg
                                             xmlns="http://www.w3.org/2000/svg"
@@ -1064,7 +1221,12 @@ export default function Home() {
                                     </ul>
                                 </div>
                                 <div className="flex items-center justify-center pt-4">
-                                    <button className="rounded-lg border-fuchsia-500 hover:text-white text-fuchsia-500 font-bold p-3 text-lg border-2 flex items-center justify-center space-x-1 hover:bg-fuchsia-500 transition-all hover:animate-pulse">
+                                    <button
+                                        onClick={() =>
+                                            dialogRef.current!.showModal()
+                                        }
+                                        className="rounded-lg border-fuchsia-500 hover:text-white text-fuchsia-500 font-bold p-3 text-lg border-2 flex items-center justify-center space-x-1 hover:bg-fuchsia-500 transition-all hover:animate-pulse"
+                                    >
                                         <p>Donate $2,000+</p>
                                         <svg
                                             xmlns="http://www.w3.org/2000/svg"
@@ -1114,7 +1276,12 @@ export default function Home() {
                                     </ul>
                                 </div>
                                 <div className="flex items-center justify-center pt-4">
-                                    <button className="rounded-lg border-rose-500 hover:text-white text-rose-500 font-bold p-3 text-lg border-2 flex items-center justify-center space-x-1 hover:bg-rose-500 transition-all hover:animate-pulse">
+                                    <button
+                                        onClick={() =>
+                                            dialogRef.current!.showModal()
+                                        }
+                                        className="rounded-lg border-rose-500 hover:text-white text-rose-500 font-bold p-3 text-lg border-2 flex items-center justify-center space-x-1 hover:bg-rose-500 transition-all hover:animate-pulse"
+                                    >
                                         <p>Donate $5,000+</p>
                                         <svg
                                             xmlns="http://www.w3.org/2000/svg"
@@ -1172,75 +1339,114 @@ export default function Home() {
                                 width={150}
                                 alt="Woodson Robotics"
                             />
-                            <div className="flex flex-col items-center justify-center space-y-3">
-                                <p>9525 Main St, Fairfax, VA 22031</p>
-                                <div>
-                                    <div className="flex space-x-5">
-                                        <div className="flex space-x-1 items-center">
-                                            <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                fill="none"
-                                                viewBox="0 0 24 24"
-                                                strokeWidth={1.5}
-                                                stroke="currentColor"
-                                                className="w-6 h-6"
-                                            >
-                                                <path
-                                                    strokeLinecap="round"
-                                                    strokeLinejoin="round"
-                                                    d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9 5.25h.008v.008H12v-.008z"
-                                                />
-                                            </svg>
+                            <div className="flex items-center justify-center flex-col space-y-3 w-1/3">
+                                <p className="text-xl font-normal">
+                                    9525 Main St, Fairfax, VA 22031
+                                </p>
+                                <div className="flex justify-between items-center w-full">
+                                    <div className="flex space-x-3">
+                                        <div>
+                                            <div className="flex space-x-5">
+                                                <div className="flex space-x-1 items-center">
+                                                    <svg
+                                                        xmlns="http://www.w3.org/2000/svg"
+                                                        fill="none"
+                                                        viewBox="0 0 24 24"
+                                                        strokeWidth={1.5}
+                                                        stroke="currentColor"
+                                                        className="w-6 h-6"
+                                                    >
+                                                        <path
+                                                            strokeLinecap="round"
+                                                            strokeLinejoin="round"
+                                                            d="M12 6v12m-3-2.818l.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                                                        />
+                                                    </svg>
 
-                                            <p className="font-normal">
-                                                General Inquiries
-                                            </p>
+                                                    <p className="font-normal">
+                                                        Sponsorships
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div className="flex space-x-5">
+                                                <div className="flex space-x-1 items-center">
+                                                    <svg
+                                                        xmlns="http://www.w3.org/2000/svg"
+                                                        fill="none"
+                                                        viewBox="0 0 24 24"
+                                                        strokeWidth={1.5}
+                                                        stroke="currentColor"
+                                                        className="w-6 h-6"
+                                                    >
+                                                        <path
+                                                            strokeLinecap="round"
+                                                            strokeLinejoin="round"
+                                                            d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9 5.25h.008v.008H12v-.008z"
+                                                        />
+                                                    </svg>
+
+                                                    <p className="font-normal">
+                                                        General Inquiries
+                                                    </p>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div className="flex space-x-1 items-center">
-                                            <a
-                                                href="mailto:frc@wtwcsr.org"
-                                                className="underline hover:text-rose-400 transition-colors text-rose-500"
-                                            >
-                                                contact@wtwcsr.org
-                                            </a>
+                                        <div>
+                                            <div className="flex space-x-1 items-center">
+                                                <a
+                                                    href="mailto:frc@wtwcsr.org"
+                                                    className="underline hover:text-rose-400 transition-colors text-rose-500"
+                                                >
+                                                    frc@wtwcsr.org
+                                                </a>
+                                            </div>
+                                            <div className="flex space-x-1 items-center">
+                                                <a
+                                                    href="mailto:frc@wtwcsr.org"
+                                                    className="underline hover:text-rose-400 transition-colors text-rose-500"
+                                                >
+                                                    contact@wtwcsr.org
+                                                </a>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div>
-                                    <div className="flex space-x-5">
-                                        <div className="flex space-x-1 items-center">
-                                            <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                fill="none"
-                                                viewBox="0 0 24 24"
-                                                strokeWidth={1.5}
-                                                stroke="currentColor"
-                                                className="w-6 h-6"
-                                            >
-                                                <path
-                                                    strokeLinecap="round"
-                                                    strokeLinejoin="round"
-                                                    d="M12 6v12m-3-2.818l.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                                                />
-                                            </svg>
-
-                                            <p className="font-normal">
-                                                Sponsorships
-                                            </p>
-                                        </div>
-                                        <div className="flex space-x-1 items-center">
-                                            <a
-                                                href="mailto:frc@wtwcsr.org"
-                                                className="underline hover:text-rose-400 transition-colors text-rose-500"
-                                            >
-                                                frc@wtwcsr.org
-                                            </a>
-                                        </div>
+                                    <div className="flex space-x-3">
+                                        <a
+                                            href="https://www.instagram.com/wtwrobotics"
+                                            target="_blank"
+                                            className="hover:opacity-50 transition-all text-zinc-400"
+                                        >
+                                            <Image
+                                                src="/instagram.svg"
+                                                alt="@WTWRobotics (Instagram)"
+                                                width={40}
+                                                height={40}
+                                                className="invert"
+                                            />
+                                        </a>
+                                        <button
+                                            className="hover:opacity-50 transition-all text-zinc-400"
+                                            onClick={() => {
+                                                navigator.clipboard.writeText(
+                                                    "S2H7-7W47-7W8VZ"
+                                                );
+                                                alert("Copied to clipboard!");
+                                            }}
+                                        >
+                                            <Image
+                                                src="/schoology.png"
+                                                alt="Schoology Group"
+                                                width={40}
+                                                height={40}
+                                                className="invert"
+                                            />
+                                        </button>
                                     </div>
                                 </div>
                             </div>
+
                             <div>
-                                <div className="flex items-center justify-center space-x-1 text-zinc-600">
+                                <div className="flex items-center justify-center space-x-1 text-zinc-600 font-normal">
                                     <p>Made with</p>
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"
