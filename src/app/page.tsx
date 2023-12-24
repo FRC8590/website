@@ -799,8 +799,8 @@ export default function Home() {
                                 <GradientDark>What is FRC?</GradientDark>
                             </h2>
                             <p className="text-center text-zinc-500 dark:text-zinc-300">
-                                "Combining the excitement of sport with the
-                                rigors of science and technology"
+                                &quot;Combining the excitement of sport with the
+                                rigors of science and technology&quot;
                             </p>
                             <Divider />
                         </div>
@@ -825,7 +825,7 @@ export default function Home() {
                                         </svg>
 
                                         <p className="text-sm font-bold text-rose-400 dark:text-rose-600">
-                                            Your browser doesn't support
+                                            Your browser doesn&apos;t support
                                             text-to-speech!
                                         </p>
                                     </div>
@@ -909,7 +909,7 @@ export default function Home() {
                                 <div className="flex space-x-1">
                                     <header className="text-xl">
                                         <GradientDark>
-                                            FIRST's Website
+                                            FIRST&apos;s Website
                                         </GradientDark>
                                     </header>
                                     <svg
