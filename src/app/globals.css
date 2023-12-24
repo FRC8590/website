@@ -1,27 +1,113 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap");
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+    font-family: "Inter", sans-serif;
+}
+
+.custom-shape-divider-bottom-1702071167 {
+    position: relative;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+}
+
+.custom-shape-divider-bottom-1702071167 svg {
+    position: relative;
+    display: block;
+    width: calc(134% + 1.3px);
+    height: 195px;
+}
+
+.custom-shape-divider-bottom-1702071167 .shape-fill {
+    @apply fill-zinc-50 dark:fill-zinc-900;
+}
+
+.custom-shape-divider-top-1702071760 {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.custom-shape-divider-top-1702071760 svg {
+    position: relative;
+    display: block;
+    width: calc(117% + 1.3px);
+    height: 229px;
+}
+
+.custom-shape-divider-top-1702071760 .shape-fill {
+    @apply fill-zinc-50 dark:fill-zinc-900;
+}
+
+.custom-shape-divider-bottom-1702072292 {
+    position: relative;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+}
+
+.custom-shape-divider-bottom-1702072292 svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 117px;
+}
+
+.custom-shape-divider-bottom-1702072292 .shape-fill {
+    @apply fill-zinc-900;
+}
+
+.custom-shape-divider-bottom-1702164895 {
+    position: relative;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.custom-shape-divider-bottom-1702164895 svg {
+    position: relative;
+    display: block;
+    width: calc(104% + 1.3px);
+    height: 234px;
+}
+
+.custom-shape-divider-bottom-1702164895 .shape-fill {
+    @apply fill-zinc-50 dark:fill-zinc-900;
+}
+
+.custom-shape-divider-top-1702164972 {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.custom-shape-divider-top-1702164972 svg {
+    position: relative;
+    display: block;
+    width: calc(104% + 1.3px);
+    height: 234px;
+}
+
+.custom-shape-divider-top-1702164972 .shape-fill {
+    @apply fill-zinc-50 dark:fill-zinc-900;
 }
