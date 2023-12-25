@@ -1,208 +1,31 @@
 "use client";
 import Image from "next/image";
-import React from "react";
+import { useState, useRef, useEffect, MutableRefObject } from "react";
 import { saveAs } from "file-saver";
 import Confetti from "react-confetti";
-import Carousel3D from "react-spring-3d-carousel";
-import LoadingBar from "react-top-loading-bar";
-
-function Divider() {
-    return (
-        <div className="py-4">
-            <hr className="border-t border-zinc-100 dark:border-zinc-800" />
-        </div>
-    );
-}
-
-interface GradientProps {
-    children: React.ReactNode;
-    className?: string;
-}
-
-function Gradient({ children, className }: GradientProps) {
-    return (
-        <span
-            className={`bg-gradient-to-r from-rose-400 to-rose-600 inline-block text-transparent bg-clip-text ${className} font-bold dark:from-rose-600 dark:to-rose-800`}
-        >
-            {children}
-        </span>
-    );
-}
-
-function GradientDark({ children, className }: GradientProps) {
-    return (
-        <span
-            className={`bg-gradient-to-t from-zinc-500 to-black inline-block text-transparent bg-clip-text ${className} font-bold dark:from-zinc-400 dark:to-zinc-50`}
-        >
-            {children}
-        </span>
-    );
-}
-
-function Perk({ perk, color }: { perk: string; color: string }) {
-    return (
-        <>
-            <li className="flex items-center space-x-1">
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth={1.5}
-                    stroke="currentColor"
-                    className={`w-6 h-6 ${color}`}
-                >
-                    <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M4.5 12.75l6 6 9-13.5"
-                    />
-                </svg>
-                <p className="text-slate-700 dark:text-slate-100">{perk}</p>
-            </li>
-        </>
-    );
-}
-type ImageUrlAlt = {
-    url: string;
-    alt: string;
-};
-
-function Carousel({ images }: { images: Array<ImageUrlAlt> }) {
-    const slides = images.map((i, idx) => ({
-        key: idx,
-        content: (
-            <Image
-                alt={i.alt}
-                src={i.url}
-                width={500}
-                height={500}
-                className="rounded-lg select-none"
-            />
-        ),
-    }));
-    const [index, setIndex] = React.useState(0);
-
-    return (
-        <>
-            <div className="z-20 absolute min-w-screen">
-                <div className="flex justify-between w-96 lg:w-[39rem]">
-                    <button className="" onClick={() => setIndex(index - 1)}>
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 24 24"
-                            fill="currentColor"
-                            className="w-12 h-12 opacity-75 hover:opacity-90 transition-opacity dark:text-white"
-                        >
-                            <path
-                                fillRule="evenodd"
-                                d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25Zm-4.28 9.22a.75.75 0 0 0 0 1.06l3 3a.75.75 0 1 0 1.06-1.06l-1.72-1.72h5.69a.75.75 0 0 0 0-1.5h-5.69l1.72-1.72a.75.75 0 0 0-1.06-1.06l-3 3Z"
-                                clipRule="evenodd"
-                            />
-                        </svg>
-                    </button>
-                    <button className="" onClick={() => setIndex(index + 1)}>
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 24 24"
-                            fill="currentColor"
-                            className="w-12 h-12 opacity-75 hover:opacity-90 transition-opacity dark:text-white"
-                        >
-                            <path
-                                fillRule="evenodd"
-                                d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25Zm4.28 10.28a.75.75 0 0 0 0-1.06l-3-3a.75.75 0 1 0-1.06 1.06l1.72 1.72H8.25a.75.75 0 0 0 0 1.5h5.69l-1.72 1.72a.75.75 0 1 0 1.06 1.06l3-3Z"
-                                clipRule="evenodd"
-                            />
-                        </svg>
-                    </button>
-                </div>
-            </div>
-            <div className="w-full h-screen">
-                <Carousel3D
-                    goToSlide={index}
-                    slides={slides}
-                    showNavigation={false}
-                />
-            </div>
-        </>
-    );
-}
-
-function TimeCard({
-    value,
-    label,
-    timerDone,
-}: {
-    value: number;
-    label: string;
-    timerDone: boolean;
-}) {
-    return (
-        <div
-            className={`flex flex-col items-center justify-center border dark:border-zinc-800 border-zinc-100 rounded-lg p-2 drop-shadow-md hover:cursor-default select-none ${
-                timerDone ? "animate-pulse" : ""
-            }`}
-        >
-            <p className={`text-5xl ${timerDone ? "animate-bounce" : ""}`}>
-                <GradientDark>{value}</GradientDark>
-            </p>{" "}
-            <p className="text-zinc-500 font-bold dark:text-zinc-400">
-                {label}
-            </p>
-        </div>
-    );
-}
-
-function StepButton({ incStep }: { incStep: () => void }) {
-    let ref: React.MutableRefObject<HTMLButtonElement | null> =
-        React.useRef(null);
-    return (
-        <button
-            ref={ref}
-            className="dark:border-zinc-900 dark:bg-zinc-950 dark:hover:bg-zinc-800 border-zinc-200 dark:disabled:border-emerald-400 dark:disabled:text-emerald-300 dark:disabled:bg-emerald-900 disabled:border-emerald-400 disabled:text-emerald-500 border rounded-full p-2 font-bold hover:bg-zinc-100 transition-all disabled:bg-emerald-100 flex items-center justify-center space-x-1 group"
-            onClick={() => {
-                ref.current!.disabled = true;
-                incStep();
-            }}
-        >
-            <p className="group-disabled:hidden font-normal text-zinc-500">
-                Next Step
-            </p>
-            <p className="hidden group-disabled:inline-block font-normal">
-                Completed
-            </p>
-            <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={1.5}
-                stroke="currentColor"
-                className="w-6 h-6 hidden group-disabled:block text-emerald-500 dark:group-disabled:text-emerald-300"
-            >
-                <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="m4.5 12.75 6 6 9-13.5"
-                />
-            </svg>
-        </button>
-    );
-}
+import Divider from "./Divider";
+import Gradient from "./Gradient";
+import GradientDark from "./GradientDark";
+import Perk from "./Perk";
+import TimeCard from "./TimeCard";
+import StepButton from "./StepButton";
+import Carousel from "./Carousel";
 
 export default function Home() {
-    const [voices, setVoices] = React.useState([] as SpeechSynthesisVoice[]);
-    const [voiceSupported, setVoiceSupported] = React.useState(true);
-    const [days, setDays] = React.useState(0);
-    const [hours, setHours] = React.useState(0);
-    const [minutes, setMinutes] = React.useState(0);
-    const [seconds, setSeconds] = React.useState(0);
+    const [voices, setVoices] = useState([] as SpeechSynthesisVoice[]);
+    const [voiceSupported, setVoiceSupported] = useState(true);
+    const [days, setDays] = useState(0);
+    const [hours, setHours] = useState(0);
+    const [minutes, setMinutes] = useState(0);
+    const [seconds, setSeconds] = useState(0);
     const [shouldShowTimerConfetti, setShouldShowTimerConfetti] =
-        React.useState(false);
-    const [lockConfetti, setLockConfetti] = React.useState(false);
+        useState(false);
+    const [lockConfetti, setLockConfetti] = useState(false);
 
-    const [showTimerConfetti, setShowTimerConfetti] = React.useState(false);
-    const [isTimerDone, setIsTimerDone] = React.useState(false);
+    const [showTimerConfetti, setShowTimerConfetti] = useState(false);
+    const [isTimerDone, setIsTimerDone] = useState(false);
 
-    const kickoffDate = new Date("2024-01-06T12:00:00");
+    let kickoffDate = new Date("2024-01-06T12:00:00");
     let interval: NodeJS.Timeout | null = null;
 
     const updateTime = () => {
@@ -222,27 +45,35 @@ export default function Home() {
         setMinutes(Math.floor(seconds / 60) % 60);
         setSeconds(Math.floor(seconds % 60));
     };
-
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting && shouldShowTimerConfetti)
-                setShowTimerConfetti(true);
+    const [theme, setTheme] = useState("light");
+    useEffect(() => {
+        interval = setInterval(() => {
+            updateTime();
+        }, 1000);
+        updateTime();
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && shouldShowTimerConfetti)
+                    setShowTimerConfetti(true);
+            });
         });
-    });
-
-    interval = setInterval(() => {
-        updateTime();
-    }, 1000);
-
-    React.useEffect(() => {
-        updateTime();
         observer.observe(document.getElementById("countdown")!);
+
+        window.speechSynthesis.addEventListener("voiceschanged", () => {
+            setVoices(window.speechSynthesis.getVoices());
+            if (voices.length != 0) setVoiceSupported(true);
+        });
+
+        if (localStorage.theme === "dark") {
+            document.body.classList.add("dark");
+        } else {
+            document.body.classList.remove("dark");
+        }
     });
 
-    window.speechSynthesis.addEventListener("voiceschanged", () => {
-        setVoices(window.speechSynthesis.getVoices());
-        if (voices.length != 0) setVoiceSupported(true);
-    });
+    useEffect(() => {
+        if (localStorage.theme) setTheme(localStorage.theme);
+    }, [theme]);
 
     const playAudio = () => {
         if (voices.length == 0) {
@@ -256,20 +87,11 @@ export default function Home() {
     const saveFile = () => {
         saveAs("/sponsors.pdf", "sponsorship_information.pdf");
     };
-    if (localStorage.theme === "dark") {
-        document.body.classList.add("dark");
-    } else {
-        document.body.classList.remove("dark");
-    }
 
-    const [theme, setTheme] = React.useState(localStorage.theme || "light");
-    const dialogRef: React.MutableRefObject<HTMLDialogElement | null> =
-        React.useRef(null);
-
-    const barRef: React.MutableRefObject<any | null> = React.useRef(null);
-    let [stepIndex, setStepIndex] = React.useState(1);
+    const dialogRef: MutableRefObject<HTMLDialogElement | null> = useRef(null);
+    let [stepIndex, setStepIndex] = useState(1);
     const incStep = () => setStepIndex(stepIndex + 1);
-    const [donationDone, setDonationDone] = React.useState(false);
+    const [donationDone, setDonationDone] = useState(false);
 
     return (
         <>
@@ -278,8 +100,6 @@ export default function Home() {
                 aria-modal="true"
                 className="p-4 border-zinc-100 bg-white rounded-lg w-2/3 dark:bg-zinc-900 dark:border-zinc-800 border dark:text-white"
             >
-                <LoadingBar color="#f11946" ref={barRef} />
-
                 <div className="flex justify-between w-full items-center">
                     <header className="text-4xl">
                         <GradientDark>Donation</GradientDark>
