@@ -157,7 +157,7 @@ export default function Home() {
                                     </Gradient>
                                 </p>
                                 <button
-                                    className="rounded-full p-2 bg-rose-100 text-rose-500 dark:bg-rose-900 dark:text-rose-300 font-bold hover:bg-rose-200 hover:text-rose-600 transition-all dark:hover:text-rose-200 dark:hover:bg-rose-700"
+                                    className="rounded-full p-2 border border-rose-300 text-rose-500 hover:bg-rose-200 transition-all dark:border-rose-500 dark:text-rose-500 dark:hover:bg-rose-600 dark:hover:text-white"
                                     onClick={() => {
                                         setDonationDone(true);
                                     }}
@@ -264,7 +264,7 @@ export default function Home() {
 
                         <div className="flex space-x-3">
                             <a
-                                className="rounded-lg border-zinc-100 border-2 p-2 flex hover:border-rose-500 hover:bg-rose-500 group transition-all"
+                                className="rounded-lg border-zinc-100 border p-2 flex hover:border-rose-500 hover:bg-rose-500 group transition-all"
                                 href="#frc"
                             >
                                 <svg
@@ -283,7 +283,7 @@ export default function Home() {
                                 </svg>
                             </a>
                             <a
-                                className="rounded-lg border-zinc-100 border-2 p-2 flex hover:border-rose-500 hover:bg-rose-500 group transition-all"
+                                className="rounded-lg border-zinc-100 border p-2 flex hover:border-rose-500 hover:bg-rose-500 group transition-all"
                                 href="#team"
                             >
                                 <svg
@@ -302,7 +302,7 @@ export default function Home() {
                                 </svg>
                             </a>
                             <a
-                                className="rounded-lg border-zinc-100 border-2 p-2 flex hover:border-rose-500 hover:bg-rose-500 group transition-all"
+                                className="rounded-lg border-zinc-100 border p-2 flex hover:border-rose-500 hover:bg-rose-500 group transition-all"
                                 href="#support"
                             >
                                 <svg
@@ -321,7 +321,7 @@ export default function Home() {
                                 </svg>
                             </a>
                             <a
-                                className="rounded-lg border-zinc-100 border-2 p-2 flex hover:border-rose-500 hover:bg-rose-500 group transition-all"
+                                className="rounded-lg border-zinc-100 border p-2 flex hover:border-rose-500 hover:bg-rose-500 group transition-all"
                                 href="#contact"
                             >
                                 <svg
@@ -397,7 +397,7 @@ export default function Home() {
                             <div className="flex flex-col space-y-3">
                                 <div className="flex justify-between">
                                     <header className="text-sm ">
-                                        <span className="text-rose-500 bg-rose-100 dark:text-rose-300 dark:bg-rose-900 font-bold p-2 rounded-full">
+                                        <span className="pointer-default select-none text-rose-500 bg-rose-100 dark:text-rose-300 dark:bg-rose-900 font-bold p-2 rounded-full">
                                             About Us
                                         </span>
                                     </header>
@@ -433,7 +433,7 @@ export default function Home() {
                             <div className="flex flex-col space-y-3">
                                 <div className="flex justify-between">
                                     <header className="text-sm">
-                                        <span className="text-rose-600 bg-rose-100 dark:text-rose-300 dark:bg-rose-900 font-bold p-2 rounded-full">
+                                        <span className="pointer-default select-none text-rose-600 bg-rose-100 dark:text-rose-300 dark:bg-rose-900 font-bold p-2 rounded-full">
                                             Our Mission
                                         </span>
                                     </header>
@@ -546,8 +546,8 @@ export default function Home() {
                         <div className="flex flex-col bg-zinc-50 dark:bg-zinc-900 items-center justify-center p-6">
                             <h2 className="text-4xl p-4 text-center">
                                 <GradientDark>Our Sponsors</GradientDark>
+                                <Divider />
                             </h2>
-                            <Divider />
                             <div className="flex flex-col space-y-6 items-center justify-center">
                                 <div className="flex flex-col space-y-3 lg:space-y-0 lg:flex-row space-x-3 items-center justify-center">
                                     <Image
@@ -618,7 +618,7 @@ export default function Home() {
                             <h2 className="text-4xl font-bold text-center">
                                 <GradientDark>What is FRC?</GradientDark>
                             </h2>
-                            <p className="text-center text-zinc-500 dark:text-zinc-300">
+                            <p className="text-center text-zinc-500 dark:text-zinc-300 p-2 md:p-0">
                                 &quot;Combining the excitement of sport with the
                                 rigors of science and technology&quot;
                             </p>
@@ -904,7 +904,7 @@ export default function Home() {
                                 <div>
                                     <header className="text-3xl font-bold flex items-center space-x-2">
                                         <GradientDark>Bronze</GradientDark>
-                                        <span className="rounded-lg font-bold text-sm bg-indigo-100 text-indigo-500 dark:bg-indigo-900 dark:text-indigo-300 p-1">
+                                        <span className="pointer-default select-none rounded-lg font-bold text-sm bg-indigo-100 text-indigo-500 dark:bg-indigo-900 dark:text-indigo-300 p-1">
                                             Starter
                                         </span>
                                     </header>
@@ -959,7 +959,7 @@ export default function Home() {
                                 <div>
                                     <header className="text-3xl font-bold flex items-center space-x-2">
                                         <GradientDark>Silver</GradientDark>
-                                        <span className="rounded-lg font-bold text-sm bg-teal-100 text-teal-500 dark:bg-teal-900 dark:text-teal-300 p-1">
+                                        <span className="pointer-default select-none rounded-lg font-bold text-sm bg-teal-100 text-teal-500 dark:bg-teal-900 dark:text-teal-300 p-1">
                                             Standard
                                         </span>
                                     </header>
@@ -1014,7 +1014,7 @@ export default function Home() {
                                 <div>
                                     <header className="text-3xl font-bold flex items-center space-x-2">
                                         <GradientDark>Gold</GradientDark>
-                                        <span className="rounded-lg font-bold text-sm bg-fuchsia-100 text-fuchsia-500 dark:bg-fuchsia-900 dark:text-fuchsia-300 p-1">
+                                        <span className="pointer-default select-none rounded-lg font-bold text-sm bg-fuchsia-100 text-fuchsia-500 dark:bg-fuchsia-900 dark:text-fuchsia-300 p-1">
                                             Premium
                                         </span>
                                     </header>
@@ -1069,7 +1069,7 @@ export default function Home() {
                                 <div>
                                     <header className="text-3xl font-bold flex items-center space-x-2">
                                         <GradientDark>Platinum</GradientDark>
-                                        <span className="rounded-lg font-bold text-sm bg-rose-100 text-rose-500 p-1 dark:bg-rose-900 dark:text-rose-300">
+                                        <span className="pointer-default select-none rounded-lg font-bold text-sm bg-rose-100 text-rose-500 p-1 dark:bg-rose-900 dark:text-rose-300">
                                             Commercial
                                         </span>
                                     </header>

@@ -40,7 +40,10 @@ export default function Carousel({ images }: { images: Array<ImageUrlAlt> }) {
         <>
             <div className="z-20 absolute">
                 <div className="flex justify-between w-64 md:w-96 lg:w-[39rem]">
-                    <button onClick={() => setIndex(index - 1)}>
+                    <button
+                        onClick={() => setIndex(index - 1)}
+                        className="drop-shadow-md"
+                    >
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 24 24"
@@ -54,7 +57,10 @@ export default function Carousel({ images }: { images: Array<ImageUrlAlt> }) {
                             />
                         </svg>
                     </button>
-                    <button className="" onClick={() => setIndex(index + 1)}>
+                    <button
+                        className="drop-shadow-md"
+                        onClick={() => setIndex(index + 1)}
+                    >
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 24 24"
