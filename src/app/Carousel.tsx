@@ -1,7 +1,8 @@
 "use client";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useState, Suspense } from "react";
 import dynamic from "next/dynamic";
+import Loading from "./loading";
 
 type ImageUrlAlt = {
     url: string;
@@ -12,13 +13,15 @@ export default function Carousel({ images }: { images: Array<ImageUrlAlt> }) {
     const slides = images.map((i, idx) => ({
         key: idx,
         content: (
-            <Image
-                alt={i.alt}
-                src={i.url}
-                width={500}
-                height={500}
-                className="rounded-lg select-none"
-            />
+            <Suspense fallback={<Loading />}>
+                <Image
+                    alt={i.alt}
+                    src={i.url}
+                    width={500}
+                    height={500}
+                    className="rounded-lg select-none"
+                />
+            </Suspense>
         ),
     }));
     const [index, setIndex] = useState(0);
@@ -77,8 +80,8 @@ export default function Carousel({ images }: { images: Array<ImageUrlAlt> }) {
                     />
                 )}
                 {!Carousel3D && (
-                    <div className="flex items-center justify-center text-3xl">
-                        <p>Loading images...</p>
+                    <div className="flex items-center justify-center">
+                        <Loading />
                     </div>
                 )}
             </div>
