@@ -98,12 +98,12 @@ export default function Home() {
             <dialog
                 ref={dialogRef}
                 aria-modal="true"
-                className="p-4 border-zinc-100 bg-white rounded-lg w-2/3 dark:bg-zinc-900 dark:border-zinc-800 border dark:text-white"
+                className="p-4 border-zinc-100 bg-white rounded-lg w-5/6 md:w-2/3 dark:bg-zinc-900 dark:border-zinc-800 border dark:text-white"
             >
                 <div className="flex justify-between w-full items-center">
-                    <header className="text-4xl">
+                    <header className="text-2xl lg:text-4xl">
                         <GradientDark>Donation</GradientDark>
-                        <p className="text-lg">
+                        <p className="text-lg hidden md:block">
                             All donations are fully tax-deductible.
                         </p>
                     </header>
@@ -119,7 +119,7 @@ export default function Home() {
                             viewBox="0 0 24 24"
                             strokeWidth={1.5}
                             stroke="currentColor"
-                            className="w-12 h-12"
+                            className="md:w-12 md:h-12 w-8 h-8"
                         >
                             <path
                                 strokeLinecap="round"
@@ -132,15 +132,15 @@ export default function Home() {
                 <Divider />
                 {!donationDone && (
                     <div className="grid grid-cols-1 auto-rows-fr text-xl gap-3">
-                        <div className="flex space-x-3 items-center justify-center">
-                            <p>
+                        <div className="flex items-center justify-center space-y-3 flex-col md:flex-row md:space-x-3 md:space-y-0">
+                            <p className="text-center">
                                 Get a <Gradient>check</Gradient> ready.
                             </p>
                             <StepButton incStep={incStep} />
                         </div>
                         {stepIndex > 1 && (
-                            <div className="flex space-x-3 items-center justify-center">
-                                <p>
+                            <div className="flex space-x-3 items-center justify-center flex-col md:flex-row md:space-x-3 md:space-y-0">
+                                <p className="text-center">
                                     Write{" "}
                                     <Gradient>Woodson High School FRC</Gradient>{" "}
                                     in the memo.
@@ -149,13 +149,12 @@ export default function Home() {
                             </div>
                         )}
                         {stepIndex > 2 && (
-                            <div className="flex space-x-3 items-center justify-center">
-                                <p>
+                            <div className="flex space-x-3 items-center justify-center flex-col md:flex-row md:space-x-3 md:space-y-0">
+                                <p className="text-center">
                                     Mail the check to{" "}
                                     <Gradient>
                                         9525 Main St, Fairfax, VA 22031
                                     </Gradient>
-                                    .
                                 </p>
                                 <button
                                     className="rounded-full p-2 bg-rose-100 text-rose-500 dark:bg-rose-900 dark:text-rose-300 font-bold hover:bg-rose-200 hover:text-rose-600 transition-all dark:hover:text-rose-200 dark:hover:bg-rose-700"
@@ -179,11 +178,11 @@ export default function Home() {
                             alt="Cavbotics Logo"
                             className="invert dark:invert-0"
                         />
-                        <p>Thank you for donating!</p>
+                        <p className="text-center">Thank you for donating!</p>
                     </div>
                 )}
                 <Divider />
-                <p className="text-lg">
+                <p className="text-sm md:text-lg">
                     For recurring donations, material donations, or any other
                     inquiries, please reach out to us at{" "}
                     <a
@@ -366,16 +365,16 @@ export default function Home() {
                     )}
                     <div className="flex items-center flex-col justify-center space-y-6 p-4 md:p-0">
                         <div className="flex items-center flex-col space-y-3 border-dotted border-4 border-zinc-100 dark:border-zinc-800 p-4 rounded">
-                            <h1 className="font-bold text-5xl lg:text-8xl drop-shadow-sm text-slate-700 dark:text-slate-100 text-center">
+                            <h1 className="font-bold text-4xl md:text-5xl lg:text-8xl drop-shadow-sm text-slate-700 dark:text-slate-100 text-center">
                                 Woodson <Gradient>Robotics</Gradient>
                             </h1>
-                            <h2 className="text-2xl text-zinc-600 text-center dark:text-zinc-300">
+                            <h2 className="text-xl md:text-2xl text-zinc-600 text-center dark:text-zinc-300">
                                 Providing Students with{" "}
                                 <Gradient>Hands-On</Gradient> STEM Opportunities
                             </h2>
                         </div>
 
-                        <div className="flex space-x-3 font-semibold text-2xl">
+                        <div className="grid grid-cols-1 md:grid-cols-2 auto-rows-fr gap-3 font-semibold text-xl md:text-2xl xl:text-3xl">
                             <a
                                 className="rounded-lg text-white bg-gradient-to-r dark:from-rose-600 dark:to-rose-800 from-rose-400 to-rose-600 p-3 drop-shadow-lg hover:opacity-70 transition-opacity duration-200 font-bold flex items-center justify-center"
                                 href="#contact"
@@ -505,7 +504,7 @@ export default function Home() {
                         <h3 className="text-xl">
                             <GradientDark>Time Until Kickoff</GradientDark>
                         </h3>
-                        <div className="grid grid-cols-4 gap-2 auto-rows-fr">
+                        <div className="grid grid-cols-2 md:grid-cols-4 gap-2 auto-rows-fr">
                             <TimeCard
                                 value={days}
                                 label={"days"}
@@ -545,9 +544,10 @@ export default function Home() {
                         </div>
 
                         <div className="flex flex-col bg-zinc-50 dark:bg-zinc-900 items-center justify-center p-6">
-                            <h2 className="text-4xl p-4">
+                            <h2 className="text-4xl p-4 text-center">
                                 <GradientDark>Our Sponsors</GradientDark>
                             </h2>
+                            <Divider />
                             <div className="flex flex-col space-y-6 items-center justify-center">
                                 <div className="flex flex-col space-y-3 lg:space-y-0 lg:flex-row space-x-3 items-center justify-center">
                                     <Image
@@ -581,7 +581,7 @@ export default function Home() {
                                         alt="Signature Renovations"
                                     />
                                 </div>
-                                <p className="text-sm font-bold flex space-x-2 items-center justify-center">
+                                <p className="text-sm font-bold flex space-y-3 lg:flex-row flex-col lg:space-y-0 lg:space-x-2 items-center justify-center">
                                     <GradientDark>
                                         Want your company logo here?
                                     </GradientDark>
@@ -772,7 +772,7 @@ export default function Home() {
                         <div className="bg-zinc-50 dark:bg-zinc-900 flex items-center flex-col justify-center">
                             <div className="w-1/3">
                                 <div className="flex items-center flex-col justify-center">
-                                    <h2 className="text-4xl">
+                                    <h2 className="text-4xl text-center">
                                         <GradientDark>Our Team</GradientDark>
                                     </h2>
                                 </div>
@@ -1159,13 +1159,13 @@ export default function Home() {
                                 width={150}
                                 alt="Woodson Robotics"
                             />
-                            <div className="flex items-center justify-center flex-col space-y-3 w-1/3">
+                            <div className="flex items-center justify-center flex-col space-y-3 w-3/4 md:w-1/3">
                                 <p className="text-xl font-normal">
                                     9525 Main St, Fairfax, VA 22031
                                 </p>
-                                <div className="flex justify-between items-center w-full">
+                                <div className="flex justify-between items-center w-full xl:space-x-3 xl:flex-row flex-col space-y-3 xl:space-y-0">
                                     <div className="flex space-x-3">
-                                        <div>
+                                        <div className="hidden md:block">
                                             <div className="flex space-x-5">
                                                 <div className="flex space-x-1 items-center">
                                                     <svg
@@ -1206,7 +1206,7 @@ export default function Home() {
                                                     </svg>
 
                                                     <p className="font-normal">
-                                                        General Inquiries
+                                                        Inquiries
                                                     </p>
                                                 </div>
                                             </div>

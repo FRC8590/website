@@ -35,8 +35,8 @@ export default function Carousel({ images }: { images: Array<ImageUrlAlt> }) {
 
     return (
         <>
-            <div className="z-20 absolute min-w-screen">
-                <div className="flex justify-between w-96 lg:w-[39rem]">
+            <div className="z-20 absolute">
+                <div className="flex justify-between w-64 md:w-96 lg:w-[39rem]">
                     <button onClick={() => setIndex(index - 1)}>
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
