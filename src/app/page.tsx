@@ -92,7 +92,6 @@ export default function Home() {
     let [stepIndex, setStepIndex] = useState(1);
     const incStep = () => setStepIndex(stepIndex + 1);
     const [donationDone, setDonationDone] = useState(false);
-
     return (
         <>
             <dialog
@@ -345,7 +344,7 @@ export default function Home() {
                 <Divider />
             </nav>
             <main className="dark:bg-zinc-950">
-                <div className="flex min-h-screen items-center justify-center space-y-16 flex-col dark:bg-zinc-950">
+                <div className="flex min-h-screen items-center justify-center space-y-4 flex-col dark:bg-zinc-950">
                     {isTimerDone && (
                         <div className="flex space-x-2 items-center justify-center text-sm">
                             <span className="text-rose-500 bg-rose-100 dark:text-rose-300 dark:bg-rose-900 font-bold p-2 rounded-full">
@@ -397,7 +396,7 @@ export default function Home() {
                             <div className="flex flex-col space-y-3">
                                 <div className="flex justify-between">
                                     <header className="text-sm ">
-                                        <span className="pointer-default select-none text-rose-500 bg-rose-100 dark:text-rose-300 dark:bg-rose-900 font-bold p-2 rounded-full">
+                                        <span className="text-lg font-extralight text-zinc-500 select-none pointer-default">
                                             About Us
                                         </span>
                                     </header>
@@ -433,7 +432,7 @@ export default function Home() {
                             <div className="flex flex-col space-y-3">
                                 <div className="flex justify-between">
                                     <header className="text-sm">
-                                        <span className="pointer-default select-none text-rose-600 bg-rose-100 dark:text-rose-300 dark:bg-rose-900 font-bold p-2 rounded-full">
+                                        <span className="text-lg font-extralight text-zinc-500 select-none pointer-default">
                                             Our Mission
                                         </span>
                                     </header>
@@ -543,7 +542,7 @@ export default function Home() {
                             </svg>
                         </div>
 
-                        <div className="flex flex-col bg-zinc-50 dark:bg-zinc-900 items-center justify-center p-6">
+                        <div className="flex flex-col bg-zinc-50 dark:bg-zinc-900 items-center justify-center p-2">
                             <h2 className="text-4xl p-4 text-center">
                                 <GradientDark>Our Sponsors</GradientDark>
                                 <Divider />
