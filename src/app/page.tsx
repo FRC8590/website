@@ -392,84 +392,96 @@ export default function Home() {
                     </div>
 
                     <section className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12 auto-rows-fr px-2 md:px-32">
-                        <div className="drop-shadow-sm p-4 border-zinc-200 border rounded-lg dark:border-zinc-800">
-                            <div className="flex flex-col space-y-3">
-                                <div className="flex justify-between">
-                                    <header className="text-sm ">
-                                        <span className="text-lg font-extralight text-zinc-500 select-none pointer-default">
-                                            About Us
-                                        </span>
-                                    </header>
-                                    <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        fill="none"
-                                        viewBox="0 0 24 24"
-                                        strokeWidth={1.5}
-                                        stroke="currentColor"
-                                        className="w-6 h-6 dark:text-zinc-100"
-                                    >
-                                        <path
-                                            strokeLinecap="round"
-                                            strokeLinejoin="round"
-                                            d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 006.16-12.12A14.98 14.98 0 009.631 8.41m5.96 5.96a14.926 14.926 0 01-5.841 2.58m-.119-8.54a6 6 0 00-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 00-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 01-2.448-2.448 14.9 14.9 0 01.06-.312m-2.24 2.39a4.493 4.493 0 00-1.757 4.306 4.493 4.493 0 004.306-1.758M16.5 9a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z"
-                                        />
-                                    </svg>
+                        <div className="flex items-center justify-center drop-shadow-sm">
+                            <div className="animate-border inline-block rounded-lg bg-white bg-gradient-to-r from-zinc-50 via-zinc-300 to-zinc-50 bg-[length:400%_400%] p-px">
+                                <div className="p-4 bg-white border rounded-lg">
+                                    <div className="flex flex-col space-y-3">
+                                        <div className="flex justify-between">
+                                            <header className="text-sm">
+                                                <span className="text-lg font-extralight text-zinc-500 select-none pointer-default">
+                                                    About Us
+                                                </span>
+                                            </header>
+                                            <svg
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                fill="none"
+                                                viewBox="0 0 24 24"
+                                                strokeWidth={1.5}
+                                                stroke="currentColor"
+                                                className="w-6 h-6 dark:text-zinc-100"
+                                            >
+                                                <path
+                                                    strokeLinecap="round"
+                                                    strokeLinejoin="round"
+                                                    d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 006.16-12.12A14.98 14.98 0 009.631 8.41m5.96 5.96a14.926 14.926 0 01-5.841 2.58m-.119-8.54a6 6 0 00-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 00-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 01-2.448-2.448 14.9 14.9 0 01.06-.312m-2.24 2.39a4.493 4.493 0 00-1.757 4.306 4.493 4.493 0 004.306-1.758M16.5 9a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z"
+                                                />
+                                            </svg>
+                                        </div>
+                                        <header className="text-3xl font-bold">
+                                            <GradientDark>
+                                                Who are we?
+                                            </GradientDark>
+                                        </header>
+                                    </div>
+                                    <Divider />
+                                    <p className="text-slate-700 dark:text-slate-100">
+                                        Woodson Cavbotics provides students with
+                                        unique STEM opportunities to help them
+                                        explore different fields of STEM through
+                                        competitions and{" "}
+                                        <Gradient>
+                                            real world experience.
+                                        </Gradient>
+                                    </p>
                                 </div>
-                                <header className="text-3xl font-bold">
-                                    <GradientDark>Who are we?</GradientDark>
-                                </header>
                             </div>
-                            <Divider />
-                            <p className="text-slate-700 dark:text-slate-100">
-                                Woodson Cavbotics provides students with unique
-                                STEM opportunities to help them explore
-                                different fields of STEM through competitions
-                                and <Gradient>real world experience.</Gradient>
-                            </p>
                         </div>
-
-                        <div className="drop-shadow-sm p-4 border-zinc-200 border rounded-lg dark:border-zinc-800">
-                            <div className="flex flex-col space-y-3">
-                                <div className="flex justify-between">
-                                    <header className="text-sm">
-                                        <span className="text-lg font-extralight text-zinc-500 select-none pointer-default">
-                                            Our Mission
-                                        </span>
-                                    </header>
-                                    <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        fill="none"
-                                        viewBox="0 0 24 24"
-                                        strokeWidth={1.5}
-                                        stroke="currentColor"
-                                        className="w-6 h-6 dark:text-zinc-100"
-                                    >
-                                        <path
-                                            strokeLinecap="round"
-                                            strokeLinejoin="round"
-                                            d="M21.75 6.75a4.5 4.5 0 01-4.884 4.484c-1.076-.091-2.264.071-2.95.904l-7.152 8.684a2.548 2.548 0 11-3.586-3.586l8.684-7.152c.833-.686.995-1.874.904-2.95a4.5 4.5 0 016.336-4.486l-3.276 3.276a3.004 3.004 0 002.25 2.25l3.276-3.276c.256.565.398 1.192.398 1.852z"
-                                        />
-                                        <path
-                                            strokeLinecap="round"
-                                            strokeLinejoin="round"
-                                            d="M4.867 19.125h.008v.008h-.008v-.008z"
-                                        />
-                                    </svg>
+                        <div className="flex items-center justify-center drop-shadow-sm">
+                            <div className="animate-border inline-block rounded-lg bg-white bg-gradient-to-r from-zinc-50 via-zinc-300 to-zinc-50 bg-[length:400%_400%] p-px">
+                                <div className="p-4 bg-white border rounded-lg">
+                                    <div className="flex flex-col space-y-3">
+                                        <div className="flex justify-between">
+                                            <header className="text-sm">
+                                                <span className="text-lg font-extralight text-zinc-500 select-none pointer-default">
+                                                    Our Mission
+                                                </span>
+                                            </header>
+                                            <svg
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                fill="none"
+                                                viewBox="0 0 24 24"
+                                                strokeWidth={1.5}
+                                                stroke="currentColor"
+                                                className="w-6 h-6 dark:text-zinc-100"
+                                            >
+                                                <path
+                                                    strokeLinecap="round"
+                                                    strokeLinejoin="round"
+                                                    d="M21.75 6.75a4.5 4.5 0 01-4.884 4.484c-1.076-.091-2.264.071-2.95.904l-7.152 8.684a2.548 2.548 0 11-3.586-3.586l8.684-7.152c.833-.686.995-1.874.904-2.95a4.5 4.5 0 016.336-4.486l-3.276 3.276a3.004 3.004 0 002.25 2.25l3.276-3.276c.256.565.398 1.192.398 1.852z"
+                                                />
+                                                <path
+                                                    strokeLinecap="round"
+                                                    strokeLinejoin="round"
+                                                    d="M4.867 19.125h.008v.008h-.008v-.008z"
+                                                />
+                                            </svg>
+                                        </div>
+                                        <header className="text-3xl font-bold">
+                                            <GradientDark>
+                                                Explore, Learn, and Compete
+                                            </GradientDark>
+                                        </header>
+                                    </div>
+                                    <Divider />
+                                    <p className="text-slate-700 dark:text-slate-100">
+                                        Students work together in teams across
+                                        various competitions, learn from trained
+                                        mentors, and experience STEM at a level
+                                        that will prepare them for their{" "}
+                                        <Gradient>future careers.</Gradient>
+                                    </p>
                                 </div>
-                                <header className="text-3xl font-bold">
-                                    <GradientDark>
-                                        Explore, Learn, and Compete
-                                    </GradientDark>
-                                </header>
                             </div>
-                            <Divider />
-                            <p className="text-slate-700 dark:text-slate-100">
-                                Students work together in teams across various
-                                competitions, learn from trained mentors, and
-                                experience STEM at a level that will prepare
-                                them for their{" "}
-                                <Gradient>future careers.</Gradient>
-                            </p>
                         </div>
                     </section>
 
@@ -527,7 +539,7 @@ export default function Home() {
                         </div>
                     </div>
 
-                    <section>
+                    <section className="w-full">
                         <div className="custom-shape-divider-bottom-1702071167">
                             <svg
                                 data-name="Layer 1"
@@ -754,7 +766,7 @@ export default function Home() {
                         </div>
                     </section>
 
-                    <section id="team">
+                    <section id="team" className="w-full">
                         <div className="custom-shape-divider-bottom-1702164895">
                             <svg
                                 data-name="Layer 1"
