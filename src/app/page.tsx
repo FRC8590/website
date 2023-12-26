@@ -393,12 +393,12 @@ export default function Home() {
 
                     <section className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12 auto-rows-fr px-2 md:px-32">
                         <div className="flex items-center justify-center drop-shadow-sm">
-                            <div className="animate-border inline-block rounded-lg bg-white bg-gradient-to-r from-zinc-50 via-zinc-300 to-zinc-50 bg-[length:400%_400%] p-px">
-                                <div className="p-4 bg-white border rounded-lg">
+                            <div className="animate-border inline-block rounded-lg bg-white bg-gradient-to-r dark:from-zinc-900 dark:via-zinc-700 dark:to-zinc-900 from-zinc-50 via-zinc-300 to-zinc-50 bg-[length:400%_400%] p-px">
+                                <div className="p-4 bg-white dark:bg-zinc-950 rounded-lg">
                                     <div className="flex flex-col space-y-3">
                                         <div className="flex justify-between">
                                             <header className="text-sm">
-                                                <span className="text-lg font-extralight text-zinc-500 select-none pointer-default">
+                                                <span className="text-lg font-extralight dark:text-zinc-400 text-zinc-500 select-none pointer-default">
                                                     About Us
                                                 </span>
                                             </header>
@@ -437,12 +437,12 @@ export default function Home() {
                             </div>
                         </div>
                         <div className="flex items-center justify-center drop-shadow-sm">
-                            <div className="animate-border inline-block rounded-lg bg-white bg-gradient-to-r from-zinc-50 via-zinc-300 to-zinc-50 bg-[length:400%_400%] p-px">
-                                <div className="p-4 bg-white border rounded-lg">
+                            <div className="animate-border inline-block rounded-lg bg-white bg-gradient-to-r dark:from-zinc-900 dark:via-zinc-700 dark:to-zinc-900 from-zinc-50 via-zinc-300 to-zinc-50 bg-[length:400%_400%] p-px">
+                                <div className="p-4 dark:bg-zinc-950 bg-white rounded-lg">
                                     <div className="flex flex-col space-y-3">
                                         <div className="flex justify-between">
                                             <header className="text-sm">
-                                                <span className="text-lg font-extralight text-zinc-500 select-none pointer-default">
+                                                <span className="text-lg font-extralight dark:text-zinc-400 text-zinc-500 select-none pointer-default">
                                                     Our Mission
                                                 </span>
                                             </header>
