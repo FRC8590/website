@@ -76,7 +76,7 @@ export default function Carousel({ images }: { images: Array<ImageUrlAlt> }) {
                     </button>
                 </div>
             </div>
-            <div className="w-full h-screen">
+            <div className="w-full h-96 lg:h-screen">
                 {Carousel3D && (
                     // @ts-expect-error
                     <Carousel3D
