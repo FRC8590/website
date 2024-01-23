@@ -591,6 +591,12 @@ export default function Home() {
                                         height={100}
                                         alt="Signature Renovations"
                                     />
+                                    <Image
+                                        src="/jctm.png"
+                                        width={100}
+                                        height={100}
+                                        alt="Joint Computer Technologies and Training Management"
+                                    />
                                 </div>
                                 <p className="text-sm font-bold flex space-y-3 lg:flex-row flex-col lg:space-y-0 lg:space-x-2 items-center justify-center">
                                     <GradientDark>
