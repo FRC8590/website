@@ -593,8 +593,8 @@ export default function Home() {
                                     />
                                     <Image
                                         src="/jctm.png"
-                                        width={100}
-                                        height={100}
+                                        width={200}
+                                        height={200}
                                         alt="Joint Computer Technologies and Training Management"
                                     />
                                 </div>
