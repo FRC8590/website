@@ -574,6 +574,12 @@ export default function Home() {
                                         alt="Air & Space Forces Association"
                                     />
                                     <Image
+                                        src="https://cdn.worldvectorlogo.com/logos/colonial-pipeline-co.svg"
+                                        width={200}
+                                        height={200}
+                                        alt="Colonial Pipelines"
+                                    />
+                                    <Image
                                         src="/acosta.webp"
                                         width={200}
                                         height={200}
