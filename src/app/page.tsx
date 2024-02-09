@@ -478,6 +478,12 @@ export default function Home() {
                                         alt="Air & Space Forces Association"
                                     />
                                     <Image
+                                        src="https://cdn.worldvectorlogo.com/logos/colonial-pipeline-co.svg"
+                                        width={200}
+                                        height={200}
+                                        alt="Colonial Pipelines"
+                                    />
+                                    <Image
                                         src="/acosta.webp"
                                         width={200}
                                         height={200}
@@ -494,6 +500,12 @@ export default function Home() {
                                         width={100}
                                         height={100}
                                         alt="Signature Renovations"
+                                    />
+                                    <Image
+                                        src="/jctm.png"
+                                        width={200}
+                                        height={200}
+                                        alt="Joint Computer Technologies and Training Management"
                                     />
                                 </div>
                                 <p className="text-sm font-bold flex space-y-3 lg:flex-row flex-col lg:space-y-0 lg:space-x-2 items-center justify-center">
