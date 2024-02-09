@@ -14,51 +14,10 @@ import Carousel from "./Carousel";
 export default function Home() {
     const [voices, setVoices] = useState([] as SpeechSynthesisVoice[]);
     const [voiceSupported, setVoiceSupported] = useState(true);
-    const [days, setDays] = useState(0);
-    const [hours, setHours] = useState(0);
-    const [minutes, setMinutes] = useState(0);
-    const [seconds, setSeconds] = useState(0);
-    const [shouldShowTimerConfetti, setShouldShowTimerConfetti] =
-        useState(false);
     const [lockConfetti, setLockConfetti] = useState(false);
 
-    const [showTimerConfetti, setShowTimerConfetti] = useState(false);
-    const [isTimerDone, setIsTimerDone] = useState(false);
-
-    let kickoffDate = new Date("2024-01-06T12:00:00");
-    let interval: NodeJS.Timeout | null = null;
-
-    const updateTime = () => {
-        const currentDate = new Date();
-        const diff = kickoffDate.getTime() - currentDate.getTime();
-
-        if (diff <= 0 && interval) {
-            setIsTimerDone(true);
-            setShouldShowTimerConfetti(true);
-            clearInterval(interval);
-            return;
-        }
-
-        const seconds = diff / 1000;
-        setDays(Math.floor(seconds / 3600 / 24));
-        setHours(Math.floor(seconds / 3600) % 24);
-        setMinutes(Math.floor(seconds / 60) % 60);
-        setSeconds(Math.floor(seconds % 60));
-    };
     const [theme, setTheme] = useState("light");
     useEffect(() => {
-        interval = setInterval(() => {
-            updateTime();
-        }, 1000);
-        updateTime();
-        const observer = new IntersectionObserver(entries => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting && shouldShowTimerConfetti)
-                    setShowTimerConfetti(true);
-            });
-        });
-        observer.observe(document.getElementById("countdown")!);
-
         window.speechSynthesis.addEventListener("voiceschanged", () => {
             setVoices(window.speechSynthesis.getVoices());
             if (voices.length != 0) setVoiceSupported(true);
@@ -345,23 +304,22 @@ export default function Home() {
             </nav>
             <main className="dark:bg-zinc-950">
                 <div className="flex min-h-screen items-center justify-center space-y-4 flex-col dark:bg-zinc-950">
-                    {isTimerDone && (
-                        <div className="flex space-x-2 items-center justify-center text-sm">
-                            <span className="text-rose-500 bg-rose-100 dark:text-rose-300 dark:bg-rose-900 font-bold p-2 rounded-full">
-                                Event
-                            </span>
-                            <p className="text-zinc-600 dark:text-zinc-400">
-                                FRC has started!
-                            </p>
-                            <a
-                                href="#frc"
-                                role="button"
-                                className="dark:border-zinc-800 dark:text-zinc-400 border-zinc-200 border rounded-full p-2 text-zinc-500 hover:bg-zinc-100 hover:text-zinc-600 transition-all dark:hover:bg-zinc-900"
-                            >
-                                Read about it
-                            </a>
-                        </div>
-                    )}
+                    <div className="flex space-x-2 items-center justify-center text-sm">
+                        <span className="text-rose-500 bg-rose-100 dark:text-rose-300 dark:bg-rose-900 font-bold p-2 rounded-full">
+                            Event
+                        </span>
+                        <p className="text-zinc-600 dark:text-zinc-400">
+                            FRC has started!
+                        </p>
+                        <a
+                            href="#frc"
+                            role="button"
+                            className="dark:border-zinc-800 dark:text-zinc-400 border-zinc-200 border rounded-full p-2 text-zinc-500 hover:bg-zinc-100 hover:text-zinc-600 transition-all dark:hover:bg-zinc-900"
+                        >
+                            Read about it
+                        </a>
+                    </div>
+
                     <div className="flex items-center flex-col justify-center space-y-6 p-4 md:p-0">
                         <div className="flex items-center flex-col space-y-3 border-dotted border-4 border-zinc-100 dark:border-zinc-800 p-4 rounded">
                             <h1 className="font-bold text-4xl md:text-5xl lg:text-8xl drop-shadow-sm text-slate-700 dark:text-slate-100 text-center">
@@ -484,60 +442,6 @@ export default function Home() {
                             </div>
                         </div>
                     </section>
-
-                    <div
-                        className="flex flex-col items-center justify-center space-y-2 pt-3"
-                        id="countdown"
-                    >
-                        {!lockConfetti && showTimerConfetti && (
-                            <Confetti
-                                recycle={false}
-                                onConfettiComplete={() => {
-                                    setLockConfetti(true);
-                                }}
-                            />
-                        )}
-                        <Image
-                            src="/first_dark.png"
-                            alt="FIRST Logo (Dark)"
-                            width={100}
-                            height={100}
-                            className="dark:hidden"
-                        />
-
-                        <Image
-                            src="/first_white.png"
-                            alt="FIRST Logo (Light)"
-                            width={100}
-                            height={100}
-                            className="hidden dark:block"
-                        />
-                        <h3 className="text-xl">
-                            <GradientDark>Time Until Kickoff</GradientDark>
-                        </h3>
-                        <div className="grid grid-cols-2 md:grid-cols-4 gap-2 auto-rows-fr">
-                            <TimeCard
-                                value={days}
-                                label={"days"}
-                                timerDone={isTimerDone}
-                            />
-                            <TimeCard
-                                value={hours}
-                                label={"hours"}
-                                timerDone={isTimerDone}
-                            />
-                            <TimeCard
-                                value={minutes}
-                                label={"minutes"}
-                                timerDone={isTimerDone}
-                            />
-                            <TimeCard
-                                value={seconds}
-                                label={"seconds"}
-                                timerDone={isTimerDone}
-                            />
-                        </div>
-                    </div>
 
                     <section className="w-full">
                         <div className="custom-shape-divider-bottom-1702071167">
