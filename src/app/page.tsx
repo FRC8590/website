@@ -144,10 +144,10 @@ export default function Home() {
                     For recurring donations, material donations, or any other
                     inquiries, please reach out to us at{" "}
                     <a
-                        href="mailto:frc@wtwcsr.org"
+                        href="mailto:wtwcsr@gmail.com"
                         className="underline hover:text-rose-400 transition-colors text-rose-500 font-bold"
                     >
-                        frc@wtwcsr.org
+                        wtwcsr@gmail.com
                     </a>
                     .
                 </p>
@@ -1141,18 +1141,10 @@ export default function Home() {
                                         <div>
                                             <div className="flex space-x-1 items-center">
                                                 <a
-                                                    href="mailto:frc@wtwcsr.org"
+                                                    href="mailto:wtwcsr@gmail.com"
                                                     className="underline hover:text-rose-400 transition-colors text-rose-500"
                                                 >
-                                                    frc@wtwcsr.org
-                                                </a>
-                                            </div>
-                                            <div className="flex space-x-1 items-center">
-                                                <a
-                                                    href="mailto:frc@wtwcsr.org"
-                                                    className="underline hover:text-rose-400 transition-colors text-rose-500"
-                                                >
-                                                    contact@wtwcsr.org
+                                                    wtwcsr@gmail.com
                                                 </a>
                                             </div>
                                         </div>
