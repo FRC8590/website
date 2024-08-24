@@ -1,12 +1,8 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./globals.css";
+import { GeistSans } from "geist/font/sans";
 
-const inter = Inter({ subsets: ["latin"] });
-
-export const metadata: Metadata = {
-    title: "Woodson Robotics",
-    description: "Providing Students with Hands-On STEM Opportunities",
+export const metadata = {
+    title: "CAVBOTICS 8590",
+    description: "Woodson Robotics Team",
 };
 
 export default function RootLayout({
@@ -16,7 +12,7 @@ export default function RootLayout({
 }) {
     return (
         <html lang="en">
-            <body className={inter.className}>{children}</body>
+            <body className={GeistSans.className}>{children}</body>
         </html>
     );
 }
