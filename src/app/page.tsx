@@ -4,6 +4,9 @@ import { Spotlight } from "@/components/spotlight";
 import { BackgroundBeams } from "@/components/background-beams";
 import React from "react";
 import { Timeline } from "@/components/timeline";
+import { IconHome, IconMessage, IconUser } from "@tabler/icons-react";
+import { FloatingNav } from "@/components/floating-navbar";
+import { MovingBorderButton } from "@/components/moving-border";
 
 function Divider() {
     return (
@@ -18,11 +21,19 @@ interface HasChildren {
 }
 
 function SectionHeader(props: HasChildren) {
-    return <header className="text-4xl font-semibold">{props.children}</header>;
+    return (
+        <header className="text-4xl font-bold text-black dark:text-white">
+            {props.children}
+        </header>
+    );
 }
 
 function Small(props: HasChildren) {
-    return <p className="text-zinc-400 text-xl font-light">{props.children}</p>;
+    return (
+        <p className="text-zinc-400 dark:text-zinc-700 text-xl font-light">
+            {props.children}
+        </p>
+    );
 }
 
 function Opposites(props: HasChildren) {
@@ -35,29 +46,36 @@ function Opposites(props: HasChildren) {
 
 function Article(props: HasChildren & { title: string }) {
     return (
-        <div className="flex flex-col space-y-3 bg-zinc-100 rounded-lg p-4 w-2/3">
-            <header className="text-2xl font-semibold">{props.title}</header>
-            <p>{props.children}</p>
+        <div className="px-4 h-full">
+            <div className="dark:bg-grid-small-white/[0.05] bg-grid-small-black/[0.2] w-full p-8 rounded-xl border border-[rgba(255,255,255,0.10)] dark:bg-zinc-950 bg-gray-100 shadow-[2px_4px_16px_0px_rgba(248,248,248,0.06)_inset]">
+                <header className="text-2xl font-semibold">
+                    {props.title}
+                </header>
+                <p>{props.children}</p>
+            </div>
         </div>
     );
 }
 
 function SponsorCard(props: HasChildren & { title: string; amount: string }) {
     return (
-        <div className="rounded-lg bg-zinc-100 p-4 flex flex-col space-y-3">
-            <header className="text-lg font-light">{props.title}</header>
-            <p className="text-4xl font-bold">
-                <span className="font-normal text-2xl">$</span>
+        <div className="dark:bg-grid-small-white/[0.05] bg-grid-small-black/[0.2] flex flex-col space-y-3 w-full p-8 rounded-xl border border-[rgba(255,255,255,0.10)] dark:bg-zinc-950 bg-gray-100 shadow-[2px_4px_16px_0px_rgba(248,248,248,0.06)_inset] mx-auto group">
+            <header className="text-xl font-light">{props.title}</header>
+            <p className="text-5xl font-bold">
+                <span className="font-normal text-xl text-zinc-200">$</span>
                 {props.amount}
             </p>
             <ul>{props.children}</ul>
+            <button className="text-lg px-8 py-1 font-semibold rounded-lg bg-gradient-to-b from-rose-500 to-rose-900 text-white hover:shadow-xl transition duration-200">
+                More Information
+            </button>
         </div>
     );
 }
 
 function Button(props: HasChildren) {
     return (
-        <button className="rounded-lg bg-zinc-100 p-2 text-xl font-bold">
+        <button className="px-8 py-2 rounded-full bg-gradient-to-b from-blue-500 to-blue-600 text-white focus:ring-2 focus:ring-blue-400 hover:shadow-xl transition duration-200">
             {props.children}
         </button>
     );
@@ -69,10 +87,11 @@ function TeamTimeline() {
             title: "2024",
             content: (
                 <Image
-                    src="/banner.JPG"
-                    width={200}
-                    height={200}
-                    alt="FIRST Logo"
+                    src="/years/crescendo.jpg"
+                    width={500}
+                    height={500}
+                    alt="Crescendo"
+                    className="grayscale"
                 />
             ),
         },
@@ -83,7 +102,8 @@ function TeamTimeline() {
                     src="/banner.JPG"
                     width={200}
                     height={200}
-                    alt="FIRST Logo"
+                    alt="Charged Up"
+                    className="grayscale"
                 />
             ),
         },
@@ -91,10 +111,11 @@ function TeamTimeline() {
             title: "2022",
             content: (
                 <Image
-                    src="/banner.JPG"
-                    width={200}
-                    height={200}
-                    alt="FIRST Logo"
+                    src="/years/rapid_react.jpg"
+                    width={500}
+                    height={500}
+                    alt="Rapid React"
+                    className="grayscale"
                 />
             ),
         },
@@ -106,27 +127,71 @@ function TeamTimeline() {
     );
 }
 
+function FloatingNavbar() {
+    const navItems = [
+        {
+            name: "Home",
+            link: "/",
+            icon: (
+                <IconHome className="h-4 w-4 text-neutral-500 dark:text-white" />
+            ),
+        },
+        {
+            name: "About",
+            link: "/about",
+            icon: (
+                <IconUser className="h-4 w-4 text-neutral-500 dark:text-white" />
+            ),
+        },
+        {
+            name: "Contact",
+            link: "/contact",
+            icon: (
+                <IconMessage className="h-4 w-4 text-neutral-500 dark:text-white" />
+            ),
+        },
+    ];
+    return (
+        <div className="relative w-full">
+            <FloatingNav navItems={navItems} />
+        </div>
+    );
+}
+
 export default function Home() {
     return (
         <>
-            <nav className="p-12">Navbar</nav>
-            <main className="flex flex-col items-center justify-center w-full px-36">
+            <FloatingNavbar />
+            <main className="flex flex-col items-center justify-center w-full px-36 pt-16 dark:text-white">
                 <section>
-                    <div className="flex items-center justify-between">
+                    <Opposites>
                         <Image
-                            src="/banner.JPG"
-                            width={200}
-                            height={200}
+                            src="/logos/cavbotics.png"
+                            width={225}
+                            height={225}
                             alt="CAVBOTICS Logo"
+                            className="invert dark:invert-0"
                         />
-                        <Image
-                            src="/banner.JPG"
-                            width={200}
-                            height={200}
-                            alt="FIRST Logo"
-                        />
-                    </div>
-                    <h1 className="text-8xl">Woodson Robotics</h1>
+                        <div>
+                            <Image
+                                src="/logos/frc.png"
+                                width={325}
+                                height={200}
+                                alt="FIRST Robotics Competition Logo"
+                                className="dark:hidden"
+                            />
+                            <Image
+                                src="/logos/frc_dark.png"
+                                width={325}
+                                height={200}
+                                alt="FIRST Robotics Competition Logo"
+                                className="hidden dark:block"
+                            />
+                        </div>
+                    </Opposites>
+                    <h1 className="relative z-10 text-lg md:text-8xl bg-clip-text text-transparent bg-gradient-to-b from-zinc-200 to-zinc-600 text-center font-bold">
+                        Woodson Robotics
+                    </h1>
                 </section>
                 <Divider />
                 <section className="flex items-center justify-center flex-col space-y-3">
@@ -137,24 +202,7 @@ export default function Home() {
                             width={200}
                             height={200}
                             alt="FIRST Logo"
-                        />
-                        <Image
-                            src="/banner.JPG"
-                            width={200}
-                            height={200}
-                            alt="FIRST Logo"
-                        />
-                        <Image
-                            src="/banner.JPG"
-                            width={200}
-                            height={200}
-                            alt="FIRST Logo"
-                        />
-                        <Image
-                            src="/banner.JPG"
-                            width={200}
-                            height={200}
-                            alt="FIRST Logo"
+                            className="grayscale"
                         />
                         <Image
                             src="/banner.JPG"
@@ -173,7 +221,7 @@ export default function Home() {
                 <Divider />
                 <section className="w-full">
                     <Opposites>
-                        <SectionHeader>Some Slogan</SectionHeader>
+                        <SectionHeader>Who are we?</SectionHeader>
                         <Small>Smaller text for filler</Small>
                     </Opposites>
                     <div className="flex flex-col space-y-6">
@@ -191,18 +239,20 @@ export default function Home() {
                                 qui officia deserunt mollit anim id est laborum.
                             </Article>
                             <Image
-                                src="/banner.JPG"
+                                src="/pictures/team.jpg"
                                 width={500}
                                 height={500}
-                                alt="FIRST Logo"
+                                alt="Our Team"
+                                className="grayscale"
                             />
                         </Opposites>
                         <Opposites>
                             <Image
-                                src="/banner.JPG"
+                                src="/pictures/mission.jpg"
                                 width={500}
                                 height={500}
-                                alt="FIRST Logo"
+                                alt="Our Mission"
+                                className="grayscale"
                             />
                             <Article title="Our Mission">
                                 Lorem ipsum dolor sit amet, consectetur
@@ -256,11 +306,12 @@ export default function Home() {
                             width={500}
                             height={500}
                             alt="FIRST Logo"
+                            className="grayscale rounded-lg"
                         />
                     </Opposites>
                 </section>
                 <Divider />
-                <section className="w-full">
+                <section className="w-full pb-4">
                     <Opposites>
                         <SectionHeader>
                             Professional Sponsor Tiers
@@ -289,28 +340,35 @@ export default function Home() {
                             <li>Feature</li>
                         </SponsorCard>
                     </div>
-                    <div className="flex items-center justify-center space-x-3 py-4">
-                        <Small>Some stupid question?</Small>
-                        <Button>Download Packet</Button>
-                    </div>
                 </section>
             </main>{" "}
-            <footer className="w-full border-t border-black px-48">
+            <footer className="w-full border-t border-black dark:border-zinc-900 px-48">
                 <Opposites>
                     <div className="flex flex-col">
-                        <div className="flex space-x-12">
+                        <div className="grid grid-flow-row grid-cols-2 place-items-center gap-12 py-4">
                             <Image
-                                src="/banner.JPG"
+                                src="/logos/cavbotics.png"
                                 width={200}
-                                height={200}
-                                alt="FIRST Logo"
+                                height={100}
+                                alt="CAVBOTICS Logo"
+                                className="invert dark:invert-0"
                             />
-                            <Image
-                                src="/banner.JPG"
-                                width={200}
-                                height={200}
-                                alt="FIRST Logo"
-                            />
+                            <div>
+                                <Image
+                                    src="/logos/first.png"
+                                    width={325}
+                                    height={200}
+                                    alt="FIRST Robotics Competition Logo"
+                                    className="dark:hidden"
+                                />
+                                <Image
+                                    src="/logos/first_dark.png"
+                                    width={325}
+                                    height={200}
+                                    alt="FIRST Robotics Competition Logo"
+                                    className="hidden dark:block"
+                                />
+                            </div>
                         </div>
                         <p>Copyright Shenanigans. All Rights Reserved</p>
                     </div>
