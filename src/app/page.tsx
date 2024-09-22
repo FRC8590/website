@@ -6,12 +6,27 @@ import React from "react";
 import { Timeline } from "@/components/timeline";
 import { IconHome, IconMessage, IconUser } from "@tabler/icons-react";
 import { FloatingNav } from "@/components/floating-navbar";
-import { MovingBorderButton } from "@/components/moving-border";
+import { TextGenerateEffect } from "@/components/text-generate-effect";
+import { BackgroundLines } from "@/components/background-lines";
+import { AuroraBackground } from "@/components/aurora-background";
+import { IoIosMail } from "react-icons/io";
+import { RiInstagramFill } from "react-icons/ri";
+import { FaAddressBook } from "react-icons/fa";
+import { FaCheckCircle } from "react-icons/fa";
+
+function Check(props: HasChildren) {
+    return (
+        <li className="font-medium flex items-center space-x-1">
+            <FaCheckCircle />
+            <p>{props.children}</p>
+        </li>
+    );
+}
 
 function Divider() {
     return (
         <div className="py-4 h-4 w-full">
-            <hr className="w-full border-t border-zinc-700" />
+            <hr className="w-full border-t border-zinc-700 dark:border-zinc-900" />
         </div>
     );
 }
@@ -22,7 +37,7 @@ interface HasChildren {
 
 function SectionHeader(props: HasChildren) {
     return (
-        <header className="text-4xl font-bold text-black dark:text-white">
+        <header className="text-4xl font-semibold text-black dark:text-white">
             {props.children}
         </header>
     );
@@ -30,7 +45,7 @@ function SectionHeader(props: HasChildren) {
 
 function Small(props: HasChildren) {
     return (
-        <p className="text-zinc-400 dark:text-zinc-700 text-xl font-light">
+        <p className="text-zinc-400 dark:text-zinc-700 text-xl font-light italic">
             {props.children}
         </p>
     );
@@ -44,16 +59,24 @@ function Opposites(props: HasChildren) {
     );
 }
 
-function Article(props: HasChildren & { title: string }) {
+function Article(props: {
+    text: string;
+    title: string;
+    image: React.ReactNode;
+    flip?: boolean;
+}) {
     return (
-        <div className="px-4 h-full">
-            <div className="dark:bg-grid-small-white/[0.05] bg-grid-small-black/[0.2] w-full p-8 rounded-xl border border-[rgba(255,255,255,0.10)] dark:bg-zinc-950 bg-gray-100 shadow-[2px_4px_16px_0px_rgba(248,248,248,0.06)_inset]">
-                <header className="text-2xl font-semibold">
-                    {props.title}
-                </header>
-                <p>{props.children}</p>
+        <GridBackground flip={props.flip}>
+            <div className={`flex ${props.flip ? "flex-row-reverse" : ""}`}>
+                <div className="flex flex-col p-8 space-y-3">
+                    <header className="text-3xl font-semibold">
+                        {props.title}
+                    </header>
+                    <TextGenerateEffect words={props.text} />
+                </div>
+                {props.image}
             </div>
-        </div>
+        </GridBackground>
     );
 }
 
@@ -62,7 +85,9 @@ function SponsorCard(props: HasChildren & { title: string; amount: string }) {
         <div className="dark:bg-grid-small-white/[0.05] bg-grid-small-black/[0.2] flex flex-col space-y-3 w-full p-8 rounded-xl border border-[rgba(255,255,255,0.10)] dark:bg-zinc-950 bg-gray-100 shadow-[2px_4px_16px_0px_rgba(248,248,248,0.06)_inset] mx-auto group">
             <header className="text-xl font-light">{props.title}</header>
             <p className="text-5xl font-bold">
-                <span className="font-normal text-xl text-zinc-200">$</span>
+                <span className="font-normal text-xl text-zinc-200 select-none">
+                    $
+                </span>
                 {props.amount}
             </p>
             <ul>{props.children}</ul>
@@ -86,36 +111,80 @@ function TeamTimeline() {
         {
             title: "2024",
             content: (
-                <Image
-                    src="/years/crescendo.jpg"
-                    width={500}
-                    height={500}
-                    alt="Crescendo"
-                    className="grayscale"
+                <Article
+                    text="Lorem ipsum dolor sit amet, consectetur adipiscing
+                elit, sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua."
+                    image={
+                        <Image
+                            src="/years/crescendo.jpg"
+                            width={500}
+                            height={500}
+                            alt="Crescendo"
+                            className="grayscale rounded-tr-lg rounded-br-lg"
+                        />
+                    }
+                    title="Crescendo"
                 />
             ),
         },
         {
             title: "2023",
             content: (
-                <Image
-                    src="/banner.JPG"
-                    width={200}
-                    height={200}
-                    alt="Charged Up"
-                    className="grayscale"
+                <Article
+                    text="Lorem ipsum dolor sit amet, consectetur adipiscing
+                elit, sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua."
+                    image={
+                        <Image
+                            src="/banner.JPG"
+                            width={500}
+                            height={500}
+                            alt="Charged Up"
+                            className="grayscale rounded-tr-lg rounded-br-lg"
+                        />
+                    }
+                    title="Charged Up"
                 />
             ),
         },
         {
             title: "2022",
             content: (
-                <Image
-                    src="/years/rapid_react.jpg"
-                    width={500}
-                    height={500}
-                    alt="Rapid React"
-                    className="grayscale"
+                <Article
+                    text="Lorem ipsum dolor sit amet, consectetur adipiscing
+    elit, sed do eiusmod tempor incididunt ut labore et
+    dolore magna aliqua."
+                    image={
+                        <Image
+                            src="/years/rapid_react.jpg"
+                            width={500}
+                            height={500}
+                            alt="Rapid React"
+                            className="grayscale rounded-tr-lg rounded-br-lg"
+                        />
+                    }
+                    title="Rapid React"
+                />
+            ),
+        },
+        {
+            title: "2021",
+            content: (
+                <Article
+                    text="Lorem ipsum dolor sit amet, consectetur adipiscing
+    elit, sed do eiusmod tempor incididunt ut labore et
+    dolore magna aliqua."
+                    image={
+                        <Image
+                            src="/years/infinite_recharge.jpg"
+                            width={500}
+                            height={500}
+                            alt="Infinite Recharge"
+                            className="grayscale rounded-tr-lg rounded-br-lg"
+                        />
+                    }
+                    title="Infinite Recharge"
                 />
             ),
         },
@@ -158,12 +227,21 @@ function FloatingNavbar() {
     );
 }
 
+function GridBackground(props: HasChildren & { flip?: boolean }) {
+    return (
+        <div className="dark:bg-grid-small-white/[0.05] bg-grid-small-black/[0.2] w-full rounded-xl border border-[rgba(255,255,255,0.10)] dark:bg-zinc-950 bg-gray-100 shadow-[2px_4px_16px_0px_rgba(248,248,248,0.06)_inset]">
+            {props.children}
+        </div>
+    );
+}
+
 export default function Home() {
     return (
         <>
             <FloatingNavbar />
             <main className="flex flex-col items-center justify-center w-full px-36 pt-16 dark:text-white">
                 <section>
+                    <Spotlight />
                     <Opposites>
                         <Image
                             src="/logos/cavbotics.png"
@@ -188,33 +266,36 @@ export default function Home() {
                                 className="hidden dark:block"
                             />
                         </div>
-                    </Opposites>
-                    <h1 className="relative z-10 text-lg md:text-8xl bg-clip-text text-transparent bg-gradient-to-b from-zinc-200 to-zinc-600 text-center font-bold">
+                    </Opposites>{" "}
+                    <h1 className="py-12 relative text-8xl font-bold">
                         Woodson Robotics
                     </h1>
+                    <BackgroundBeams />
                 </section>
                 <Divider />
                 <section className="flex items-center justify-center flex-col space-y-3">
                     <SectionHeader>As Trusted By</SectionHeader>
                     <div className="grid auto-rows-fr grid-cols-3 gap-4">
                         <Image
-                            src="/banner.JPG"
+                            src="/sponsors/colonial-pipeline-co.svg"
                             width={200}
                             height={200}
-                            alt="FIRST Logo"
+                            alt="Colonial Pipeline Co."
                             className="grayscale"
                         />
                         <Image
-                            src="/banner.JPG"
+                            src="/sponsors/colonial-pipeline-co.svg"
                             width={200}
                             height={200}
-                            alt="FIRST Logo"
+                            alt="Colonial Pipeline Co."
+                            className="grayscale"
                         />
                         <Image
-                            src="/banner.JPG"
+                            src="/sponsors/colonial-pipeline-co.svg"
                             width={200}
                             height={200}
-                            alt="FIRST Logo"
+                            alt="Colonial Pipeline Co."
+                            className="grayscale"
                         />
                     </div>
                 </section>
@@ -225,48 +306,49 @@ export default function Home() {
                         <Small>Smaller text for filler</Small>
                     </Opposites>
                     <div className="flex flex-col space-y-6">
-                        <Opposites>
-                            <Article title="Our Team">
-                                Lorem ipsum dolor sit amet, consectetur
-                                adipiscing elit, sed do eiusmod tempor
-                                incididunt ut labore et dolore magna aliqua. Ut
-                                enim ad minim veniam, quis nostrud exercitation
-                                ullamco laboris nisi ut aliquip ex ea commodo
-                                consequat. Duis aute irure dolor in
-                                reprehenderit in voluptate velit esse cillum
-                                dolore eu fugiat nulla pariatur. Excepteur sint
-                                occaecat cupidatat non proident, sunt in culpa
-                                qui officia deserunt mollit anim id est laborum.
-                            </Article>
-                            <Image
-                                src="/pictures/team.jpg"
-                                width={500}
-                                height={500}
-                                alt="Our Team"
-                                className="grayscale"
-                            />
-                        </Opposites>
-                        <Opposites>
-                            <Image
-                                src="/pictures/mission.jpg"
-                                width={500}
-                                height={500}
-                                alt="Our Mission"
-                                className="grayscale"
-                            />
-                            <Article title="Our Mission">
-                                Lorem ipsum dolor sit amet, consectetur
-                                adipiscing elit, sed do eiusmod tempor
-                                incididunt ut labore et dolore magna aliqua. Ut
-                                enim ad minim veniam, quis nostrud exercitation
-                                ullamco laboris nisi ut aliquip ex ea commodo
-                                consequat. Duis aute irure dolor in
-                                reprehenderit in voluptate velit esse cillum
-                                dolore eu fugiat nulla pariatur. Excepteur sint
-                                occaecat cupidatat non proident, sunt in culpa
-                                qui officia deserunt mollit anim id est laborum.
-                            </Article>
-                        </Opposites>
+                        <Article
+                            text="Lorem ipsum dolor sit amet, consectetur adipiscing
+                        elit, sed do eiusmod tempor incididunt ut labore et
+                        dolore magna aliqua. Ut enim ad minim veniam, quis
+                        nostrud exercitation ullamco laboris nisi ut aliquip
+                        ex ea commodo consequat. Duis aute irure dolor in
+                        reprehenderit in voluptate velit esse cillum dolore
+                        eu fugiat nulla pariatur. Excepteur sint occaecat
+                        cupidatat non proident, sunt in culpa qui officia
+                        deserunt mollit anim id est laborum."
+                            image={
+                                <Image
+                                    src="/pictures/team.jpg"
+                                    width={500}
+                                    height={500}
+                                    alt="Our Team"
+                                    className="grayscale rounded-tr-lg rounded-br-lg"
+                                />
+                            }
+                            title="Our Team"
+                        />
+                        <Article
+                            text="Lorem ipsum dolor sit amet, consectetur adipiscing
+                            elit, sed do eiusmod tempor incididunt ut labore et
+                            dolore magna aliqua. Ut enim ad minim veniam, quis
+                            nostrud exercitation ullamco laboris nisi ut aliquip
+                            ex ea commodo consequat. Duis aute irure dolor in
+                            reprehenderit in voluptate velit esse cillum dolore
+                            eu fugiat nulla pariatur. Excepteur sint occaecat
+                            cupidatat non proident, sunt in culpa qui officia
+                            deserunt mollit anim id est laborum."
+                            image={
+                                <Image
+                                    src="/pictures/mission.jpg"
+                                    width={500}
+                                    height={500}
+                                    alt="Our Mission"
+                                    className="grayscale rounded-tl-lg rounded-bl-lg"
+                                />
+                            }
+                            title="Our Mission"
+                            flip
+                        />
                     </div>
                 </section>
                 <Divider />
@@ -283,102 +365,116 @@ export default function Home() {
                         <SectionHeader>Support Us!</SectionHeader>
                         <Small>Smaller text for filler</Small>
                     </Opposites>
-                    <Opposites>
-                        <div className="flex flex-col space-y-3">
-                            <Article title="Why Donate?">
-                                Lorem ipsum dolor sit amet, consectetur
-                                adipiscing elit, sed do eiusmod tempor
-                                incididunt ut labore et dolore magna aliqua. Ut
-                                enim ad minim veniam, quis nostrud exercitation
-                                ullamco laboris nisi ut aliquip ex ea commodo
-                                consequat. Duis aute irure dolor in
-                                reprehenderit in voluptate velit esse cillum
-                                dolore eu fugiat nulla pariatur. Excepteur sint
-                                occaecat cupidatat non proident, sunt in culpa
-                                qui officia deserunt mollit anim id est laborum.
-                            </Article>
-                            <div>
-                                <Button>Donate!</Button>
-                            </div>
-                        </div>
-                        <Image
-                            src="/banner.JPG"
-                            width={500}
-                            height={500}
-                            alt="FIRST Logo"
-                            className="grayscale rounded-lg"
-                        />
-                    </Opposites>
+                    <Article
+                        text="Lorem ipsum dolor sit amet, consectetur adipiscing
+                        elit, sed do eiusmod tempor incididunt ut labore et
+                        dolore magna aliqua. Ut enim ad minim veniam, quis
+                        nostrud exercitation ullamco laboris nisi ut aliquip
+                        ex ea commodo consequat. Duis aute irure dolor in
+                        reprehenderit in voluptate velit esse cillum dolore
+                        eu fugiat nulla pariatur. Excepteur sint occaecat
+                        cupidatat non proident, sunt in culpa qui officia
+                        deserunt mollit anim id est laborum."
+                        image={
+                            <Image
+                                src="/pictures/why-donate.jpg"
+                                width={500}
+                                height={500}
+                                alt="Why Donate?"
+                                className="grayscale rounded-tr-lg rounded-br-lg"
+                            />
+                        }
+                        title="Why Donate?"
+                    />
                 </section>
                 <Divider />
-                <section className="w-full pb-4">
-                    <Opposites>
-                        <SectionHeader>
-                            Professional Sponsor Tiers
-                        </SectionHeader>
-                        <Small>Smaller text for filler</Small>
-                    </Opposites>
-                    <div className="grid auto-rows-fr grid-cols-4 gap-4">
-                        <SponsorCard title="Wheel" amount="5,000">
-                            <li>Feature</li>
-                            <li>Feature</li>
-                            <li>Feature</li>
-                        </SponsorCard>
-                        <SponsorCard title="Battery" amount="10,000">
-                            <li>Feature</li>
-                            <li>Feature</li>
-                            <li>Feature</li>
-                        </SponsorCard>
-                        <SponsorCard title="Motor" amount="15,000">
-                            <li>Feature</li>
-                            <li>Feature</li>
-                            <li>Feature</li>
-                        </SponsorCard>
-                        <SponsorCard title="Motherboard" amount="20,000">
-                            <li>Feature</li>
-                            <li>Feature</li>
-                            <li>Feature</li>
-                        </SponsorCard>
-                    </div>
-                </section>
+                <BackgroundBeamsWithCollision>
+                    <section className="w-full pb-4">
+                        <Opposites>
+                            <SectionHeader>
+                                Professional Sponsor Tiers
+                            </SectionHeader>
+                            <Small>Smaller text for filler</Small>
+                        </Opposites>
+                        <div className="grid auto-rows-fr grid-cols-4 gap-4">
+                            <SponsorCard title="Wheel" amount="5,000">
+                                <Check>Feature</Check>
+                                <Check>Feature</Check>
+                                <Check>Feature</Check>
+                            </SponsorCard>
+                            <SponsorCard title="Battery" amount="10,000">
+                                <Check>Feature</Check>
+                                <Check>Feature</Check>
+                                <Check>Feature</Check>
+                            </SponsorCard>
+                            <SponsorCard title="Motor" amount="15,000">
+                                <Check>Feature</Check>
+                                <Check>Feature</Check>
+                                <Check>Feature</Check>
+                            </SponsorCard>
+                            <SponsorCard title="Motherboard" amount="20,000">
+                                <Check>Feature</Check>
+                                <Check>Feature</Check>
+                                <Check>Feature</Check>
+                            </SponsorCard>
+                        </div>
+                    </section>
+                </BackgroundBeamsWithCollision>
             </main>{" "}
-            <footer className="w-full border-t border-black dark:border-zinc-900 px-48">
-                <Opposites>
-                    <div className="flex flex-col">
-                        <div className="grid grid-flow-row grid-cols-2 place-items-center gap-12 py-4">
-                            <Image
-                                src="/logos/cavbotics.png"
-                                width={200}
-                                height={100}
-                                alt="CAVBOTICS Logo"
-                                className="invert dark:invert-0"
-                            />
-                            <div>
+            <AuroraBackground>
+                <footer className="w-full border-t border-black dark:border-zinc-900 px-48">
+                    <Opposites>
+                        <div className="flex flex-col">
+                            <div className="grid grid-flow-row grid-cols-2 place-items-center gap-12 py-4">
                                 <Image
-                                    src="/logos/first.png"
-                                    width={325}
-                                    height={200}
-                                    alt="FIRST Robotics Competition Logo"
-                                    className="dark:hidden"
+                                    src="/logos/cavbotics.png"
+                                    width={200}
+                                    height={100}
+                                    alt="CAVBOTICS Logo"
+                                    className="invert dark:invert-0"
                                 />
-                                <Image
-                                    src="/logos/first_dark.png"
-                                    width={325}
-                                    height={200}
-                                    alt="FIRST Robotics Competition Logo"
-                                    className="hidden dark:block"
-                                />
+                                <div>
+                                    <Image
+                                        src="/logos/first.png"
+                                        width={325}
+                                        height={200}
+                                        alt="FIRST Robotics Competition Logo"
+                                        className="dark:hidden"
+                                    />
+                                    <Image
+                                        src="/logos/first_dark.png"
+                                        width={325}
+                                        height={200}
+                                        alt="FIRST Robotics Competition Logo"
+                                        className="hidden dark:block"
+                                    />
+                                </div>
+                            </div>
+                            <p>Copyright Shenanigans. All Rights Reserved</p>
+                        </div>
+                        <div className="text-white z-20 text-xl font-light">
+                            <a
+                                href="https://instagram.com"
+                                className="flex items-center space-x-1 hover:text-zinc-400 transition-all"
+                            >
+                                <RiInstagramFill className="h-7 w-7" />
+                                <p>Instagram</p>
+                            </a>
+                            <a
+                                href="mailto:wtwcsr@gmail.com"
+                                className="flex items-center space-x-1 hover:text-zinc-400 transition-all"
+                            >
+                                <IoIosMail className="h-7 w-7" />
+                                <p>wtwcsr@gmail.com</p>
+                            </a>
+                            <div className="flex items-center space-x-1">
+                                <FaAddressBook className="h-7 w-7" />
+                                <p>9525 Main St, Fairfax, VA 22031</p>
                             </div>
                         </div>
-                        <p>Copyright Shenanigans. All Rights Reserved</p>
-                    </div>
-                    <div>
-                        <p>Instagram</p>
-                        <p>Email</p>
-                        <p>Address</p>
-                    </div>
-                </Opposites>
-            </footer>
+                    </Opposites>
+                </footer>
+            </AuroraBackground>
         </>
     );
 }
