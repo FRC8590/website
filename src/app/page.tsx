@@ -13,6 +13,7 @@ import { IoIosMail } from "react-icons/io";
 import { RiInstagramFill } from "react-icons/ri";
 import { FaAddressBook } from "react-icons/fa";
 import { FaCheckCircle } from "react-icons/fa";
+import { Meteors } from "@/components/meteor";
 
 function Check(props: HasChildren) {
     return (
@@ -37,7 +38,7 @@ interface HasChildren {
 
 function SectionHeader(props: HasChildren) {
     return (
-        <header className="text-4xl font-semibold text-black dark:text-white">
+        <header className="text-3xl lg:text-4xl font-semibold text-black dark:text-white">
             {props.children}
         </header>
     );
@@ -45,7 +46,7 @@ function SectionHeader(props: HasChildren) {
 
 function Small(props: HasChildren) {
     return (
-        <p className="text-zinc-400 dark:text-zinc-700 text-xl font-light italic">
+        <p className="text-zinc-400 dark:text-zinc-700 text-lg lg:text-xl font-light italic">
             {props.children}
         </p>
     );
@@ -53,7 +54,7 @@ function Small(props: HasChildren) {
 
 function Opposites(props: HasChildren) {
     return (
-        <div className="flex items-center justify-between w-full py-2">
+        <div className="flex items-center justify-between w-full py-2 flex-col lg:flex-row">
             {props.children}
         </div>
     );
@@ -66,10 +67,14 @@ function Article(props: {
     flip?: boolean;
 }) {
     return (
-        <GridBackground flip={props.flip}>
-            <div className={`flex ${props.flip ? "flex-row-reverse" : ""}`}>
+        <GridBackground>
+            <div
+                className={`flex lg:flex-row flex-col ${
+                    props.flip ? "lg:flex-row-reverse" : ""
+                }`}
+            >
                 <div className="flex flex-col p-8 space-y-3">
-                    <header className="text-3xl font-semibold">
+                    <header className="text-2xl lg:text-3xl font-semibold">
                         {props.title}
                     </header>
                     <TextGenerateEffect words={props.text} />
@@ -137,7 +142,7 @@ function TeamTimeline() {
                 dolore magna aliqua."
                     image={
                         <Image
-                            src="/banner.JPG"
+                            src="/years/charged_up.jpg"
                             width={500}
                             height={500}
                             alt="Charged Up"
@@ -227,11 +232,16 @@ function FloatingNavbar() {
     );
 }
 
-function GridBackground(props: HasChildren & { flip?: boolean }) {
+function GridBackground(props: HasChildren) {
     return (
-        <div className="dark:bg-grid-small-white/[0.05] bg-grid-small-black/[0.2] w-full rounded-xl border border-[rgba(255,255,255,0.10)] dark:bg-zinc-950 bg-gray-100 shadow-[2px_4px_16px_0px_rgba(248,248,248,0.06)_inset]">
-            {props.children}
-        </div>
+        <>
+            <div className="relative overflow-hidden">
+                <Meteors number={10} />{" "}
+                <div className="dark:bg-grid-small-white/[0.05] bg-grid-small-black/[0.2] w-full rounded-xl border border-[rgba(255,255,255,0.10)] dark:bg-zinc-950 bg-gray-100 shadow-[2px_4px_16px_0px_rgba(248,248,248,0.06)_inset]">
+                    {props.children}
+                </div>
+            </div>
+        </>
     );
 }
 
@@ -239,7 +249,7 @@ export default function Home() {
     return (
         <>
             <FloatingNavbar />
-            <main className="flex flex-col items-center justify-center w-full px-36 pt-16 dark:text-white">
+            <main className="flex flex-col items-center justify-center w-full px-2 xl:px-36 pt-16 dark:text-white min-w-72 overflow-x-auto">
                 <section>
                     <Spotlight />
                     <Opposites>
@@ -248,7 +258,7 @@ export default function Home() {
                             width={225}
                             height={225}
                             alt="CAVBOTICS Logo"
-                            className="invert dark:invert-0"
+                            className="invert dark:invert-0 select-none"
                         />
                         <div>
                             <Image
@@ -256,25 +266,27 @@ export default function Home() {
                                 width={325}
                                 height={200}
                                 alt="FIRST Robotics Competition Logo"
-                                className="dark:hidden"
+                                className="dark:hidden select-none"
                             />
                             <Image
                                 src="/logos/frc_dark.png"
                                 width={325}
                                 height={200}
                                 alt="FIRST Robotics Competition Logo"
-                                className="hidden dark:block"
+                                className="hidden dark:block select-none"
                             />
                         </div>
                     </Opposites>{" "}
-                    <h1 className="py-12 relative text-8xl font-bold">
+                    <h1 className="py-12 relative text-4xl md:text-5xl lg:text-6xl xl:text-8xl font-bold">
                         Woodson Robotics
                     </h1>
                     <BackgroundBeams />
                 </section>
                 <Divider />
                 <section className="flex items-center justify-center flex-col space-y-3">
-                    <SectionHeader>As Trusted By</SectionHeader>
+                    <header className="font-medium text-zinc-100 text-lg">
+                        As Trusted By
+                    </header>
                     <div className="grid auto-rows-fr grid-cols-3 gap-4">
                         <Image
                             src="/sponsors/colonial-pipeline-co.svg"
@@ -360,13 +372,14 @@ export default function Home() {
                     <TeamTimeline />
                 </section>
                 <Divider />
-                <section className="w-full">
-                    <Opposites>
-                        <SectionHeader>Support Us!</SectionHeader>
-                        <Small>Smaller text for filler</Small>
-                    </Opposites>
-                    <Article
-                        text="Lorem ipsum dolor sit amet, consectetur adipiscing
+                <BackgroundBeamsWithCollision className="flex-col">
+                    <section className="w-full -z-20">
+                        <Opposites>
+                            <SectionHeader>Support Us!</SectionHeader>
+                            <Small>Smaller text for filler</Small>
+                        </Opposites>
+                        <Article
+                            text="Lorem ipsum dolor sit amet, consectetur adipiscing
                         elit, sed do eiusmod tempor incididunt ut labore et
                         dolore magna aliqua. Ut enim ad minim veniam, quis
                         nostrud exercitation ullamco laboris nisi ut aliquip
@@ -375,20 +388,19 @@ export default function Home() {
                         eu fugiat nulla pariatur. Excepteur sint occaecat
                         cupidatat non proident, sunt in culpa qui officia
                         deserunt mollit anim id est laborum."
-                        image={
-                            <Image
-                                src="/pictures/why-donate.jpg"
-                                width={500}
-                                height={500}
-                                alt="Why Donate?"
-                                className="grayscale rounded-tr-lg rounded-br-lg"
-                            />
-                        }
-                        title="Why Donate?"
-                    />
-                </section>
-                <Divider />
-                <BackgroundBeamsWithCollision>
+                            image={
+                                <Image
+                                    src="/pictures/why-donate.jpg"
+                                    width={500}
+                                    height={500}
+                                    alt="Why Donate?"
+                                    className="grayscale rounded-tr-lg rounded-br-lg"
+                                />
+                            }
+                            title="Why Donate?"
+                        />
+                    </section>
+                    <Divider />
                     <section className="w-full pb-4">
                         <Opposites>
                             <SectionHeader>
@@ -396,7 +408,7 @@ export default function Home() {
                             </SectionHeader>
                             <Small>Smaller text for filler</Small>
                         </Opposites>
-                        <div className="grid auto-rows-fr grid-cols-4 gap-4">
+                        <div className="grid auto-rows-fr grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                             <SponsorCard title="Wheel" amount="5,000">
                                 <Check>Feature</Check>
                                 <Check>Feature</Check>
@@ -422,16 +434,16 @@ export default function Home() {
                 </BackgroundBeamsWithCollision>
             </main>{" "}
             <AuroraBackground>
-                <footer className="w-full border-t border-black dark:border-zinc-900 px-48">
+                <footer className="w-full border-t border-black dark:border-zinc-900 px-12 xl:px-48">
                     <Opposites>
                         <div className="flex flex-col">
-                            <div className="grid grid-flow-row grid-cols-2 place-items-center gap-12 py-4">
+                            <div className="grid grid-flow-row grid-cols-1 xl:grid-cols-2 place-items-center gap-6 lg:gap-12 py-4">
                                 <Image
                                     src="/logos/cavbotics.png"
                                     width={200}
                                     height={100}
                                     alt="CAVBOTICS Logo"
-                                    className="invert dark:invert-0"
+                                    className="invert dark:invert-0 select-none"
                                 />
                                 <div>
                                     <Image
@@ -439,20 +451,20 @@ export default function Home() {
                                         width={325}
                                         height={200}
                                         alt="FIRST Robotics Competition Logo"
-                                        className="dark:hidden"
+                                        className="dark:hidden select-none"
                                     />
                                     <Image
                                         src="/logos/first_dark.png"
                                         width={325}
                                         height={200}
                                         alt="FIRST Robotics Competition Logo"
-                                        className="hidden dark:block"
+                                        className="hidden dark:block select-none"
                                     />
                                 </div>
                             </div>
                             <p>Copyright Shenanigans. All Rights Reserved</p>
                         </div>
-                        <div className="text-white z-20 text-xl font-light">
+                        <div className="text-white z-20 text-lg lg:text-xl font-light">
                             <a
                                 href="https://instagram.com"
                                 className="flex items-center space-x-1 hover:text-zinc-400 transition-all"

@@ -16,7 +16,7 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body
-                className={`${GeistSans.className} antialiased bg-black dark`}
+                className={`${GeistSans.className} antialiased dark bg-black bg-grid-white/[0.03]`}
             >
                 {children}
             </body>
