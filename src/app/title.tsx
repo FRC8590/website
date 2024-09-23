@@ -1,0 +1,46 @@
+"use client";
+import Image from "next/image";
+import { motion } from "framer-motion";
+
+export default function Title() {
+    return (
+        <motion.div
+            initial={{ opacity: 0.0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{
+                delay: 0.3,
+                duration: 1,
+                ease: "easeInOut",
+            }}
+        >
+            <div className="flex space-y-3 lg:space-y-0 flex-col lg:flex-row items-center w-full justify-between scale-75 lg:scale-100">
+                <Image
+                    src="/logos/cavbotics.png"
+                    width={225}
+                    height={225}
+                    alt="CAVBOTICS Logo"
+                    className="invert dark:invert-0 select-none"
+                />
+                <div>
+                    <Image
+                        src="/logos/frc.png"
+                        width={325}
+                        height={200}
+                        alt="FIRST Robotics Competition Logo"
+                        className="dark:hidden select-none"
+                    />
+                    <Image
+                        src="/logos/frc_dark.png"
+                        width={325}
+                        height={200}
+                        alt="FIRST Robotics Competition Logo"
+                        className="hidden dark:block select-none"
+                    />
+                </div>
+            </div>
+            <h1 className="py-8 lg:py-12 md:text-7xl text-6xl lg:text-9xl font-bold text-center text-white relative z-20">
+                Woodson Robotics
+            </h1>
+        </motion.div>
+    );
+}

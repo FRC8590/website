@@ -1,285 +1,40 @@
+// Functionality
 import Image from "next/image";
+import React from "react";
+
+// UI
 import { BackgroundBeamsWithCollision } from "@/components/background-beams-with-collision";
 import { Spotlight } from "@/components/spotlight";
 import { BackgroundBeams } from "@/components/background-beams";
-import React from "react";
-import { Timeline } from "@/components/timeline";
-import { IconHome, IconMessage, IconUser } from "@tabler/icons-react";
-import { FloatingNav } from "@/components/floating-navbar";
-import { TextGenerateEffect } from "@/components/text-generate-effect";
-import { BackgroundLines } from "@/components/background-lines";
 import { AuroraBackground } from "@/components/aurora-background";
 import { IoIosMail } from "react-icons/io";
 import { RiInstagramFill } from "react-icons/ri";
 import { FaAddressBook } from "react-icons/fa";
-import { FaCheckCircle } from "react-icons/fa";
-import { Meteors } from "@/components/meteor";
 
-function Check(props: HasChildren) {
-    return (
-        <li className="font-medium flex items-center space-x-1">
-            <FaCheckCircle />
-            <p>{props.children}</p>
-        </li>
-    );
-}
+// Utilities
+import Divider from "@/utils/divider";
+import Opposites from "@/utils/opposites";
+import SectionHeader from "@/utils/section-header";
+import Check from "@/utils/check";
+import Small from "@/utils/small";
 
-function Divider() {
-    return (
-        <div className="py-4 h-4 w-full">
-            <hr className="w-full border-t border-zinc-700 dark:border-zinc-900" />
-        </div>
-    );
-}
+// Components
 
-interface HasChildren {
-    children: React.ReactNode;
-}
-
-function SectionHeader(props: HasChildren) {
-    return (
-        <header className="text-3xl lg:text-4xl font-semibold text-black dark:text-white">
-            {props.children}
-        </header>
-    );
-}
-
-function Small(props: HasChildren) {
-    return (
-        <p className="text-zinc-400 dark:text-zinc-700 text-lg lg:text-xl font-light italic">
-            {props.children}
-        </p>
-    );
-}
-
-function Opposites(props: HasChildren) {
-    return (
-        <div className="flex items-center justify-between w-full py-2 flex-col lg:flex-row">
-            {props.children}
-        </div>
-    );
-}
-
-function Article(props: {
-    text: string;
-    title: string;
-    image: React.ReactNode;
-    flip?: boolean;
-}) {
-    return (
-        <GridBackground>
-            <div
-                className={`flex lg:flex-row flex-col ${
-                    props.flip ? "lg:flex-row-reverse" : ""
-                }`}
-            >
-                <div className="flex flex-col p-8 space-y-3">
-                    <header className="text-2xl lg:text-3xl font-semibold">
-                        {props.title}
-                    </header>
-                    <TextGenerateEffect words={props.text} />
-                </div>
-                {props.image}
-            </div>
-        </GridBackground>
-    );
-}
-
-function SponsorCard(props: HasChildren & { title: string; amount: string }) {
-    return (
-        <div className="dark:bg-grid-small-white/[0.05] bg-grid-small-black/[0.2] flex flex-col space-y-3 w-full p-8 rounded-xl border border-[rgba(255,255,255,0.10)] dark:bg-zinc-950 bg-gray-100 shadow-[2px_4px_16px_0px_rgba(248,248,248,0.06)_inset] mx-auto group">
-            <header className="text-xl font-light">{props.title}</header>
-            <p className="text-5xl font-bold">
-                <span className="font-normal text-xl text-zinc-200 select-none">
-                    $
-                </span>
-                {props.amount}
-            </p>
-            <ul>{props.children}</ul>
-            <button className="text-lg px-8 py-1 font-semibold rounded-lg bg-gradient-to-b from-rose-500 to-rose-900 text-white hover:shadow-xl transition duration-200">
-                More Information
-            </button>
-        </div>
-    );
-}
-
-function Button(props: HasChildren) {
-    return (
-        <button className="px-8 py-2 rounded-full bg-gradient-to-b from-blue-500 to-blue-600 text-white focus:ring-2 focus:ring-blue-400 hover:shadow-xl transition duration-200">
-            {props.children}
-        </button>
-    );
-}
-
-function TeamTimeline() {
-    const data = [
-        {
-            title: "2024",
-            content: (
-                <Article
-                    text="Lorem ipsum dolor sit amet, consectetur adipiscing
-                elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua."
-                    image={
-                        <Image
-                            src="/years/crescendo.jpg"
-                            width={500}
-                            height={500}
-                            alt="Crescendo"
-                            className="grayscale rounded-tr-lg rounded-br-lg"
-                        />
-                    }
-                    title="Crescendo"
-                />
-            ),
-        },
-        {
-            title: "2023",
-            content: (
-                <Article
-                    text="Lorem ipsum dolor sit amet, consectetur adipiscing
-                elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua."
-                    image={
-                        <Image
-                            src="/years/charged_up.jpg"
-                            width={500}
-                            height={500}
-                            alt="Charged Up"
-                            className="grayscale rounded-tr-lg rounded-br-lg"
-                        />
-                    }
-                    title="Charged Up"
-                />
-            ),
-        },
-        {
-            title: "2022",
-            content: (
-                <Article
-                    text="Lorem ipsum dolor sit amet, consectetur adipiscing
-    elit, sed do eiusmod tempor incididunt ut labore et
-    dolore magna aliqua."
-                    image={
-                        <Image
-                            src="/years/rapid_react.jpg"
-                            width={500}
-                            height={500}
-                            alt="Rapid React"
-                            className="grayscale rounded-tr-lg rounded-br-lg"
-                        />
-                    }
-                    title="Rapid React"
-                />
-            ),
-        },
-        {
-            title: "2021",
-            content: (
-                <Article
-                    text="Lorem ipsum dolor sit amet, consectetur adipiscing
-    elit, sed do eiusmod tempor incididunt ut labore et
-    dolore magna aliqua."
-                    image={
-                        <Image
-                            src="/years/infinite_recharge.jpg"
-                            width={500}
-                            height={500}
-                            alt="Infinite Recharge"
-                            className="grayscale rounded-tr-lg rounded-br-lg"
-                        />
-                    }
-                    title="Infinite Recharge"
-                />
-            ),
-        },
-    ];
-    return (
-        <div className="w-full">
-            <Timeline data={data} />
-        </div>
-    );
-}
-
-function FloatingNavbar() {
-    const navItems = [
-        {
-            name: "Home",
-            link: "/",
-            icon: (
-                <IconHome className="h-4 w-4 text-neutral-500 dark:text-white" />
-            ),
-        },
-        {
-            name: "About",
-            link: "/about",
-            icon: (
-                <IconUser className="h-4 w-4 text-neutral-500 dark:text-white" />
-            ),
-        },
-        {
-            name: "Contact",
-            link: "/contact",
-            icon: (
-                <IconMessage className="h-4 w-4 text-neutral-500 dark:text-white" />
-            ),
-        },
-    ];
-    return (
-        <div className="relative w-full">
-            <FloatingNav navItems={navItems} />
-        </div>
-    );
-}
-
-function GridBackground(props: HasChildren) {
-    return (
-        <>
-            <div className="relative overflow-hidden">
-                <Meteors number={10} />{" "}
-                <div className="dark:bg-grid-small-white/[0.05] bg-grid-small-black/[0.2] w-full rounded-xl border border-[rgba(255,255,255,0.10)] dark:bg-zinc-950 bg-gray-100 shadow-[2px_4px_16px_0px_rgba(248,248,248,0.06)_inset]">
-                    {props.children}
-                </div>
-            </div>
-        </>
-    );
-}
+import FloatingNavbar from "./floating-navbar";
+import Title from "./title";
+import SponsorCard from "./sponsor-card";
+import Article from "./article";
+import TeamTimeline from "./team-timeline";
+import SponsorList from "./sponsor-list";
 
 export default function Home() {
     return (
         <>
             <FloatingNavbar />
             <main className="flex flex-col items-center justify-center w-full px-2 xl:px-36 pt-16 dark:text-white min-w-72 overflow-x-auto">
-                <section>
+                <section className="lg:pt-24">
                     <Spotlight />
-                    <Opposites>
-                        <Image
-                            src="/logos/cavbotics.png"
-                            width={225}
-                            height={225}
-                            alt="CAVBOTICS Logo"
-                            className="invert dark:invert-0 select-none"
-                        />
-                        <div>
-                            <Image
-                                src="/logos/frc.png"
-                                width={325}
-                                height={200}
-                                alt="FIRST Robotics Competition Logo"
-                                className="dark:hidden select-none"
-                            />
-                            <Image
-                                src="/logos/frc_dark.png"
-                                width={325}
-                                height={200}
-                                alt="FIRST Robotics Competition Logo"
-                                className="hidden dark:block select-none"
-                            />
-                        </div>
-                    </Opposites>{" "}
-                    <h1 className="py-12 relative text-4xl md:text-5xl lg:text-6xl xl:text-8xl font-bold">
-                        Woodson Robotics
-                    </h1>
+                    <Title />
                     <BackgroundBeams />
                 </section>
                 <Divider />
@@ -287,32 +42,10 @@ export default function Home() {
                     <header className="font-medium text-zinc-100 text-lg">
                         As Trusted By
                     </header>
-                    <div className="grid auto-rows-fr grid-cols-3 gap-4">
-                        <Image
-                            src="/sponsors/colonial-pipeline-co.svg"
-                            width={200}
-                            height={200}
-                            alt="Colonial Pipeline Co."
-                            className="grayscale"
-                        />
-                        <Image
-                            src="/sponsors/colonial-pipeline-co.svg"
-                            width={200}
-                            height={200}
-                            alt="Colonial Pipeline Co."
-                            className="grayscale"
-                        />
-                        <Image
-                            src="/sponsors/colonial-pipeline-co.svg"
-                            width={200}
-                            height={200}
-                            alt="Colonial Pipeline Co."
-                            className="grayscale"
-                        />
-                    </div>
+                    <SponsorList />
                 </section>
                 <Divider />
-                <section className="w-full">
+                <section className="w-full" id="about">
                     <Opposites>
                         <SectionHeader>Who are we?</SectionHeader>
                         <Small>Smaller text for filler</Small>
@@ -364,7 +97,7 @@ export default function Home() {
                     </div>
                 </section>
                 <Divider />
-                <section className="w-full">
+                <section className="w-full" id="years">
                     <Opposites>
                         <SectionHeader>Previous Years</SectionHeader>
                         <Small>Smaller text for filler</Small>
@@ -373,7 +106,7 @@ export default function Home() {
                 </section>
                 <Divider />
                 <BackgroundBeamsWithCollision className="flex-col">
-                    <section className="w-full -z-20">
+                    <section className="w-full -z-20" id="donate">
                         <Opposites>
                             <SectionHeader>Support Us!</SectionHeader>
                             <Small>Smaller text for filler</Small>
@@ -401,7 +134,7 @@ export default function Home() {
                         />
                     </section>
                     <Divider />
-                    <section className="w-full pb-4">
+                    <section className="w-full pb-4" id="sponsorships">
                         <Opposites>
                             <SectionHeader>
                                 Professional Sponsor Tiers
@@ -434,37 +167,37 @@ export default function Home() {
                 </BackgroundBeamsWithCollision>
             </main>{" "}
             <AuroraBackground>
-                <footer className="w-full border-t border-black dark:border-zinc-900 px-12 xl:px-48">
+                <footer
+                    className="w-full border-t border-black dark:border-zinc-900 px-12 xl:px-48"
+                    id="contact"
+                >
                     <Opposites>
-                        <div className="flex flex-col">
-                            <div className="grid grid-flow-row grid-cols-1 xl:grid-cols-2 place-items-center gap-6 lg:gap-12 py-4">
+                        <div className="grid grid-flow-row grid-cols-1 xl:grid-cols-2 place-items-center gap-6 lg:gap-12 py-4">
+                            <Image
+                                src="/logos/cavbotics.png"
+                                width={200}
+                                height={100}
+                                alt="CAVBOTICS Logo"
+                                className="invert dark:invert-0 select-none"
+                            />
+                            <div>
                                 <Image
-                                    src="/logos/cavbotics.png"
-                                    width={200}
-                                    height={100}
-                                    alt="CAVBOTICS Logo"
-                                    className="invert dark:invert-0 select-none"
+                                    src="/logos/first.png"
+                                    width={325}
+                                    height={200}
+                                    alt="FIRST Robotics Competition Logo"
+                                    className="dark:hidden select-none"
                                 />
-                                <div>
-                                    <Image
-                                        src="/logos/first.png"
-                                        width={325}
-                                        height={200}
-                                        alt="FIRST Robotics Competition Logo"
-                                        className="dark:hidden select-none"
-                                    />
-                                    <Image
-                                        src="/logos/first_dark.png"
-                                        width={325}
-                                        height={200}
-                                        alt="FIRST Robotics Competition Logo"
-                                        className="hidden dark:block select-none"
-                                    />
-                                </div>
+                                <Image
+                                    src="/logos/first_dark.png"
+                                    width={325}
+                                    height={200}
+                                    alt="FIRST Robotics Competition Logo"
+                                    className="hidden dark:block select-none"
+                                />
                             </div>
-                            <p>Copyright Shenanigans. All Rights Reserved</p>
                         </div>
-                        <div className="text-white z-20 text-lg lg:text-xl font-light">
+                        <div className="text-white z-20 text-lg lg:text-xl font-medium">
                             <a
                                 href="https://instagram.com"
                                 className="flex items-center space-x-1 hover:text-zinc-400 transition-all"
