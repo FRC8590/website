@@ -19,21 +19,7 @@ export default function SponsorList() {
                 width={200}
                 height={200}
                 alt="Colonial Pipeline Co."
-                className="grayscale"
-            />
-            <Image
-                src="/sponsors/colonial-pipeline-co.svg"
-                width={200}
-                height={200}
-                alt="Colonial Pipeline Co."
-                className="grayscale"
-            />
-            <Image
-                src="/sponsors/colonial-pipeline-co.svg"
-                width={200}
-                height={200}
-                alt="Colonial Pipeline Co."
-                className="grayscale"
+                className="grayscale hover:grayscale-0 transition-all"
             />
         </motion.div>
     );

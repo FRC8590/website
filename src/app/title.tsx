@@ -13,7 +13,7 @@ export default function Title() {
                 ease: "easeInOut",
             }}
         >
-            <div className="flex space-y-3 lg:space-y-0 flex-col lg:flex-row items-center w-full justify-between scale-75 lg:scale-100">
+            <div className="flex space-y-3 md:space-y-0 flex-col md:flex-row items-center w-full justify-between">
                 <Image
                     src="/logos/cavbotics.png"
                     width={225}
@@ -38,7 +38,7 @@ export default function Title() {
                     />
                 </div>
             </div>
-            <h1 className="py-8 lg:py-12 md:text-7xl text-6xl lg:text-9xl font-bold text-center text-white relative z-20">
+            <h1 className="py-8 lg:py-12 md:text-7xl text-5xl xl:text-9xl font-bold text-center text-white relative z-20">
                 Woodson Robotics
             </h1>
         </motion.div>

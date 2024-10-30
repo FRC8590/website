@@ -10,8 +10,8 @@ export default function Article(props: {
     return (
         <GridBackground>
             <div
-                className={`flex lg:flex-row flex-col ${
-                    props.flip ? "lg:flex-row-reverse" : ""
+                className={`flex xl:flex-row flex-col ${
+                    props.flip ? "xl:flex-row-reverse" : ""
                 }`}
             >
                 <div className="flex flex-col p-8 space-y-3">
