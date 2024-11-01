@@ -13,35 +13,35 @@ export default function FloatingNavbar() {
             name: "About Us",
             link: "#about",
             icon: (
-                <IconUsers className="h-6 w-6 text-neutral-500 dark:text-white" />
+                <IconUsers className="h-6 w-6 text-zinc-500 dark:text-white" />
             ),
         },
         {
             name: "Our Past",
             link: "#years",
             icon: (
-                <IconHistory className="h-6 w-6 text-neutral-500 dark:text-white" />
+                <IconHistory className="h-6 w-6 text-zinc-500 dark:text-white" />
             ),
         },
         {
             name: "Donations",
             link: "#donate",
             icon: (
-                <IconCash className="h-6 w-6 text-neutral-500 dark:text-white" />
+                <IconCash className="h-6 w-6 text-zinc-500 dark:text-white" />
             ),
         },
         {
             name: "Sponsorships",
             link: "#sponsorships",
             icon: (
-                <IconCoin className="h-6 w-6 text-neutral-500 dark:text-white" />
+                <IconCoin className="h-6 w-6 text-zinc-500 dark:text-white" />
             ),
         },
         {
             name: "Contact Us",
             link: "#contact",
             icon: (
-                <IconMessage className="h-6 w-6 text-neutral-500 dark:text-white" />
+                <IconMessage className="h-6 w-6 text-zinc-500 dark:text-white" />
             ),
         },
     ];

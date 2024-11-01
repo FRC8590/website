@@ -15,6 +15,13 @@ export default function SponsorList() {
             }}
         >
             <Image
+                src="/sponsors/wt-ptso.png"
+                width={100}
+                height={100}
+                alt="C.G. Woodson PTSO"
+                className="grayscale hover:grayscale-0 transition-all"
+            />
+            <Image
                 src="/sponsors/colonial-pipeline-co.svg"
                 width={200}
                 height={200}

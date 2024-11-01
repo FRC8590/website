@@ -136,11 +136,11 @@ export const BackgroundBeams = React.memo(
                         >
                             <stop
                                 offset="0.0666667"
-                                stopColor="var(--neutral-400)"
+                                stopColor="var(--zinc-400)"
                             ></stop>
                             <stop
                                 offset="0.243243"
-                                stopColor="var(--neutral-400)"
+                                stopColor="var(--zinc-400)"
                             ></stop>
                             <stop
                                 offset="0.43594"

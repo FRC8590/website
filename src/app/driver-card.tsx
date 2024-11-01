@@ -1,11 +1,21 @@
 "use client";
 import { BackgroundGradient } from "@/components/background-gradient";
 import Check from "@/utils/check";
+import { motion } from "framer-motion";
 
 export default function DriverCard() {
     return (
-        <div className="flex items-center justify-center">
-            <div className="w-1/2">
+        <motion.div
+            initial={{ opacity: 0.0, y: 80 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{
+                delay: 0.5,
+                duration: 1.5,
+                ease: "easeInOut",
+            }}
+            className="flex items-center justify-center py-4 lg:py-4"
+        >
+            <div className="w-full lg:w-1/2">
                 <BackgroundGradient
                     className="rounded-[22px] w-full bg-white dark:bg-zinc-950"
                     colorCycle={3}
@@ -30,6 +40,6 @@ export default function DriverCard() {
                     </div>
                 </BackgroundGradient>
             </div>
-        </div>
+        </motion.div>
     );
 }

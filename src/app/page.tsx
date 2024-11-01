@@ -10,10 +10,9 @@ import { AuroraBackground } from "@/components/aurora-background";
 import { IoIosMail } from "react-icons/io";
 import { RiInstagramFill } from "react-icons/ri";
 import { FaAddressBook } from "react-icons/fa";
-import { Cover } from "@/components/cover";
+import { Modal } from "@/components/animated-modal";
 
 // Utilities
-import Divider from "@/utils/divider";
 import Opposites from "@/utils/opposites";
 import SectionHeader from "@/utils/section-header";
 import Check from "@/utils/check";
@@ -31,7 +30,7 @@ import Countdown from "./countdown";
 
 export default function Home() {
     return (
-        <>
+        <Modal>
             <FloatingNavbar />
             <main className="flex flex-col items-center justify-center w-full px-2 2xl:px-28 pt-16 dark:text-white min-w-72 overflow-x-auto">
                 <section className="lg:pt-12 xl:pt-24">
@@ -40,14 +39,9 @@ export default function Home() {
                     <Countdown />
                     <BackgroundBeams />
                 </section>
-                <Divider />
-                <section className="flex items-center justify-center flex-col space-y-3">
-                    <header className="font-thin text-zinc-200 text-4xl">
-                        As Trusted By
-                    </header>
+                <section className="flex items-center justify-center flex-col space-y-3 py-8">
                     <SponsorList />
                 </section>
-                <Divider />
                 <section className="w-full" id="about">
                     <SectionHeader>Who are we?</SectionHeader>
                     <div className="flex flex-col space-y-6">
@@ -89,14 +83,12 @@ export default function Home() {
                         />
                     </div>
                 </section>
-                <Divider />
-                <section className="w-full" id="years">
+                <section className="w-full py-8" id="years">
                     <SectionHeader>Previous Years</SectionHeader>
                     <TeamTimeline />
                 </section>
-                <Divider />
                 <BackgroundBeamsWithCollision className="flex-col">
-                    <section className="w-full -z-20" id="donate">
+                    <section className="w-full -z-20 py-8" id="donate">
                         <SectionHeader>Support Us!</SectionHeader>
 
                         <Article
@@ -115,8 +107,7 @@ export default function Home() {
                             title="Why Donate?"
                         />
                     </section>
-                    <Divider />
-                    <section className="w-full pb-4" id="sponsorships">
+                    <section className="w-full pb-4 pt-8" id="sponsorships">
                         <SectionHeader>
                             Professional Sponsor Tiers
                         </SectionHeader>
@@ -144,7 +135,7 @@ export default function Home() {
                                 <Check>Large logo on robot</Check>
                             </SponsorCard>
                         </div>
-                        <div className="p-12">
+                        <div className="lg:p-12">
                             <DriverCard />
                         </div>
                     </section>
@@ -204,6 +195,6 @@ export default function Home() {
                     </Opposites>
                 </footer>
             </AuroraBackground>
-        </>
+        </Modal>
     );
 }
