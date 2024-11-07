@@ -21,6 +21,7 @@ export default function Title() {
                     alt="CAVBOTICS Logo"
                     className="invert dark:invert-0 select-none"
                 />
+
                 <div>
                     <Image
                         src="/logos/frc.png"
@@ -38,7 +39,7 @@ export default function Title() {
                     />
                 </div>
             </div>
-            <h1 className="py-8 lg:py-12 md:text-7xl text-5xl xl:text-9xl font-bold text-center text-white relative z-20">
+            <h1 className="py-8 lg:py-12 md:text-7xl text-5xl xl:text-9xl font-bold text-center relative z-20 bg-clip-text bg-no-repeat text-transparent bg-gradient-to-r from-zinc-500 via-white to-zinc-600 [text-shadow:0_0_rgba(0,0,0,0.1)]">
                 Woodson Robotics
             </h1>
         </motion.div>

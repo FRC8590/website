@@ -18,7 +18,6 @@ import SectionHeader from "@/utils/section-header";
 import Check from "@/utils/check";
 
 // Components
-
 import FloatingNavbar from "./floating-navbar";
 import Title from "./title";
 import SponsorCard from "./sponsor-card";
@@ -27,21 +26,25 @@ import TeamTimeline from "./team-timeline";
 import SponsorList from "./sponsor-list";
 import DriverCard from "./driver-card";
 import Countdown from "./countdown";
+import Newsletter from "./newsletter";
 
 export default function Home() {
     return (
         <Modal>
+            <Newsletter></Newsletter>
             <FloatingNavbar />
             <main className="flex flex-col items-center justify-center w-full px-2 2xl:px-28 pt-16 dark:text-white min-w-72 overflow-x-auto">
-                <section className="lg:pt-12 xl:pt-24">
-                    <Spotlight />
-                    <Title />
-                    <Countdown />
-                    <BackgroundBeams />
-                </section>
-                <section className="flex items-center justify-center flex-col space-y-3 py-8">
-                    <SponsorList />
-                </section>
+                <div className="py-32">
+                    <section>
+                        <Spotlight />
+                        <Title />
+                        <Countdown />
+                        <BackgroundBeams />
+                    </section>
+                    <section className="flex items-center justify-center flex-col space-y-3 py-8">
+                        <SponsorList />
+                    </section>
+                </div>
                 <section className="w-full" id="about">
                     <SectionHeader>Who are we?</SectionHeader>
                     <div className="flex flex-col space-y-6">
@@ -65,7 +68,7 @@ export default function Home() {
                             text="Our mission as a student-run FRC team is to create a welcoming and encouraging
                             environment that enables STEM students to improve their skills in robotics and the engineering process. 
                             As a student-run team, we have extra responsibilities, as we take it upon ourselves to educate new members 
-                            and ensure they succeed when they eventually pursue STEM in the future. We encourage our students to make 
+                            and ensure they succeed when they eventually pursue STEM in the future.We encourage our students to make 
                             connections and support them to make sure everyone's voices are heard in the club. Lastly, our goal is to succeed,
                             as we can reach more people through our achievements and help more students in the future. Together, these things drive our
                             determination and help to make our team environment the best it can be."

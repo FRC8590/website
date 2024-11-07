@@ -5,8 +5,8 @@ import { motion } from "framer-motion";
 export default function SectionHeader(props: HasChildren) {
     return (
         <motion.header
-            initial={{ opacity: 0.0, x: 40 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0.0 }}
+            whileInView={{ opacity: 1 }}
             transition={{
                 delay: 0.2,
                 duration: 0.6,

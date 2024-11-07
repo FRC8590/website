@@ -39,9 +39,19 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
                             <div className="h-10 absolute left-3 md:left-3 w-10 rounded-full bg-white dark:bg-black flex items-center justify-center">
                                 <div className="h-4 w-4 rounded-full bg-zinc-200 dark:bg-zinc-800 border border-zinc-300 dark:border-zinc-700 p-2" />
                             </div>
-                            <h3 className="hidden md:block text-xl md:pl-20 md:text-5xl font-bold text-zinc-500 dark:text-zinc-500 ">
+
+                            <motion.h3
+                                initial={{ opacity: 0.0 }}
+                                whileInView={{ opacity: 1 }}
+                                transition={{
+                                    delay: 0.1,
+                                    duration: 0.4,
+                                    ease: "easeInOut",
+                                }}
+                                className="hidden md:block text-xl md:pl-20 md:text-5xl font-bold text-zinc-500 dark:text-zinc-500 "
+                            >
                                 {item.title}
-                            </h3>
+                            </motion.h3>
                         </div>
 
                         <div className="relative pl-20 pr-4 md:pl-4 w-full">

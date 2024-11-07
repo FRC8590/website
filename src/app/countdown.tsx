@@ -5,8 +5,8 @@ import type { HasChildren } from "@/utils/types";
 function Slot(props: HasChildren & { label: string }) {
     return (
         <div className="flex items-center space-x-1">
-            <p className="text-lg font-extrabold">{props.children}</p>
-            <p className="font-light">{props.label}</p>
+            <p className="text-2xl font-extrabold">{props.children}</p>
+            <p className="font-light text-lg">{props.label}</p>
         </div>
     );
 }
@@ -51,14 +51,14 @@ export default function Countdown() {
                 ease: "easeInOut",
             }}
         >
-            <div className="flex items-center justify-center flex-col lg:flex-row space-y-3 lg:space-y-0 w-2/5">
-                <div className="w-1/2 bg-blue-700 text-white p-3 lg:rounded-tl-lg lg:rounded-bl-lg rounded-lg lg:rounded-none grid">
+            <div className="flex items-center justify-center flex-col lg:flex-row space-y-3 lg:space-y-0 w-2/3 xl:w-2/5">
+                <div className="lg:w-1/2 bg-blue-700 text-white p-3 lg:rounded-tl-lg lg:rounded-bl-lg rounded-lg lg:rounded-none grid">
                     <div className="flex items-center space-x-6 justify-self-end">
                         <Slot label="days">{days}</Slot>
                         <Slot label="hours">{hours}</Slot>
                     </div>
                 </div>
-                <div className="w-1/2 bg-red-700 text-white p-3 lg:rounded-tr-lg lg:rounded-br-lg lg:rounded-none rounded-lg grid">
+                <div className="lg:w-1/2 bg-red-700 text-white p-3 lg:rounded-tr-lg lg:rounded-br-lg lg:rounded-none rounded-lg grid">
                     <div className="flex items-center space-x-6 justify-self-start">
                         <Slot label="mins">{minutes}</Slot>
                         <Slot label="secs">{seconds}</Slot>

@@ -43,7 +43,7 @@ export const FloatingNav = ({
                         )}
                     >
                         <span className="block sm:hidden">{navItem.icon}</span>
-                        <span className="hidden sm:block font-medium text-base">
+                        <span className="hidden sm:block font-light text-lg">
                             {navItem.name}
                         </span>
                     </Link>
