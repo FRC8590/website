@@ -14,7 +14,7 @@ export default function SponsorCard(
                 duration: 0.6,
                 ease: "easeInOut",
             }}
-            className="dark:bg-grid-small-white/[0.05] bg-grid-small-black/[0.2] flex flex-col space-y-3 w-full p-8 rounded-xl border border-[rgba(255,255,255,0.10)] dark:bg-zinc-950 bg-gray-100 shadow-[2px_4px_16px_0px_rgba(248,248,248,0.06)_inset] mx-auto group"
+            className="dark:bg-grid-small-white/[0.05] bg-grid-small-black/[0.2] flex flex-col space-y-3 w-full p-8 rounded-xl border border-[rgba(255,255,255,0.10)] dark:bg-zinc-950 bg-zinc-100 shadow-[2px_4px_16px_0px_rgba(248,248,248,0.06)_inset] mx-auto group"
         >
             <header className="text-xl font-light">{props.title}</header>
             <p className="text-5xl font-bold">

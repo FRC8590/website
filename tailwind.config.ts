@@ -31,7 +31,7 @@ const config: Config = {
                 foreground: "var(--foreground)",
             },
             animation: {
-                spotlight: "spotlight 2s ease .75s 1 forwards",
+                spotlight: "spotlight 4s ease .75s 1 forwards",
                 aurora: "aurora 60s linear infinite",
                 "meteor-effect": "meteor 5s linear infinite",
             },

@@ -1,11 +1,11 @@
 "use client";
 import Image from "next/image";
 import { motion } from "framer-motion";
-
+/* className="grid auto-rows-fr grid-cols-3 gap-4 py-4" */
 export default function SponsorList() {
     return (
         <motion.div
-            className="grid auto-rows-fr grid-cols-3 gap-4 py-4"
+            className="flex items-center justify-center py-4 space-x-6 lg:space-x-12"
             initial={{ opacity: 0.0 }}
             whileInView={{ opacity: 1 }}
             transition={{

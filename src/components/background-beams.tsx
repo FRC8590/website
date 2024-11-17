@@ -113,10 +113,10 @@ export const BackgroundBeams = React.memo(
                                 }}
                             >
                                 <stop
-                                    stopColor="#18CCFC"
+                                    stopColor="#e03140"
                                     stopOpacity="0"
                                 ></stop>
-                                <stop stopColor="#18CCFC"></stop>
+                                <stop stopColor="#f06767"></stop>
                                 <stop offset="32.5%" stopColor="#3a5de8"></stop>
                                 <stop
                                     offset="100%"
