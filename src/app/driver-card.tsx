@@ -2,6 +2,7 @@
 import { BackgroundGradient } from "@/components/background-gradient";
 import Check from "@/utils/check";
 import { motion } from "framer-motion";
+import SponsorButton from "./sponsor-button";
 
 export default function DriverCard() {
     return (
@@ -34,9 +35,7 @@ export default function DriverCard() {
                             <Check>Team gifts and merchandise</Check>
                             <Check>Large signed photo of the team</Check>
                         </ul>
-                        <button className="text-lg px-8 py-1 font-semibold rounded-lg bg-gradient-to-b from-rose-500 to-rose-900 text-white hover:shadow-xl transition duration-200">
-                            More Information
-                        </button>
+                        <SponsorButton />
                     </div>
                 </BackgroundGradient>
             </div>

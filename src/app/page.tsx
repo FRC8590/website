@@ -4,8 +4,6 @@ import React from "react";
 
 // UI
 import { BackgroundBeamsWithCollision } from "@/components/background-beams-with-collision";
-import { Spotlight } from "@/components/spotlight";
-import { BackgroundBeams } from "@/components/background-beams";
 import { AuroraBackground } from "@/components/aurora-background";
 import { IoIosMail } from "react-icons/io";
 import { RiInstagramFill } from "react-icons/ri";
@@ -175,18 +173,18 @@ export default function Home() {
                         </div>
                         <div className="text-white z-20 text-lg lg:text-xl font-medium">
                             <a
-                                href="https://instagram.com"
+                                href="https://www.instagram.com/cgwrobotics"
                                 className="flex items-center space-x-1 hover:text-zinc-400 transition-all"
                             >
                                 <RiInstagramFill className="h-7 w-7" />
                                 <p>Instagram</p>
                             </a>
                             <a
-                                href="mailto:wtwcsr@gmail.com"
+                                href="mailto:cgwrobotics@gmail.com"
                                 className="flex items-center space-x-1 hover:text-zinc-400 transition-all"
                             >
                                 <IoIosMail className="h-7 w-7" />
-                                <p>wtwcsr@gmail.com</p>
+                                <p>cgwrobotics@gmail.com</p>
                             </a>
                             <div className="flex items-center space-x-1">
                                 <FaAddressBook className="h-7 w-7" />

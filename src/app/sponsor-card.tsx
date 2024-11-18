@@ -1,6 +1,7 @@
 "use client";
 import type { HasChildren } from "@/utils/types";
 import { motion } from "framer-motion";
+import SponsorButton from "./sponsor-button";
 
 export default function SponsorCard(
     props: HasChildren & { title: string; amount: string }
@@ -24,9 +25,7 @@ export default function SponsorCard(
                 {props.amount}
             </p>
             <ul>{props.children}</ul>
-            <button className="text-lg px-8 py-1 font-semibold rounded-lg bg-gradient-to-b from-rose-500 to-rose-900 text-white hover:shadow-xl transition duration-200">
-                More Information
-            </button>
+            <SponsorButton />
         </motion.div>
     );
 }
