@@ -38,7 +38,6 @@ export default function Home() {
                     <section>
                         <Title />
                         <Countdown />
-                        <BackgroundBeams />
                     </section>
                     <section className="flex items-center justify-center flex-col space-y-3 py-8">
                         <SponsorList />
