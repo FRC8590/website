@@ -29,14 +29,15 @@ export default function Newsletter() {
                 <div className="flex justify-center items-center flex-col">
                     <p className="text-zinc-200 text-sm pb-4 w-2/3">
                         The team newsletter keeps parents and supporters
-                        up-to-date with the latest developments in our team's
-                        journey. It highlights upcoming competitions, showcases
-                        recent achievements, and provides insights into the
-                        team's design process and technical challenges. With
-                        updates on robot prototypes, fundraising efforts, and
-                        team events, the newsletter is a great way for the
-                        community to stay engaged and cheer on the team's
-                        progress throughout the season.
+                        up-to-date with the latest developments in our
+                        team&apos;s journey. It highlights upcoming
+                        competitions, showcases recent achievements, and
+                        provides insights into the team&apos;s design process
+                        and technical challenges. With updates on robot
+                        prototypes, fundraising efforts, and team events, the
+                        newsletter is a great way for the community to stay
+                        engaged and cheer on the team&apos;s progress throughout
+                        the season.
                     </p>
                     <div className="flex flex-col items-center justify-center space-y-2">
                         <form
@@ -89,7 +90,7 @@ export default function Newsletter() {
                     }}
                     className="px-2 py-1 bg-zinc-200 text-black dark:bg-black dark:border-black dark:text-white border border-zinc-300 rounded-md text-sm w-40"
                 >
-                    Don't Show Again
+                    Don&apos;t Show Again
                 </button>
             </ModalFooter>
         </ModalBody>

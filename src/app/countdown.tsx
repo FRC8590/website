@@ -18,7 +18,7 @@ export default function Countdown() {
     const [seconds, setSeconds] = useState(0);
     let interval: NodeJS.Timeout | null = null;
 
-    let kickoffDate = new Date("2025-01-06T12:00:00");
+    const kickoffDate = new Date("2025-01-06T12:00:00");
     const updateTime = () => {
         const currentDate = new Date();
         const diff = kickoffDate.getTime() - currentDate.getTime();
