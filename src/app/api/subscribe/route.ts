@@ -1,0 +1,46 @@
+import { WebhookClient } from "discord.js";
+import { NextResponse } from "next/server";
+
+const webhook_url = process.env.WEBHOOK_URL;
+if (webhook_url === undefined) {
+    throw new Error("missing webhook URL in environment variables");
+}
+const webhook = new WebhookClient({ url: webhook_url });
+
+const validateEmail = (email: string) => {
+    return email
+        .toLowerCase()
+        .match(
+            /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+        );
+};
+
+export async function POST(req: Request) {
+    const email: string | undefined = (await req.json()).email;
+    if (email === undefined) {
+        return NextResponse.json(
+            {
+                message: "Missing data (stop trying to break the API!)",
+            },
+            { status: 400 }
+        );
+    }
+    if (!validateEmail(email)) {
+        return NextResponse.json(
+            { message: "Email is not valid." },
+            { status: 400 }
+        );
+    }
+    if (email.length > 300) {
+        return NextResponse.json(
+            { message: "Email is too long." },
+            { status: 400 }
+        );
+    }
+
+    await webhook.send(email);
+    return NextResponse.json(
+        { message: "Successfully added email!" },
+        { status: 200 }
+    );
+}

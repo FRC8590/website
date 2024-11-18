@@ -1,22 +1,25 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./globals.css";
+import { GeistSans } from "geist/font/sans";
 
-const inter = Inter({ subsets: ["latin"] });
+import "./globals.css";
 
 export const metadata: Metadata = {
     title: "Woodson Robotics",
-    description: "Providing Students with Hands-On STEM Opportunities",
+    description: "The Home of CAVBOTICS 8590",
 };
 
 export default function RootLayout({
     children,
-}: {
+}: Readonly<{
     children: React.ReactNode;
-}) {
+}>) {
     return (
         <html lang="en">
-            <body className={inter.className}>{children}</body>
+            <body
+                className={`${GeistSans.className} antialiased dark bg-black bg-grid-white/[0.03]`}
+            >
+                {children}
+            </body>
         </html>
     );
 }
