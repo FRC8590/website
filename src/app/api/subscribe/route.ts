@@ -27,7 +27,14 @@ export async function POST(req: Request) {
     }
     if (!validateEmail(email)) {
         return NextResponse.json(
-            { message: "Email is not valid." },
+            { message: "Not a valid email address." },
+            { status: 400 }
+        );
+    }
+    if (email.endsWith("@fcpsschools.net"))
+    {
+        return NextResponse.json(
+            { message: "Don't use a school email! We can't send emails to them." },
             { status: 400 }
         );
     }
