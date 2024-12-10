@@ -48,13 +48,15 @@ export function PacketButton() {
 function SponsorTierTitle(props: { name: string; amount: string }) {
     return (
         <>
-            <header className="text-xl font-light">{props.name}</header>
-            <p className="text-5xl font-bold">
+            <header className="text-xl font-light select-none">
+                {props.name}
+            </header>
+            <div className="text-5xl font-bold select-none hover:scale-105 transition-all">
                 <span className="font-normal text-xl text-zinc-200 select-none">
                     $
                 </span>
                 {props.amount}
-            </p>
+            </div>
         </>
     );
 }
