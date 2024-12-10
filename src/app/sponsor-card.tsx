@@ -8,7 +8,7 @@ import Check from "@/utils/check";
 const DONATE_URL =
     "https://educatefairfax.app.neoncrm.com/forms/woodson-robotics";
 
-export function DonateButton(props: { flip?: boolean }) {
+export function DonateButton() {
     return (
         <a
             target="_blank"
