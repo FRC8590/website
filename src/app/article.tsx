@@ -8,6 +8,7 @@ export default function Article(props: {
     title: string;
     image: React.ReactNode;
     flip?: boolean;
+    extra?: React.ReactNode;
 }) {
     return (
         <motion.div
@@ -29,7 +30,10 @@ export default function Article(props: {
                         <header className="text-2xl lg:text-3xl font-semibold">
                             {props.title}
                         </header>
-                        <TextGenerateEffect words={props.text} />
+                        <div className="flex flex-col space-y-6">
+                            <TextGenerateEffect words={props.text} />
+                            {props.extra && props.extra}
+                        </div>
                     </div>
                     {props.image}
                 </div>

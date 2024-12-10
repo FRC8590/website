@@ -18,11 +18,10 @@ import Check from "@/utils/check";
 // Components
 import FloatingNavbar from "./floating-navbar";
 import Title from "./title";
-import SponsorCard from "./sponsor-card";
+import SponsorCard, { DriverCard } from "./sponsor-card";
 import Article from "./article";
 import TeamTimeline from "./team-timeline";
 import SponsorList from "./sponsor-list";
-import DriverCard from "./driver-card";
 import Countdown from "./countdown";
 import Newsletter from "./newsletter";
 
