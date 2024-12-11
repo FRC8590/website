@@ -101,7 +101,7 @@ export function DriverCard() {
                     blurClass="blur-xl"
                 >
                     <div className="p-8 dark:bg-grid-small-white/[0.05] bg-grid-small-black/[0.2] flex flex-col space-y-3 w-full rounded-[22px] border border-[rgba(255,255,255,0.10)] dark:bg-zinc-950 bg-zinc-100 shadow-[2px_4px_16px_0px_rgba(248,248,248,0.06)_inset] mx-auto group">
-                        <SponsorTierTitle name="Driver" amount="20,000" flipSign />
+                        <SponsorTierTitle name="Driver" amount="15,000" flipSign />
                         <ul>
                             <Check>Name the robot</Check>
                             <Check>Team gifts and merchandise</Check>
