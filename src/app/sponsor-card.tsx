@@ -53,7 +53,7 @@ function SponsorTierTitle(props: { name: string; amount: string; flipSign?: bool
             </header>
             <div className="text-5xl font-bold select-none hover:scale-105 transition-all w-fit">
                 <span className="font-normal text-xl text-zinc-200 select-none">
-                    {props.flipSign === undefined ? "<" : ">"}
+                    {props.flipSign === true ? "<" : ">"}
                 </span>
                 ${props.amount}
             </div>
