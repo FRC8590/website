@@ -55,7 +55,7 @@ function SponsorTierTitle(props: { name: string; amount: string }) {
                 <span className="font-normal text-xl text-zinc-200 select-none">
                     &lt;
                 </span>
-                {props.amount}
+                ${props.amount}
             </div>
         </>
     );
