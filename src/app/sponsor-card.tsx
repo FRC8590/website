@@ -45,7 +45,7 @@ export function PacketButton() {
     );
 }
 
-function SponsorTierTitle(props: { name: string; amount: string; flipSign?: bool; }) {
+function SponsorTierTitle(props: { name: string; amount: string; flipSign?: boolean; }) {
     return (
         <>
             <header className="text-xl font-light select-none">
