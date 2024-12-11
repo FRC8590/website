@@ -53,7 +53,7 @@ function SponsorTierTitle(props: { name: string; amount: string; flip?: boolean;
             </header>
             <div className="text-5xl font-bold select-none hover:scale-105 transition-all w-fit">
                 <span className="font-normal text-xl text-zinc-400 select-none">
-                    {props.flip === true ? "at least" : "more than"}
+                    {props.flip === true ? "<" : ">"}
                 </span>
                 <span className="font-normal text-xl text-zinc-200 select-none px-1">
                     $
