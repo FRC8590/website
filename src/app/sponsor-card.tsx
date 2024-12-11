@@ -45,15 +45,15 @@ export function PacketButton() {
     );
 }
 
-function SponsorTierTitle(props: { name: string; amount: string; flipSign?: boolean; }) {
+function SponsorTierTitle(props: { name: string; amount: string; flip?: boolean; }) {
     return (
         <>
             <header className="text-xl font-light select-none">
                 {props.name}
             </header>
             <div className="text-5xl font-bold select-none hover:scale-105 transition-all w-fit">
-                <span className="font-normal text-xl text-zinc-200 select-none">
-                    {props.flipSign === true ? ">" : "<"}
+                <span className="font-normal text-xl text-zinc-400 select-none">
+                    {props.flip === true ? "at least" : "more than"}
                 </span>
                 <span className="font-normal text-xl text-zinc-200 select-none px-1">
                     $
@@ -104,7 +104,7 @@ export function DriverCard() {
                     blurClass="blur-xl"
                 >
                     <div className="p-8 dark:bg-grid-small-white/[0.05] bg-grid-small-black/[0.2] flex flex-col space-y-3 w-full rounded-[22px] border border-[rgba(255,255,255,0.10)] dark:bg-zinc-950 bg-zinc-100 shadow-[2px_4px_16px_0px_rgba(248,248,248,0.06)_inset] mx-auto group">
-                        <SponsorTierTitle name="Driver" amount="15,000" flipSign />
+                        <SponsorTierTitle name="Driver" amount="15,000" flip />
                         <ul>
                             <Check>Name the robot</Check>
                             <Check>Team gifts and merchandise</Check>
