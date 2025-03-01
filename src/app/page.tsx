@@ -29,22 +29,20 @@ export default function Home() {
                     </section>
                 </div>
                 <section className="w-full" id="about">
-                    <SectionHeader>Who are we?</SectionHeader>
+                    <SectionHeader text="Who are we?" />
                     <AboutUs />
                 </section>
                 <section className="w-full py-8" id="years">
-                    <SectionHeader>Previous Years</SectionHeader>
+                    <SectionHeader text="Previous Years" />
                     <TeamTimeline />
                 </section>
                 <BackgroundBeamsWithCollision className="flex-col">
                     <section className="w-full -z-20 py-8" id="donate">
-                        <SectionHeader>Support Us!</SectionHeader>
+                        <SectionHeader text="Support Us!" />
                         <SupportUs />
                     </section>
                     <section className="w-full pb-4 pt-8" id="sponsorships">
-                        <SectionHeader>
-                            Professional Sponsor Tiers
-                        </SectionHeader>
+                        <SectionHeader text="Professional Sponsor Tiers" />
                         <SponsorTiers />
                     </section>
                 </BackgroundBeamsWithCollision>

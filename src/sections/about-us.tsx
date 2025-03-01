@@ -44,11 +44,11 @@ export default function AboutUs() {
                 when they eventually pursue STEM in the future.
                 <Br />
                 We encourage our students to make connections and support them
-                to make sure everyone's voices are heard in the club. Lastly,
-                our goal is to succeed, as we can reach more people through our
-                achievements and help more students in the future. Together,
-                these things drive our determination and help to make our team
-                environment the best it can be.
+                to make sure everyone&apos;s voices are heard in the club.
+                Lastly, our goal is to succeed, as we can reach more people
+                through our achievements and help more students in the future.
+                Together, these things drive our determination and help to make
+                our team environment the best it can be.
             </Article>
         </div>
     );

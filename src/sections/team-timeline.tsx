@@ -77,8 +77,8 @@ export default function TeamTimeline() {
                     awards, including the <Italic>
                         Rookie Inspiration
                     </Italic>{" "}
-                    award and the championship division's highest rookie seed
-                    award.
+                    award and the championship division&apos;s highest rookie
+                    seed award.
                 </Article>
             ),
         },

@@ -1,10 +1,9 @@
 "use client";
-import type { HasChildren } from "./types";
 import { motion } from "framer-motion";
 import { ColorfulText } from "@/components/colorful-text";
-import ReactDOMServer from "react-dom/server";
 
-export default function SectionHeader(props: HasChildren) {
+export default function SectionHeader(props: { text: string }) {
+    console.log(props);
     return (
         <motion.header
             initial={{ opacity: 0.0, y: -60 }}
@@ -16,10 +15,7 @@ export default function SectionHeader(props: HasChildren) {
             }}
             className="flex items-center justify-center w-full py-4 xl:py-8 text-3xl lg:text-4xl xl:text-6xl font-semibold text-black dark:text-white"
         >
-            {/* This is a bit hacky, but I don't care. */}
-            <ColorfulText
-                text={ReactDOMServer.renderToString(props.children)}
-            />
+            <ColorfulText text={props.text} />
         </motion.header>
     );
 }

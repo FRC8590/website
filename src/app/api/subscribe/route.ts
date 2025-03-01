@@ -2,10 +2,8 @@ import { WebhookClient } from "discord.js";
 import { NextResponse } from "next/server";
 
 const webhook_url = process.env.WEBHOOK_URL;
-if (webhook_url === undefined) {
-    throw new Error("missing webhook URL in environment variables");
-}
-const webhook = new WebhookClient({ url: webhook_url });
+const webhook: WebhookClient | null =
+    webhook_url !== undefined ? new WebhookClient({ url: webhook_url }) : null;
 
 const validateEmail = (email: string) => {
     return email
@@ -31,10 +29,12 @@ export async function POST(req: Request) {
             { status: 400 }
         );
     }
-    if (email.endsWith("@fcpsschools.net"))
-    {
+    if (email.endsWith("@fcpsschools.net")) {
         return NextResponse.json(
-            { message: "Don't use a school email! We can't send emails to them." },
+            {
+                message:
+                    "Don't use a school email! We can't send emails to them.",
+            },
             { status: 400 }
         );
     }
@@ -45,7 +45,9 @@ export async function POST(req: Request) {
         );
     }
 
-    await webhook.send(email);
+    if (webhook != null) {
+        await webhook.send(email);
+    }
     return NextResponse.json(
         { message: "Successfully added email!" },
         { status: 200 }

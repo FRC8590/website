@@ -17,7 +17,7 @@ export default function SupportUs() {
             title="Why Donate?"
         >
             Consider donating to help provide STEM opportunities to all students
-            at Woodson. By donating, you help foster student's passions by
+            at Woodson. By donating, you help foster student&apos;s passions by
             enabling our team to purchase the necessary materials, tools, and
             resources for building our robot. <Br />
             Join us by empowering the next generation of innovators and leaders.

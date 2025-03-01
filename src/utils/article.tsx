@@ -1,9 +1,7 @@
 "use client";
 import GridBackground from "./grid-background";
-import { TextGenerateEffect } from "@/components/text-generate-effect";
 import { motion } from "framer-motion";
 import { HasChildren } from "@/utils/types";
-import ReactDOMServer from "react-dom/server";
 
 export default function Article(
     props: HasChildren & {
