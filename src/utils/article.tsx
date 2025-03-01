@@ -35,7 +35,7 @@ export default function Article(
                                 {props.title}
                             </span>
                         </div>
-                        <div className="flex flex-col space-y-6 text-lg text-zinc-200">
+                        <div className="flex flex-col space-y-6 text-base lg:text-lg text-zinc-200">
                             <p>{props.children}</p>
                             {props.extra && props.extra}
                         </div>
