@@ -21,7 +21,7 @@ export default function AboutUs() {
                 allowing them to try out and experience different fields of
                 STEM, and presenting them with competitions that they can help
                 contribute, and participate in, along with assisting them in
-                getting real-world experience."
+                getting real-world experience.
             </Article>
             <Article
                 image={

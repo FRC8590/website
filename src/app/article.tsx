@@ -31,11 +31,11 @@ export default function Article(
                 >
                     <div className="flex flex-col p-8 space-y-3">
                         <div className="h-fit w-fit bg-clip-text bg-no-repeat text-transparent bg-gradient-to-r py-4 from-zinc-500 via-zinc-100 to-zinc-700 [text-shadow:0_0_rgba(0,0,0,0.1)]">
-                            <span className="text-2xl lg:text-3xl">
+                            <span className="text-2xl lg:text-3xl font-semibold">
                                 {props.title}
                             </span>
                         </div>
-                        <div className="flex flex-col space-y-6 text-lg">
+                        <div className="flex flex-col space-y-6 text-lg text-zinc-200">
                             <p>{props.children}</p>
                             {props.extra && props.extra}
                         </div>
