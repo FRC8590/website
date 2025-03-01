@@ -42,7 +42,7 @@ export default function Home() {
                     <SectionHeader>Who are we?</SectionHeader>
                     <div className="flex flex-col space-y-6">
                         <Article
-                            text="We are C.G. Woodson's Robotics team.
+                            text="
                             We allow students to develop STEM capabilities, as well as allowing them to try out
                             and experience different fields of STEM, and presenting them with competitions that they can help contribute,
                             and participate in, along with assisting them in getting real-world experience."

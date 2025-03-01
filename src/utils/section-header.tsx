@@ -12,7 +12,7 @@ export default function SectionHeader(props: HasChildren) {
                 duration: 0.6,
                 ease: "easeInOut",
             }}
-            className="py-4 text-3xl lg:text-4xl font-semibold text-black dark:text-white"
+            className="text-center py-4 xl:py-8 text-3xl lg:text-4xl xl:text-6xl font-semibold text-black dark:text-white"
         >
             {props.children}
         </motion.header>
