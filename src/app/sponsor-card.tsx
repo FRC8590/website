@@ -92,8 +92,8 @@ export default function SponsorCard(
 export function DriverCard() {
     return (
         <motion.div
-            initial={{ opacity: 0.0, y: 80 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0.0, x: -80 }}
+            whileInView={{ opacity: 1, x: 0 }}
             transition={{
                 delay: 0.5,
                 duration: 1.5,
