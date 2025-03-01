@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 export default function SponsorList() {
     return (
         <motion.div
-            className="flex items-center justify-center py-4 space-x-6 lg:space-x-12"
+            className="grid gap-3 grid-cols-4 grid-rows-3"
             initial={{ opacity: 0.0 }}
             whileInView={{ opacity: 1 }}
             transition={{
@@ -16,17 +16,45 @@ export default function SponsorList() {
         >
             <Image
                 src="/sponsors/wt-ptso.png"
-                width={100}
-                height={100}
+                width={200}
+                height={200}
                 alt="C.G. Woodson PTSO"
-                className="grayscale hover:grayscale-0 transition-all"
+                className="sponsor-image"
             />
             <Image
                 src="/sponsors/colonial-pipeline-co.svg"
                 width={200}
                 height={200}
                 alt="Colonial Pipeline Co."
-                className="grayscale hover:grayscale-0 transition-all"
+                className="sponsor-image"
+            />
+            <Image
+                src="/sponsors/haas.png"
+                width={200}
+                height={200}
+                alt="HAAS"
+                className="sponsor-image"
+            />
+            <Image
+                src="/sponsors/synergy.png"
+                width={200}
+                height={200}
+                alt="Synergy"
+                className="sponsor-image"
+            />
+            <Image
+                src="/sponsors/mamma_lucia.png"
+                width={200}
+                height={200}
+                alt="Mamma Lucia"
+                className="sponsor-image"
+            />
+            <Image
+                src="/sponsors/jctm.png"
+                width={200}
+                height={200}
+                alt="JCTM"
+                className="sponsor-image"
             />
         </motion.div>
     );

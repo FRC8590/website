@@ -34,7 +34,6 @@ export default function Home() {
                 <div className="py-32">
                     <section>
                         <Title />
-                        <Countdown />
                     </section>
                     <section className="flex items-center justify-center flex-col space-y-3 py-8">
                         <SponsorList />
