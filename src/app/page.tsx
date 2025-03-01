@@ -16,14 +16,14 @@ import SectionHeader from "@/utils/section-header";
 import Br from "@/utils/br";
 
 // Components
-import FloatingNavbar from "./floating-navbar";
-import Title from "./title";
-import Article from "./article";
-import TeamTimeline from "./team-timeline";
-import SponsorList from "./sponsor-list";
-import Newsletter from "./newsletter";
-import AboutUs from "./about-us";
-import SponsorTiers from "./sponsor-tiers";
+import FloatingNavbar from "../sections/floating-navbar";
+import Title from "../sections/title/title";
+import Article from "../utils/article";
+import TeamTimeline from "../sections/team-timeline";
+import SponsorList from "../sections/sponsors/sponsor-list";
+import Newsletter from "../sections/newsletter";
+import AboutUs from "../sections/about-us";
+import SponsorTiers from "../sections/sponsors/sponsor-tiers";
 
 export default function Home() {
     return (

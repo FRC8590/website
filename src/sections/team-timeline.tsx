@@ -1,4 +1,4 @@
-import Article from "./article";
+import Article from "../utils/article";
 import Image from "next/image";
 import Italic from "@/utils/italic";
 import Br from "@/utils/br";

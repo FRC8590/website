@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Article from "./article";
+import Article from "../utils/article";
 import Br from "@/utils/br";
 
 export default function AboutUs() {
