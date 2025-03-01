@@ -16,10 +16,10 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-            <HTMLComment comment="Peter was here" />
             <body
                 className={`${GeistSans.className} antialiased dark bg-black bg-grid-white/[0.03]`}
             >
+                <HTMLComment comment="Peter was here." />
                 {children}
             </body>
         </html>
