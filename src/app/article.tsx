@@ -27,9 +27,11 @@ export default function Article(props: {
                     }`}
                 >
                     <div className="flex flex-col p-8 space-y-3">
-                        <header className="text-2xl lg:text-3xl font-semibold">
-                            {props.title}
-                        </header>
+                        <div className="h-fit w-fit bg-clip-text bg-no-repeat text-transparent bg-gradient-to-r py-4 from-zinc-600 via-zinc-100 to-zinc-700 [text-shadow:0_0_rgba(0,0,0,0.1)]">
+                            <span className="text-2xl lg:text-3xl">
+                                {props.title}
+                            </span>
+                        </div>
                         <div className="flex flex-col space-y-6">
                             <TextGenerateEffect words={props.text} />
                             {props.extra && props.extra}
