@@ -22,7 +22,6 @@ import SponsorCard, { DriverCard } from "./sponsor-card";
 import Article from "./article";
 import TeamTimeline from "./team-timeline";
 import SponsorList from "./sponsor-list";
-import Countdown from "./countdown";
 import Newsletter from "./newsletter";
 
 export default function Home() {
@@ -30,7 +29,7 @@ export default function Home() {
         <Modal>
             <Newsletter></Newsletter>
             <FloatingNavbar />
-            <main className="flex flex-col items-center justify-center w-full px-2 xl:px-12 2xl:px-28 pt-16 dark:text-white min-w-72 overflow-x-auto">
+            <main className="flex flex-col items-center justify-center w-full px-2 xl:px-12 2xl:px-28 pt-16 dark:text-white min-w-72 overflow-x-hidden">
                 <div className="py-32">
                     <section>
                         <Title />
