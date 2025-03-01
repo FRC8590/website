@@ -1,5 +1,7 @@
 import Article from "./article";
 import Image from "next/image";
+import Italic from "@/utils/italic";
+import Br from "@/utils/br";
 import { Timeline } from "@/components/timeline";
 
 export default function TeamTimeline() {
@@ -8,9 +10,6 @@ export default function TeamTimeline() {
             title: "2024",
             content: (
                 <Article
-                    text="In Crescendo, teams would shoot or insert foam hoops into deposits on the sides of the arena to score points.
-                    At the end of the game, teams would try to hang onto metal chains to score extra points.
-                    In this event, our team competed at two qualifying events and won the Innovation in Control award."
                     image={
                         <Image
                             src="/years/crescendo.jpg"
@@ -21,17 +20,20 @@ export default function TeamTimeline() {
                         />
                     }
                     title="Crescendo"
-                />
+                >
+                    In <Italic>Crescendo</Italic>, teams would shoot or insert
+                    foam hoops into deposits on the sides of the arena to score
+                    points. At the end of the game, teams would try to hang onto
+                    metal chains to score extra points. <Br />
+                    In this event, our team competed at two qualifying events
+                    and won the <Italic>Innovation in Control</Italic> award.
+                </Article>
             ),
         },
         {
             title: "2023",
             content: (
                 <Article
-                    text="In Charged Up, teams compete to put cones and cubes on designated nodes to score points.
-                    Teams can also score points by balancing their robots on the platform. At the end of the game, teams balance
-                    all of their robots to score extra points. At this event, our team
-                    competed in two qualifying events."
                     image={
                         <Image
                             src="/years/charged_up.jpg"
@@ -42,17 +44,20 @@ export default function TeamTimeline() {
                         />
                     }
                     title="Charged Up"
-                />
+                >
+                    In <Italic>Charged Up</Italic>, teams competed to put cones
+                    and cubes on designated nodes to score points. Teams could
+                    also score points by balancing their robots on the platform.
+                    At the end of the game, teams balance all of their robots to
+                    score extra points. <Br />
+                    At this event, our team competed in two qualifying events.
+                </Article>
             ),
         },
         {
             title: "2022",
             content: (
                 <Article
-                    text="In Rapid React, teams competed against each other to score points by shooting cargo into the center hoop.
-                    At the end of the game, teams climb onto metal rungs to score more points. This game's theme was based on sustainable
-                    energy development and presented by Haas. In this event, our team made it to 4 events, winning 6 awards, including the
-                    Rookie Inspiration award and the championship division's highest rookie seed award."
                     image={
                         <Image
                             src="/years/rapid_react.jpg"
@@ -63,7 +68,18 @@ export default function TeamTimeline() {
                         />
                     }
                     title="Rapid React"
-                />
+                >
+                    In <Italic>Rapid React</Italic>, teams competed against each
+                    other to score points by shooting cargo into the center
+                    hoop. At the end of the game, teams would climb onto metal
+                    rungs to score more points. <Br />
+                    In this event, our team made it to 4 events, winning 6
+                    awards, including the <Italic>
+                        Rookie Inspiration
+                    </Italic>{" "}
+                    award and the championship division's highest rookie seed
+                    award.
+                </Article>
             ),
         },
     ];

@@ -14,6 +14,7 @@ import { Modal } from "@/components/animated-modal";
 import Opposites from "@/utils/opposites";
 import SectionHeader from "@/utils/section-header";
 import Check from "@/utils/check";
+import Br from "@/utils/br";
 
 // Components
 import FloatingNavbar from "./floating-navbar";
@@ -23,6 +24,7 @@ import Article from "./article";
 import TeamTimeline from "./team-timeline";
 import SponsorList from "./sponsor-list";
 import Newsletter from "./newsletter";
+import AboutUs from "./about-us";
 
 export default function Home() {
     return (
@@ -40,44 +42,7 @@ export default function Home() {
                 </div>
                 <section className="w-full" id="about">
                     <SectionHeader>Who are we?</SectionHeader>
-                    <div className="flex flex-col space-y-6">
-                        <Article
-                            text="
-                            We allow students to develop STEM capabilities, as well as allowing them to try out
-                            and experience different fields of STEM, and presenting them with competitions that they can help contribute,
-                            and participate in, along with assisting them in getting real-world experience."
-                            image={
-                                <Image
-                                    src="/pictures/team.jpg"
-                                    width={500}
-                                    height={500}
-                                    alt="Our Team"
-                                    className="grayscale rounded-tr-lg rounded-br-lg hover:grayscale-0 transition-all w-full"
-                                />
-                            }
-                            title="Our Team"
-                        />
-                        <Article
-                            text="Our mission as a student-run FRC team is to create a welcoming and encouraging
-                            environment that enables STEM students to improve their skills in robotics and the engineering process. 
-                            As a student-run team, we have extra responsibilities, as we take it upon ourselves to educate new members 
-                            and ensure they succeed when they eventually pursue STEM in the future.We encourage our students to make 
-                            connections and support them to make sure everyone's voices are heard in the club. Lastly, our goal is to succeed,
-                            as we can reach more people through our achievements and help more students in the future. Together, these things drive our
-                            determination and help to make our team environment the best it can be."
-                            image={
-                                <Image
-                                    src="/pictures/mission.jpg"
-                                    width={500}
-                                    height={500}
-                                    alt="Our Mission"
-                                    className="grayscale rounded-tl-lg rounded-bl-lg hover:grayscale-0 transition-all w-full"
-                                />
-                            }
-                            title="Our Mission"
-                            flip
-                        />
-                    </div>
+                    <AboutUs />
                 </section>
                 <section className="w-full py-8" id="years">
                     <SectionHeader>Previous Years</SectionHeader>
@@ -88,9 +53,6 @@ export default function Home() {
                         <SectionHeader>Support Us!</SectionHeader>
 
                         <Article
-                            text="Consider donating to help provide STEM opportunities to all students at Woodson.
-                            By donating, you help foster student's passions by enabling our team to purchase the necessary materials,
-                            tools, and resources for building our robot. Join us by empowering the next generation of innovators and leaders."
                             image={
                                 <Image
                                     src="/pictures/why-donate.jpg"
@@ -101,7 +63,15 @@ export default function Home() {
                                 />
                             }
                             title="Why Donate?"
-                        />
+                        >
+                            Consider donating to help provide STEM opportunities
+                            to all students at Woodson. By donating, you help
+                            foster student's passions by enabling our team to
+                            purchase the necessary materials, tools, and
+                            resources for building our robot. <Br />
+                            Join us by empowering the next generation of
+                            innovators and leaders.
+                        </Article>
                     </section>
                     <section className="w-full pb-4 pt-8" id="sponsorships">
                         <SectionHeader>
@@ -139,7 +109,7 @@ export default function Home() {
             </main>{" "}
             <AuroraBackground>
                 <footer
-                    className="w-full border-t border-black dark:border-zinc-900 px-12 xl:px-48"
+                    className="w-full border-t border-black dark:border-zinc-900 px-12 xl:px-24 2xl:px-48"
                     id="contact"
                 >
                     <Opposites>
