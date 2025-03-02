@@ -9,5 +9,5 @@
 }
 
 .sponsor-image {
-    @apply grayscale hover:grayscale-0 transition-all;
+    @apply grayscale hover:grayscale-0 transition-all select-none;
 }
