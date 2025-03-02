@@ -52,17 +52,19 @@ function SponsorTierTitle(props: {
 }) {
     return (
         <>
-            <header className="text-xl font-light select-none">
+            <header className="text-sm font-light select-none border border-zinc-900 w-fit p-1 px-2 rounded-lg bg-zinc-950 uppercase">
                 {props.name}
             </header>
-            <div className="text-5xl font-bold select-none hover:scale-105 transition-all w-fit">
-                <span className="font-normal text-base text-zinc-400 select-none">
-                    {props.flip === true ? ">" : "<"}
-                </span>
-                <span className="font-normal text-xl text-zinc-200 select-none pl-1">
-                    $
-                </span>
-                {props.amount}
+            <div className="text-5xl font-bold select-none w-fit flex items-end space-x-1">
+                <p>
+                    <span className="font-normal text-xl text-zinc-200 select-none pl-1">
+                        $
+                    </span>
+                    {props.amount}
+                </p>{" "}
+                <p className="font-normal text-sm text-zinc-400 select-none">
+                    {props.flip === true ? "or more" : "or less"}
+                </p>
             </div>
         </>
     );

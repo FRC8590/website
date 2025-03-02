@@ -29,7 +29,7 @@ export default function Article(
                 >
                     <div className="flex flex-col p-8 space-y-3">
                         <div className="h-fit w-fit bg-clip-text bg-no-repeat text-transparent bg-gradient-to-r py-4 from-zinc-500 via-zinc-100 to-zinc-700 [text-shadow:0_0_rgba(0,0,0,0.1)]">
-                            <span className="text-2xl lg:text-3xl font-bold">
+                            <span className="text-2xl lg:text-4xl font-bold">
                                 {props.title}
                             </span>
                         </div>
