@@ -3,7 +3,6 @@ import { motion } from "framer-motion";
 import { ColorfulText } from "@/components/colorful-text";
 
 export default function SectionHeader(props: { text: string }) {
-    console.log(props);
     return (
         <motion.header
             initial={{ opacity: 0.0, y: -60 }}

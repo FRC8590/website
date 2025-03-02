@@ -10,6 +10,7 @@ const SPONSORS = [
         height={100}
         alt="C.G. Woodson PTSO"
         className="sponsor-image"
+        key={0}
     />,
     <Image
         src="/sponsors/colonial-pipeline-co.svg"
@@ -17,6 +18,7 @@ const SPONSORS = [
         height={200}
         alt="Colonial Pipeline Co."
         className="sponsor-image"
+        key={1}
     />,
     <Image
         src="/sponsors/haas.png"
@@ -24,6 +26,7 @@ const SPONSORS = [
         height={100}
         alt="HAAS"
         className="sponsor-image"
+        key={2}
     />,
     <Image
         src="/sponsors/synergy.png"
@@ -31,6 +34,7 @@ const SPONSORS = [
         height={200}
         alt="Synergy"
         className="sponsor-image"
+        key={3}
     />,
     <Image
         src="/sponsors/mamma_lucia.png"
@@ -38,6 +42,7 @@ const SPONSORS = [
         height={100}
         alt="Mamma Lucia"
         className="sponsor-image"
+        key={4}
     />,
     <Image
         src="/sponsors/jctm.png"
@@ -45,6 +50,7 @@ const SPONSORS = [
         height={200}
         alt="JCTM"
         className="sponsor-image"
+        key={5}
     />,
 ];
 
