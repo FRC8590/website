@@ -7,3 +7,7 @@
     --foreground: #ededed;
     color-scheme: dark;
 }
+
+.sponsor-image {
+    @apply grayscale hover:grayscale-0 transition-all select-none;
+}

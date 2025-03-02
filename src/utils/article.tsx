@@ -1,15 +1,16 @@
 "use client";
 import GridBackground from "./grid-background";
-import { TextGenerateEffect } from "@/components/text-generate-effect";
 import { motion } from "framer-motion";
+import { HasChildren } from "@/utils/types";
 
-export default function Article(props: {
-    text: string;
-    title: string;
-    image: React.ReactNode;
-    flip?: boolean;
-    extra?: React.ReactNode;
-}) {
+export default function Article(
+    props: HasChildren & {
+        title: string;
+        image: React.ReactNode;
+        flip?: boolean;
+        extra?: React.ReactNode;
+    }
+) {
     return (
         <motion.div
             initial={{ opacity: 0.0, x: 40 }}
@@ -27,11 +28,13 @@ export default function Article(props: {
                     }`}
                 >
                     <div className="flex flex-col p-8 space-y-3">
-                        <header className="text-2xl lg:text-3xl font-semibold">
-                            {props.title}
-                        </header>
-                        <div className="flex flex-col space-y-6">
-                            <TextGenerateEffect words={props.text} />
+                        <div className="h-fit w-fit bg-clip-text bg-no-repeat text-transparent bg-gradient-to-r py-4 from-zinc-500 via-zinc-100 to-zinc-700 [text-shadow:0_0_rgba(0,0,0,0.1)]">
+                            <span className="text-2xl lg:text-4xl font-bold">
+                                {props.title}
+                            </span>
+                        </div>
+                        <div className="flex flex-col space-y-6 text-base lg:text-lg text-zinc-200">
+                            <p>{props.children}</p>
                             {props.extra && props.extra}
                         </div>
                     </div>

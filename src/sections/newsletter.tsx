@@ -6,6 +6,7 @@ import {
     useModal,
 } from "@/components/animated-modal";
 import { useEffect, useState } from "react";
+import Br from "@/utils/br";
 
 export default function Newsletter() {
     const modal = useModal();
@@ -33,16 +34,16 @@ export default function Newsletter() {
                         team&apos;s journey. It highlights upcoming
                         competitions, showcases recent achievements, and
                         provides insights into the team&apos;s design process
-                        and technical challenges. With updates on robot
-                        prototypes, fundraising efforts, and team events, the
-                        newsletter is a great way for the community to stay
-                        engaged and cheer on the team&apos;s progress throughout
-                        the season.
+                        and technical challenges. <Br />
+                        With updates on robot prototypes, fundraising efforts,
+                        and team events, the newsletter is a great way for the
+                        community to stay engaged and cheer on the team&apos;s
+                        progress throughout the season.
                     </p>
                     <div className="flex flex-col items-center justify-center space-y-2">
                         <form
                             className="flex space-x-3 items-center justify-center"
-                            onSubmit={async e => {
+                            onSubmit={async (e) => {
                                 e.preventDefault();
                                 setLoading(true);
                                 const res = await fetch("/api/subscribe", {
@@ -66,7 +67,7 @@ export default function Newsletter() {
                                 className="w-full p-4 bg-zinc-950 rounded-lg focus:outline-none text-white placeholder:text-zinc-500"
                                 placeholder="your@email.com"
                                 value={email}
-                                onChange={e => {
+                                onChange={(e) => {
                                     setEmail(e.target.value);
                                 }}
                             />

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { GeistSans } from "geist/font/sans";
+import HTMLComment from "@/utils/html-comment";
 
 import "./globals.css";
 
@@ -18,6 +19,7 @@ export default function RootLayout({
             <body
                 className={`${GeistSans.className} antialiased dark bg-black bg-grid-white/[0.03]`}
             >
+                <HTMLComment comment="Peter was here." />
                 {children}
             </body>
         </html>
