@@ -16,7 +16,7 @@ export default function SponsorTiers() {
                     <Check>Small logo on robot</Check>
                 </SponsorCard>
                 <SponsorCard title="Motor" amount="10,000">
-                    <Check>Medium Banner with team pictures</Check>
+                    <Check>Medium banner with team pictures</Check>
                     <Check>Name and logo in videos</Check>
                     <Check>Medium-sized logo on the robot</Check>
                 </SponsorCard>
