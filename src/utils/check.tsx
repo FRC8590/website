@@ -5,7 +5,7 @@ export default function Check(props: HasChildren) {
     return (
         <li className="font-medium flex items-center space-x-1">
             <FaCheckCircle />
-            <p>{props.children}</p>
+            <p className="text-sm md:text-base">{props.children}</p>
         </li>
     );
 }
