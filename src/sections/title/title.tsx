@@ -3,6 +3,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { BackgroundLines } from "@/components/background-lines";
 import { Spotlight } from "@/components/spotlight-new";
+import FRCLogo from "./frc-logo";
 
 export default function Title() {
     return (
@@ -27,22 +28,7 @@ export default function Title() {
                             className="invert dark:invert-0 select-none"
                         />
 
-                        <div>
-                            <Image
-                                src="/logos/frc.png"
-                                width={325}
-                                height={200}
-                                alt="FIRST Robotics Competition Logo"
-                                className="dark:hidden select-none"
-                            />
-                            <Image
-                                src="/logos/frc_dark.png"
-                                width={325}
-                                height={200}
-                                alt="FIRST Robotics Competition Logo"
-                                className="hidden dark:block select-none"
-                            />
-                        </div>
+                        <FRCLogo />
                     </div>
 
                     <h1 className="py-8 lg:py-12 text-7xl xl:text-9xl font-bold text-center relative z-20 bg-clip-text bg-no-repeat text-transparent bg-gradient-to-r from-zinc-500 via-white to-zinc-600 [text-shadow:0_0_rgba(0,0,0,0.1)] break-all">
