@@ -2,7 +2,6 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { InfiniteMovingCards } from "@/components/infinite-moving-cards";
-import WinnerBanner from "./winner-banner";
 
 const SPONSORS = [
     <Image
@@ -65,11 +64,8 @@ export default function SponsorList() {
                 duration: 1,
                 ease: "easeInOut",
             }}
-            className="flex items-center w-screen px-8 justify-between"
         >
-            <WinnerBanner event="bethesda md event" />
             <InfiniteMovingCards items={SPONSORS} pauseOnHover={false} />
-            <WinnerBanner event="championship" />
         </motion.div>
     );
 }
