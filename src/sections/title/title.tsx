@@ -59,9 +59,9 @@ function ChampionshipWin() {
             .{" "}
             <p className="inline">
                 Showing off an excellent performance by scoring over one-third
-                of our team's coral in most rounds, we achieved victory with a
-                final score of 203 to 174 in our final match, securing our spot
-                at the world championship.
+                of our team&apos;s coral in most rounds, we achieved victory
+                with a final score of 203 to 174 in our final match, securing
+                our spot at the world championship.
             </p>
             <Image
                 src="/pictures/district-win.jpg"
