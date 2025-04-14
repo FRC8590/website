@@ -6,7 +6,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
     title: "Woodson Robotics",
-    description: "The Home of CAVBOTICS 8590",
+    description: "The Home of Team 8590 -- CAVBOTICS",
 };
 
 export default function RootLayout({

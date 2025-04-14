@@ -19,8 +19,8 @@ export default function Home() {
         <Modal>
             <Newsletter></Newsletter>
             <FloatingNavbar />
-            <main className="flex flex-col items-center justify-center w-full px-8 xl:px-12 2xl:px-28 pt-16 dark:text-white min-w-72 overflow-x-hidden">
-                <div className="py-8 lg:py-32">
+            <main className="flex flex-col items-center justify-center w-full px-1 xl:px-12 2xl:px-28 pt-16 dark:text-white min-w-72 overflow-x-hidden">
+                <div className="py-16">
                     <section>
                         <Title />
                     </section>
