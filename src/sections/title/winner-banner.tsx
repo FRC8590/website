@@ -8,6 +8,7 @@ import {
 } from "@/components/animated-modal";
 import React from "react";
 import { HasChildren } from "@/utils/types";
+
 interface WinnerBannerProps {
     event: string;
 }

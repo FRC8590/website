@@ -1,38 +1,38 @@
 import {
-    IconMessage,
-    IconHistory,
-    IconCash,
-    IconCoin,
-    IconUsers,
+    IconMessageFilled,
+    IconCoinFilled,
+    IconUserFilled,
 } from "@tabler/icons-react";
+import { FaMoneyBill1Wave } from "react-icons/fa6";
 import { FloatingNav } from "@/components/floating-navbar";
+import { MdWorkHistory } from "react-icons/md";
 
 export default function FloatingNavbar() {
     const navItems = [
         {
             name: "About Us",
             link: "#about",
-            icon: <IconUsers className="h-6 w-6 text-zinc-100" />,
+            icon: <IconUserFilled className="h-6 w-6 text-zinc-100" />,
         },
         {
             name: "Our Past",
             link: "#years",
-            icon: <IconHistory className="h-6 w-6 text-zinc-100" />,
+            icon: <MdWorkHistory className="h-6 w-6 text-zinc-100" />,
         },
         {
             name: "Donations",
             link: "#donate",
-            icon: <IconCash className="h-6 w-6 text-zinc-100" />,
+            icon: <FaMoneyBill1Wave className="h-6 w-6 text-zinc-100" />,
         },
         {
             name: "Sponsorships",
             link: "#sponsorships",
-            icon: <IconCoin className="h-6 w-6 text-zinc-100" />,
+            icon: <IconCoinFilled className="h-6 w-6 text-zinc-100" />,
         },
         {
             name: "Contact Us",
             link: "#contact",
-            icon: <IconMessage className="h-6 w-6 text-zinc-100" />,
+            icon: <IconMessageFilled className="h-6 w-6 text-zinc-100" />,
         },
     ];
     return (
