@@ -42,7 +42,7 @@ function ChampionshipWin() {
                 it was uncertain whether we would make it to the playoffs.
             </p>{" "}
             <p className="inline">
-                To our delight, we were selected as the final alliance partner
+                To our disbelief, we were selected as the final alliance partner
                 of Alliance 1 alongside{" "}
             </p>
             <Team
@@ -101,7 +101,16 @@ function BethesdaWin() {
                 guaranteed our spot at the district championship! This was our
                 first time winning a district qualifying event in the history of
                 our team, and our first time qualifying for districts.{" "}
-            </p>
+            </p>{" "}
+            <div className="flex items-center justify-center">
+                <Image
+                    src="/pictures/bethesda-win.jpg"
+                    width={350}
+                    height={250}
+                    alt="Team 8590 photo."
+                    className="rounded-md py-2"
+                />
+            </div>
         </WinnerBanner>
     );
 }
