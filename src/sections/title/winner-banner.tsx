@@ -29,7 +29,7 @@ export function WinInformation(props: WinnerBannerProps & HasChildren) {
                     }}
                     className="px-2 py-1 bg-zinc-200 text-black dark:bg-black dark:border-black dark:text-white border border-zinc-300 rounded-md text-sm w-40"
                 >
-                    Don&apos;t Show Again
+                    Close
                 </button>
             </ModalFooter>
         </ModalBody>

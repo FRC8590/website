@@ -119,8 +119,9 @@ export default function Title() {
                         duration: 1,
                         ease: "easeInOut",
                     }}
+                    className="w-screen flex items-center justify-center flex-col"
                 >
-                    <div className="hidden lg:flex flex-row items-center w-full justify-between">
+                    <div className="hidden lg:flex flex-row items-center w-5/6 justify-between">
                         <BethesdaWin />
                         <Image
                             src="/logos/cavbotics.png"
@@ -151,10 +152,11 @@ export default function Title() {
                         </div>
                     </div>
 
-                    <h1 className="py-8 lg:py-12 text-7xl xl:text-9xl font-bold text-center relative z-20 bg-clip-text bg-no-repeat text-transparent bg-gradient-to-r from-zinc-500 via-white to-zinc-600 [text-shadow:0_0_rgba(0,0,0,0.1)] break-all">
-                        Woodson <br className="sm:hidden" />
-                        Robotics
-                    </h1>
+                    <div className="w-full">
+                        <h1 className="py-8 lg:py-12 text-7xl xl:text-9xl font-bold text-center relative z-20 bg-clip-text bg-no-repeat text-transparent bg-gradient-to-r from-zinc-500 via-white to-zinc-600 [text-shadow:0_0_rgba(0,0,0,0.1)] break-words">
+                            Woodson Robotics
+                        </h1>
+                    </div>
                 </motion.div>
             </BackgroundLines>{" "}
         </div>
