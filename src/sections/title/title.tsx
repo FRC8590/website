@@ -42,7 +42,7 @@ function ChampionshipWin() {
                 it was uncertain whether we would make it to the playoffs.
             </p>{" "}
             <p className="inline">
-                To our disbelief, we were selected as the final alliance partner
+                However, due to the excellent work of our scouting and outreach teams, we were selected as the final alliance partner
                 of Alliance 1 alongside{" "}
             </p>
             <Team
