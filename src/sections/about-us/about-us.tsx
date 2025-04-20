@@ -19,11 +19,11 @@ export default function AboutUs() {
                 title="Our Team"
                 extra={<NewsletterButton />}
             >
-                We allow students to develop STEM capabilities, as well as
-                allowing them to try out and experience different fields of
-                STEM, and presenting them with competitions that they can help
-                contribute, and participate in, along with assisting them in
-                getting real-world experience.
+                We are FRC Team 8590. We allow students to develop STEM
+                capabilities, as well as allowing them to try out and experience
+                different fields of STEM, and presenting them with competitions
+                that they can help contribute, and participate in, along with
+                assisting them in getting real-world experience.
             </Article>
             <Article
                 image={
