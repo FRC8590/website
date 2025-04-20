@@ -28,7 +28,7 @@ export default function Newsletter() {
                     Subscribe to our newsletter!
                 </h4>
                 <div className="flex justify-center items-center flex-col">
-                    <p className="text-zinc-200 text-sm pb-4 w-2/3">
+                    <p className="text-zinc-200 text-sm pb-4 w-full md:w-2/3">
                         The team newsletter keeps parents and supporters
                         up-to-date with the latest developments in our
                         team&apos;s journey. It highlights upcoming
