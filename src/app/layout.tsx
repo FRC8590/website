@@ -16,6 +16,12 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
+            <head>
+                <meta
+                    name="google-site-verification"
+                    content="bTfG6GYTmG67kWHo603wcTSgFGfCApbB7OQtqy8eBAs"
+                />
+            </head>
             <body
                 className={`${GeistSans.className} antialiased dark bg-black bg-grid-white/[0.03]`}
             >

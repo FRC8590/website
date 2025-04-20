@@ -9,7 +9,7 @@ import Title from "../sections/title/title";
 import TeamTimeline from "../sections/team-timeline";
 import SponsorList from "../sections/sponsors/sponsor-list";
 import Newsletter from "../sections/newsletter";
-import AboutUs from "../sections/about-us";
+import AboutUs from "../sections/about-us/about-us";
 import SponsorTiers from "../sections/sponsors/sponsor-tiers";
 import SupportUs from "@/sections/support-us";
 import Footer from "@/sections/footer";
