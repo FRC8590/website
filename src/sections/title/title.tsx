@@ -3,6 +3,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { BackgroundLines } from "@/components/background-lines";
 import { Spotlight } from "@/components/spotlight-new";
+import Countdown from "./countdown"
 import FRCLogo from "./frc-logo";
 import WinnerBanner from "./winner-banner";
 import Br from "@/utils/br";
@@ -167,6 +168,7 @@ export default function Title() {
                         </h1>
                     </div>
                 </motion.div>
+                <Countdown />
             </BackgroundLines>{" "}
         </div>
     );
