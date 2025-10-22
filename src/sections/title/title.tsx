@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import { Countdown } from "@/components/countdown"
 import { motion } from "framer-motion";
 import { BackgroundLines } from "@/components/background-lines";
 import { Spotlight } from "@/components/spotlight-new";
@@ -167,6 +168,7 @@ export default function Title() {
                         </h1>
                     </div>
                 </motion.div>
+                <Countdown />
             </BackgroundLines>{" "}
         </div>
     );
