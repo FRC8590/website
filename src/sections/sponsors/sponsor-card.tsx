@@ -5,21 +5,6 @@ import { motion } from "framer-motion";
 import { BackgroundGradient } from "@/components/background-gradient";
 import Check from "@/utils/check";
 
-const DONATE_URL =
-    "https://educatefairfax.app.neoncrm.com/forms/woodson-robotics";
-
-export function DonateButton() {
-    return (
-        <a
-            target="_blank"
-            href={DONATE_URL}
-            className="hover:opacity-50 text-lg px-8 py-1 font-semibold rounded-lg bg-gradient-to-b from-sky-500 to-sky-900 text-white hover:shadow-xl transition duration-200"
-        >
-            Donate Now!
-        </a>
-    );
-}
-
 export function SponsorButton() {
     return (
         <div className="flex flex-col space-y-2">

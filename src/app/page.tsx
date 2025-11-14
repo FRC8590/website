@@ -37,7 +37,7 @@ export default function Home() {
                     <TeamTimeline />
                 </section>
                 <BackgroundBeamsWithCollision className="flex-col">
-                    <section className="w-full -z-20 py-8" id="donate">
+                    <section className="w-full py-8" id="donate">
                         <SectionHeader text="Support Us!" />
                         <SupportUs />
                     </section>
