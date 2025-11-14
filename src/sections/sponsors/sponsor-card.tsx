@@ -13,7 +13,7 @@ export function DonateButton() {
         <a
             target="_blank"
             href={DONATE_URL}
-            className="text-center hover:opacity-50 text-lg px-8 py-1 font-semibold rounded-lg bg-gradient-to-b text-white hover:shadow-xl transition duration-200 from-rose-500 to-rose-900"
+            className="hover:opacity-50 text-lg px-8 py-1 font-semibold rounded-lg bg-gradient-to-b from-sky-500 to-sky-900 text-white hover:shadow-xl transition duration-200"
         >
             Donate Now!
         </a>
@@ -24,7 +24,6 @@ export function SponsorButton() {
     return (
         <div className="flex flex-col space-y-2">
             <PacketButton />
-            <DonateButton />
         </div>
     );
 }
@@ -38,7 +37,7 @@ export function PacketButton() {
                     "Woodson Cavbotics Sponsorship Packet.pdf"
                 );
             }}
-            className="hover:opacity-50 text-lg px-8 py-1 font-semibold rounded-lg bg-gradient-to-b from-sky-500 to-sky-900 text-white hover:shadow-xl transition duration-200"
+            className="text-center hover:opacity-50 text-lg px-8 py-1 font-semibold rounded-lg bg-gradient-to-b text-white hover:shadow-xl transition duration-200 from-rose-500 to-rose-900"
         >
             More Information
         </button>
