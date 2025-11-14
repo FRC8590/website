@@ -7,6 +7,32 @@ import { Timeline } from "@/components/timeline";
 export default function TeamTimeline() {
     const data = [
         {
+            title: "2025",
+            content: (
+                <Article
+                    image={
+                        <Image
+                            src="/years/reefscape.jpg"
+                            width={500}
+                            height={500}
+                            alt="Reefscape"
+                            className="grayscale rounded-tr-lg rounded-br-lg hover:grayscale-0 transition-all"
+                        />
+                    }
+                    title="Reefscape"
+                >
+                    In <Italic>Reefscape</Italic>, our robots launched short PVC
+                    pipes onto reef structures and cleared large game pieces
+                    from the field to earn points. During endgame, teams raced
+                    to hang on elevated cages for crucial bonus points.
+                    <Br /> That year, our team earned two awards, won a regional
+                    event, and won the district championship against the top
+                    teams in the DMV, securing our place at the World
+                    Championship.
+                </Article>
+            ),
+        },
+        {
             title: "2024",
             content: (
                 <Article
