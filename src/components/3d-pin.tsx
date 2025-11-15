@@ -76,7 +76,7 @@ export const PinPerspective = ({ title }: { title?: string }) => {
                             {title}
                         </span>
 
-                        <span className="absolute -bottom-0 left-[1.125rem] h-px w-[calc(100%-2.25rem)] bg-gradient-to-r from-emerald-400/0 via-rose-400/90 to-emerald-400/0 transition-opacity duration-500 group-hover/btn:opacity-40"></span>
+                        <span className="absolute -bottom-0 left-[1.125rem] h-px w-[calc(100%-2.25rem)] bg-gradient-to-r from-sky-600/0 via-blue-400/90 to-sky-600/0 transition-opacity duration-500 group-hover/btn:opacity-40"></span>
                     </div>
                 </div>
 
