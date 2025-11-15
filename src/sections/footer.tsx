@@ -44,18 +44,22 @@ export default function Footer() {
                             className="flex items-center space-x-1 hover:text-zinc-400 transition-all"
                         >
                             <RiInstagramFill className="h-7 w-7" />
-                            <p>Instagram</p>
+                            <p className="font-extrabold">Instagram</p>
                         </a>
                         <a
                             href="mailto:cgwrobotics@gmail.com"
                             className="flex items-center space-x-1 hover:text-zinc-400 transition-all"
                         >
                             <IoIosMail className="h-7 w-7" />
-                            <p>cgwrobotics@gmail.com</p>
+                            <p className="font-extrabold">
+                                cgwrobotics@gmail.com
+                            </p>
                         </a>
                         <div className="flex items-center space-x-1">
                             <FaAddressBook className="h-7 w-7" />
-                            <p>9525 Main St, Fairfax, VA 22031</p>
+                            <p className="font-extrabold">
+                                9525 Main St, Fairfax, VA 22031
+                            </p>
                         </div>
                     </div>
                 </Opposites>
