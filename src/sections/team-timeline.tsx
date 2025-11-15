@@ -13,10 +13,9 @@ export default function TeamTimeline() {
                     image={
                         <Image
                             src="/years/reefscape.jpg"
-                            width={500}
-                            height={500}
+                            fill
                             alt="Reefscape"
-                            className="grayscale rounded-tr-lg rounded-br-lg hover:grayscale-0 transition-all"
+                            className="team-image rounded-tr-lg rounded-br-lg"
                         />
                     }
                     title="Reefscape"
@@ -39,10 +38,9 @@ export default function TeamTimeline() {
                     image={
                         <Image
                             src="/years/crescendo.jpg"
-                            width={500}
-                            height={500}
+                            fill
                             alt="Crescendo"
-                            className="grayscale rounded-tr-lg rounded-br-lg hover:grayscale-0 transition-all"
+                            className="team-image rounded-tr-lg rounded-br-lg"
                         />
                     }
                     title="Crescendo"
@@ -63,10 +61,9 @@ export default function TeamTimeline() {
                     image={
                         <Image
                             src="/years/charged_up.jpg"
-                            width={500}
-                            height={500}
+                            fill
                             alt="Charged Up"
-                            className="grayscale rounded-tr-lg rounded-br-lg hover:grayscale-0 transition-all"
+                            className="team-image rounded-tr-lg rounded-br-lg"
                         />
                     }
                     title="Charged Up"
@@ -87,10 +84,9 @@ export default function TeamTimeline() {
                     image={
                         <Image
                             src="/years/rapid_react.jpg"
-                            width={500}
-                            height={500}
+                            fill
                             alt="Rapid React"
-                            className="grayscale rounded-tr-lg rounded-br-lg hover:grayscale-0 transition-all"
+                            className="team-image rounded-tr-lg rounded-br-lg"
                         />
                     }
                     title="Rapid React"

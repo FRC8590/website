@@ -12,7 +12,7 @@ export default function SectionHeader(props: { text: string }) {
                 duration: 0.8,
                 ease: "easeInOut",
             }}
-            className="flex items-center justify-center w-full py-4 xl:py-8 text-3xl lg:text-4xl xl:text-6xl font-semibold text-black dark:text-white"
+            className="min-w-0 flex items-center justify-center w-full py-4 xl:py-8 text-3xl lg:text-4xl xl:text-6xl font-semibold text-black dark:text-white"
         >
             <ColorfulText text={props.text} />
         </motion.header>

@@ -10,10 +10,9 @@ export default function AboutUs() {
                 image={
                     <Image
                         src="/pictures/team.jpg"
-                        width={500}
-                        height={500}
+                        fill
                         alt="Our Team"
-                        className="grayscale rounded-tr-lg rounded-br-lg hover:grayscale-0 transition-all w-full"
+                        className="team-image rounded-tr-lg rounded-br-lg"
                     />
                 }
                 title="Our Team"
@@ -29,10 +28,9 @@ export default function AboutUs() {
                 image={
                     <Image
                         src="/pictures/mission.jpg"
-                        width={500}
-                        height={500}
+                        fill
                         alt="Our Mission"
-                        className="grayscale rounded-tl-lg rounded-bl-lg hover:grayscale-0 transition-all w-full"
+                        className="team-image rounded-tl-lg rounded-bl-lg"
                     />
                 }
                 title="Our Mission"
