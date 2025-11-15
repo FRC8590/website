@@ -53,7 +53,7 @@ export const PinContainer = ({
                 >
                     <div
                         className={cn(
-                            " relative z-50 w-full h-full flex ",
+                            " relative z-50 w-full h-full ",
                             className
                         )}
                     >
