@@ -1,5 +1,4 @@
 import Br from "@/utils/br";
-import Image from "next/image";
 import { PinContainer } from "@/components/3d-pin";
 
 const DONATE_URL =
