@@ -8,10 +8,7 @@ export default function SupportUs() {
     return (
         <div className="h-[40rem] w-full flex items-center justify-center ">
             <PinContainer title="Donate!" href={DONATE_URL}>
-                <div className="flex items-center justify-center w-full basis-full flex-col p-4 tracking-tight text-zinc-100/50 sm:basis-1/2 h-[20rem] ">
-                    <h3 className="max-w-xs !pb-2 !m-0 font-bold  text-base text-zinc-100">
-                        Donate Now!
-                    </h3>
+                <div className="flex items-center justify-center w-full basis-full flex-col p-4 tracking-tight sm:basis-1/2 h-full dark:bg-grid-small-white/[0.05] bg-grid-small-black/[0.2] rounded-xl border border-[rgba(255,255,255,0.10)] dark:bg-zinc-950 bg-zinc-100 shadow-[2px_4px_16px_0px_rgba(248,248,248,0.06)_inset]">
                     <div className="text-base !m-0 !p-0 font-normal w-full">
                         <div className="flex flex-row overflow-y-auto w-full">
                             <p className="p-8">
