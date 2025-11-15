@@ -7,27 +7,24 @@ const DONATE_URL =
 
 export default function SupportUs() {
     return (
-        <PinContainer title="Donate Now!" href={DONATE_URL}>
-            <div className="text-lg flex flex-col tracking-tight h-full dark:bg-grid-small-white/[0.05] bg-grid-small-black/[0.2] w-full rounded-xl border border-[rgba(255,255,255,0.10)] dark:bg-zinc-950 bg-zinc-100 shadow-[2px_4px_16px_0px_rgba(248,248,248,0.06)_inset]">
-                <div className="flex flex-row overflow-y-auto">
-                    <p className="p-8">
-                        Consider donating to help provide STEM opportunities to
-                        all students at Woodson. By donating, you help foster
-                        student&apos;s passions by enabling our team to purchase
-                        the necessary materials, tools, and resources for
-                        building our robot. <Br />
-                        Join us by empowering the next generation of innovators
-                        and leaders.
-                    </p>
-                    <Image
-                        src="/pictures/why-donate.jpg"
-                        width={500}
-                        height={500}
-                        alt="Why Donate?"
-                        className="hidden lg:block grayscale rounded-tr-lg rounded-br-lg hover:grayscale-0 transition-all w-full"
-                    />
+        <div className="h-[40rem] w-full flex items-center justify-center ">
+            <PinContainer
+                title="/ui.aceternity.com"
+                href="https://twitter.com/mannupaaji"
+            >
+                <div className="flex basis-full flex-col p-4 tracking-tight text-slate-100/50 sm:basis-1/2 w-[20rem] h-[20rem] ">
+                    <h3 className="max-w-xs !pb-2 !m-0 font-bold  text-base text-slate-100">
+                        Aceternity UI
+                    </h3>
+                    <div className="text-base !m-0 !p-0 font-normal">
+                        <span className="text-slate-500 ">
+                            Customizable Tailwind CSS and Framer Motion
+                            Components.
+                        </span>
+                    </div>
+                    <div className="flex flex-1 w-full rounded-lg mt-4 bg-gradient-to-br from-violet-500 via-purple-500 to-blue-500" />
                 </div>
-            </div>
-        </PinContainer>
+            </PinContainer>
+        </div>
     );
 }
