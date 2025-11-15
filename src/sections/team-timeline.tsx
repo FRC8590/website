@@ -7,16 +7,40 @@ import { Timeline } from "@/components/timeline";
 export default function TeamTimeline() {
     const data = [
         {
+            title: "2025",
+            content: (
+                <Article
+                    image={
+                        <Image
+                            src="/years/reefscape.jpg"
+                            fill
+                            alt="Reefscape"
+                            className="team-image rounded-tr-lg rounded-br-lg"
+                        />
+                    }
+                    title="Reefscape"
+                >
+                    In <Italic>Reefscape</Italic>, our robots launched short PVC
+                    pipes onto reef structures and cleared large game pieces
+                    from the field to earn points. During endgame, teams raced
+                    to hang on elevated cages for crucial bonus points.
+                    <Br /> That year, our team earned two awards, won a regional
+                    event, and won the district championship against the top
+                    teams in the DMV, securing our place at the World
+                    Championship.
+                </Article>
+            ),
+        },
+        {
             title: "2024",
             content: (
                 <Article
                     image={
                         <Image
                             src="/years/crescendo.jpg"
-                            width={500}
-                            height={500}
+                            fill
                             alt="Crescendo"
-                            className="grayscale rounded-tr-lg rounded-br-lg hover:grayscale-0 transition-all"
+                            className="team-image rounded-tr-lg rounded-br-lg"
                         />
                     }
                     title="Crescendo"
@@ -37,10 +61,9 @@ export default function TeamTimeline() {
                     image={
                         <Image
                             src="/years/charged_up.jpg"
-                            width={500}
-                            height={500}
+                            fill
                             alt="Charged Up"
-                            className="grayscale rounded-tr-lg rounded-br-lg hover:grayscale-0 transition-all"
+                            className="team-image rounded-tr-lg rounded-br-lg"
                         />
                     }
                     title="Charged Up"
@@ -61,10 +84,9 @@ export default function TeamTimeline() {
                     image={
                         <Image
                             src="/years/rapid_react.jpg"
-                            width={500}
-                            height={500}
+                            fill
                             alt="Rapid React"
-                            className="grayscale rounded-tr-lg rounded-br-lg hover:grayscale-0 transition-all"
+                            className="team-image rounded-tr-lg rounded-br-lg"
                         />
                     }
                     title="Rapid React"

@@ -11,3 +11,7 @@
 .sponsor-image {
     @apply grayscale hover:grayscale-0 transition-all select-none;
 }
+
+.team-image {
+    @apply object-cover grayscale hover:grayscale-0 transition-all w-full;
+}
