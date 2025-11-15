@@ -1,9 +1,4 @@
-import Br from "@/utils/br";
-import Image from "next/image";
 import { PinContainer } from "@/components/3d-pin";
-
-const DONATE_URL =
-    "https://educatefairfax.app.neoncrm.com/forms/woodson-robotics";
 
 export default function SupportUs() {
     return (
