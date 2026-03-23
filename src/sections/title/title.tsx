@@ -168,7 +168,7 @@ export default function Title() {
                         </h1>
                     </div>
                 </motion.div>
-                <Countdown />
+                {/* <Countdown /> */}
             </BackgroundLines>{" "}
         </div>
     );
