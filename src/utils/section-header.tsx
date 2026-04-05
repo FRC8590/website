@@ -8,8 +8,8 @@ export default function SectionHeader(props: { text: string }) {
             initial={{ opacity: 0.0, y: -60 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{
-                delay: 0.5,
-                duration: 0.8,
+                delay: 0.2,
+                duration: 0.7,
                 ease: "easeInOut",
             }}
             className="min-w-0 flex items-center justify-center w-full py-4 xl:py-8 text-3xl lg:text-4xl xl:text-6xl font-semibold text-black dark:text-white"

@@ -1,7 +1,7 @@
 "use client";
 import { cn } from "@/utils/cn";
 import { motion, AnimatePresence } from "framer-motion";
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useState, useEffect, useCallback } from "react";
 
 export const BackgroundBeamsWithCollision = ({
     children,
@@ -69,11 +69,7 @@ export const BackgroundBeamsWithCollision = ({
     return (
         <div
             ref={parentRef}
-            className={cn(
-                "relative flex items-center w-full justify-center overflow-hidden",
-                // h-screen if you want bigger
-                className
-            )}
+            className={cn("relative w-full overflow-hidden", className)}
         >
             {beams.map((beam) => (
                 <CollisionMechanism
@@ -125,6 +121,24 @@ const CollisionMechanism = React.forwardRef<
     });
     const [beamKey, setBeamKey] = useState(0);
     const [cycleCollisionDetected, setCycleCollisionDetected] = useState(false);
+    const [parentHeight, setParentHeight] = useState(0);
+
+    useEffect(() => {
+        const updateHeight = () => {
+            if (parentRef.current) {
+                setParentHeight(parentRef.current.scrollHeight);
+            }
+        };
+
+        updateHeight();
+
+        const resizeObserver = new ResizeObserver(updateHeight);
+        if (parentRef.current) {
+            resizeObserver.observe(parentRef.current);
+        }
+
+        return () => resizeObserver.disconnect();
+    }, [parentRef]);
 
     useEffect(() => {
         const checkCollision = () => {
@@ -174,10 +188,13 @@ const CollisionMechanism = React.forwardRef<
         }
     }, [collision]);
 
+    // Use parent height + buffer to ensure beams always travel far enough
+    const targetY = `${Math.max(parentHeight + 200, 1800)}px`;
+
     return (
         <>
             <motion.div
-                key={beamKey}
+                key={`${beamKey}-${parentHeight}`}
                 ref={beamRef}
                 animate="animate"
                 initial={{
@@ -187,7 +204,7 @@ const CollisionMechanism = React.forwardRef<
                 }}
                 variants={{
                     animate: {
-                        translateY: beamOptions.translateY || "1800px",
+                        translateY: beamOptions.translateY || targetY,
                         translateX: beamOptions.translateX || "0px",
                         rotate: beamOptions.rotate || 0,
                     },
@@ -202,7 +219,7 @@ const CollisionMechanism = React.forwardRef<
                 }}
                 className={cn(
                     "absolute left-0 top-20 m-auto h-14 w-px rounded-full bg-gradient-to-t from-blue-300 via-sky-400 to-transparent",
-                    beamOptions.className
+                    beamOptions.className,
                 )}
             />
             <AnimatePresence>

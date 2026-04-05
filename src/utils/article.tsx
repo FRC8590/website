@@ -2,6 +2,7 @@
 import GridBackground from "./grid-background";
 import { motion } from "framer-motion";
 import { HasChildren } from "@/utils/types";
+import { GlowingEffect } from "@/components/glowing-effect";
 
 export default function Article(
     props: HasChildren & {
@@ -9,7 +10,7 @@ export default function Article(
         image: React.ReactNode;
         flip?: boolean;
         extra?: React.ReactNode;
-    }
+    },
 ) {
     return (
         <motion.div
@@ -17,7 +18,7 @@ export default function Article(
             whileInView={{ opacity: 1, x: 0 }}
             transition={{
                 delay: 0.2,
-                duration: 0.6,
+                duration: 0.3,
                 ease: "easeInOut",
             }}
         >
