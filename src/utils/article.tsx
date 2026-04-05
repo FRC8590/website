@@ -2,7 +2,6 @@
 import GridBackground from "./grid-background";
 import { motion } from "framer-motion";
 import { HasChildren } from "@/utils/types";
-import { GlowingEffect } from "@/components/glowing-effect";
 
 export default function Article(
     props: HasChildren & {

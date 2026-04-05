@@ -1,10 +1,32 @@
 import Br from "@/utils/br";
 import Image from "next/image";
-import { PinContainer } from "@/components/3d-pin";
 import GridBackground from "@/utils/grid-background";
+import { NoiseBackground } from "@/components/noise-background";
 
 const DONATE_URL =
     "https://educatefairfax.app.neoncrm.com/forms/woodson-robotics";
+
+function SupportUsButton() {
+    return (
+        <NoiseBackground
+            containerClassName="w-fit p-2 rounded-full mx-auto"
+            gradientColors={[
+                "rgb(255, 100, 150)",
+                "rgb(100, 150, 255)",
+                "rgb(255, 200, 100)",
+            ]}
+        >
+            <a
+                href={DONATE_URL}
+                className="flex h-full w-full cursor-pointer rounded-full bg-linear-to-r from-neutral-100 via-neutral-100 to-white px-2 py-1 text-black shadow-[0px_2px_0px_0px_var(--color-neutral-50)_inset,0px_0.5px_1px_0px_var(--color-neutral-400)] transition-all duration-100 active:scale-98 dark:from-black dark:via-black dark:to-neutral-900 dark:text-white dark:shadow-[0px_1px_0px_0px_var(--color-neutral-950)_inset,0px_1px_0px_0px_var(--color-neutral-800)]"
+            >
+                <div className="bg-zinc-900 px-4 py-2 rounded-full font-extrabold text-lg inline-flex space-x-1 h-full w-full cursor-pointer items-center justify-center bg-opacity-75 backdrop-blur-md">
+                    <p>Donate Now!</p>
+                </div>
+            </a>
+        </NoiseBackground>
+    );
+}
 
 export default function SupportUs() {
     return (
@@ -23,6 +45,7 @@ export default function SupportUs() {
                                 innovators and leaders!
                             </span>
                         </p>
+                        <SupportUsButton />
                     </div>
                     <div className="grid grid-rows-1 grid-cols-3 auto-rows-fr gap-6 p-4">
                         <div className="relative aspect-square">

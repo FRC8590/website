@@ -1,28 +1,21 @@
 "use client";
 import { useModal } from "@/components/animated-modal";
-import { NoiseBackground } from "@/components/noise-background";
 import { BsEnvelopeHeartFill } from "react-icons/bs";
 
 export default function NewsletterButton() {
     const modal = useModal();
     return (
-        <NoiseBackground
-            containerClassName="w-fit p-2 rounded-full mx-auto"
-            gradientColors={[
-                "rgb(255, 100, 150)",
-                "rgb(100, 150, 255)",
-                "rgb(255, 200, 100)",
-            ]}
-        >
+        <div>
             <button
-                className="flex h-full w-full cursor-pointer rounded-full bg-linear-to-r from-neutral-100 via-neutral-100 to-white px-2 py-1 text-black shadow-[0px_2px_0px_0px_var(--color-neutral-50)_inset,0px_0.5px_1px_0px_var(--color-neutral-400)] transition-all duration-100 active:scale-98 dark:from-black dark:via-black dark:to-neutral-900 dark:text-white dark:shadow-[0px_1px_0px_0px_var(--color-neutral-950)_inset,0px_1px_0px_0px_var(--color-neutral-800)]"
                 onClick={() => modal.setOpen(true)}
+                className="relative inline-flex h-12 overflow-hidden rounded-lg p-[1px] outline-none hover:-translate-y-1 transition-transform"
             >
-                <div className="bg-zinc-900 px-4 py-2 rounded-full font-extrabold text-lg inline-flex space-x-1 h-full w-full cursor-pointer items-center justify-center bg-opacity-75 backdrop-blur-md">
+                <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#3845ff_0%,#ff4252_50%,#3845ff_100%)]"></span>
+                <div className="inline-flex space-x-1 h-full w-full cursor-pointer items-center justify-center rounded-lg bg-zinc-950 px-3 py-1 text-base md:text-lg font-extrabold text-white backdrop-blur-3xl">
                     <BsEnvelopeHeartFill />
                     <p>Newsletter</p>
                 </div>
             </button>
-        </NoiseBackground>
+        </div>
     );
 }
