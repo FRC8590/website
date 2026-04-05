@@ -3,9 +3,6 @@ import { cn } from "@/utils/cn";
 import { motion } from "framer-motion";
 import React from "react";
 
-const randomSample = <T,>(items: Array<T>): T =>
-    items[Math.floor(Math.random() * items.length)];
-
 export const BackgroundLines = ({
     children,
     className,
@@ -21,7 +18,7 @@ export const BackgroundLines = ({
         <div
             className={cn(
                 "w-full flex items-center justify-center -z-20",
-                className
+                className,
             )}
         >
             <SVG svgOptions={svgOptions} />
@@ -84,7 +81,7 @@ const SVG = ({
             {paths.map((path, idx) => (
                 <motion.path
                     d={path}
-                    stroke={randomSample(colors)}
+                    stroke={colors[(idx * 7) % colors.length]}
                     strokeWidth="2.3"
                     strokeLinecap="round"
                     variants={pathVariants}
@@ -106,7 +103,7 @@ const SVG = ({
             {paths.map((path, idx) => (
                 <motion.path
                     d={path}
-                    stroke={randomSample(colors)}
+                    stroke={colors[(idx * 7) % colors.length]}
                     strokeWidth="2.3"
                     strokeLinecap="round"
                     variants={pathVariants}
