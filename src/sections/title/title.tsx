@@ -3,7 +3,6 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { BackgroundLines } from "@/components/background-lines";
 import { Spotlight } from "@/components/spotlight-new";
-import Countdown from "./countdown"
 import FRCLogo from "./frc-logo";
 import WinnerBanner from "./winner-banner";
 import Br from "@/utils/br";
@@ -43,8 +42,9 @@ function ChampionshipWin() {
                 it was uncertain whether we would make it to the playoffs.
             </p>{" "}
             <p className="inline">
-                However, due to the excellent work of our scouting and outreach teams, we were selected as the final alliance partner
-                of Alliance 1 alongside{" "}
+                However, due to the excellent work of our scouting and outreach
+                teams, we were selected as the final alliance partner of
+                Alliance 1 alongside{" "}
             </p>
             <Team
                 number={422}

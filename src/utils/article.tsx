@@ -9,7 +9,7 @@ export default function Article(
         image: React.ReactNode;
         flip?: boolean;
         extra?: React.ReactNode;
-    }
+    },
 ) {
     return (
         <motion.div
@@ -17,7 +17,7 @@ export default function Article(
             whileInView={{ opacity: 1, x: 0 }}
             transition={{
                 delay: 0.2,
-                duration: 0.6,
+                duration: 0.3,
                 ease: "easeInOut",
             }}
         >

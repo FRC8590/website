@@ -24,6 +24,7 @@ export default function RootLayout({
             </head>
             <body
                 className={`${GeistSans.className} antialiased dark bg-black bg-grid-white/[0.03]`}
+                suppressHydrationWarning
             >
                 <HTMLComment comment="Peter was here." />
                 {children}
