@@ -30,7 +30,7 @@ function SupportUsButton() {
 
 export default function SupportUs() {
     return (
-        <div className="h-[40rem] w-full flex items-center justify-center">
+        <div className="h-[40rem] pt-12 w-full flex items-center justify-center">
             <GridBackground>
                 <div className="text-base md:text-xl !m-0 !p-0 font-light w-full">
                     <div className="flex overflow-y-auto w-full">
@@ -45,6 +45,8 @@ export default function SupportUs() {
                                 innovators and leaders!
                             </span>
                         </p>
+                    </div>
+                    <div>
                         <SupportUsButton />
                     </div>
                     <div className="grid grid-rows-1 grid-cols-3 auto-rows-fr gap-6 p-4">
